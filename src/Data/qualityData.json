@@ -1,0 +1,14 @@
+[
+  {
+    "iconPath": "./assets/tool.png",
+    "info": "Best quality workshops and events"
+  },
+  {
+    "iconPath": "./assets/tick.png",
+    "info": "Get industry insights and future scope"
+  },
+  {
+    "iconPath": "./assets/screen.png",
+    "info": "Enhance growth aspects of students in I.T automation"
+  }
+]

@@ -1,0 +1,39 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint ==phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else {
+    @error '`#{$breakpoint}` does not exist in the $breakpoints';
+  }
+
+  @if $breakpoint ==tab-port {
+    @media (max-width: 840px) {
+      @content;
+    }
+  } @else {
+    @error '`#{$breakpoint}` does not exist in the $breakpoints';
+  }
+
+  @if $breakpoint ==tab-land {
+    @media (max-width: 1040px) {
+      @content;
+    }
+  } @else {
+    @error '`#{$breakpoint}` does not exist in the $breakpoints';
+  }
+
+  @if $breakpoint ==desktop {
+    @media (min-width: 1500px) {
+      @content;
+    }
+  } @else {
+    @error '`#{$breakpoint}` does not exist in the $breakpoints';
+  }
+}
+
+// .example-class {
+//   @include respond(phone) {
+//     font-size: 14px;
+//   }
+// }

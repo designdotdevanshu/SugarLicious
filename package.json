@@ -1,0 +1,32 @@
+{
+  "name": "sugarlicious",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "sass-w": "sass src/styles/scss/style.scss src/index.css --watch --style=compressed",
+    "sass": "sass src/styles/scss/style.scss src/index.css --style=compressed",
+    "dev": "vite --port 3000",
+    "build": "vite build --outDir docs",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "dependencies": {
+    "framer-motion": "^10.12.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "prettier": "^3.0.0",
+    "vite": "^4.4.0"
+  }
+}

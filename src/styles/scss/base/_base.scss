@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+body {
+  // font-family: $ff-sans;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
