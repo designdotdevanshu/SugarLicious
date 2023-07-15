@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "sass-w": "sass src/styles/scss/style.scss src/index.css --watch --style=compressed",
+    "sass-w": "sass src/styles/scss/style.scss src/index.css --watch",
     "sass": "sass src/styles/scss/style.scss src/index.css --style=compressed",
     "dev": "vite --port 3000",
     "build": "vite build --outDir docs",

@@ -1,0 +1,11 @@
+@function pxToRem($px) {
+  @return ($px / 16) * 1rem;
+}
+
+@function pxToEm($px) {
+  @return ($px / 16) * 1em;
+}
+
+@function pxToPer($px) {
+  @return ($px / 16) * 1%;
+}
