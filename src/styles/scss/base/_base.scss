@@ -2,6 +2,8 @@
 
 body {
   // font-family: $ff-sans;
-  background-color: var(--background-primary);
+  // background-color: var(--background-primary);
+  background: $backgroundPrimary;
+  background-color: #1E1E1E;
   color: var(--text-primary);
 }

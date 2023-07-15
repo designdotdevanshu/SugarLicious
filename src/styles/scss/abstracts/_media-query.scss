@@ -1,5 +1,10 @@
-@mixin respond($breakpoint) {
-  @if $breakpoint ==phone {
+// $breakpoint{
+//   phone:600px,
+
+// }
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
     @media (max-width: 600px) {
       @content;
     }
@@ -7,7 +12,7 @@
     @error '`#{$breakpoint}` does not exist in the $breakpoints';
   }
 
-  @if $breakpoint ==tab-port {
+  @if $breakpoint == tab-port {
     @media (max-width: 840px) {
       @content;
     }
@@ -33,7 +38,7 @@
 }
 
 // .example-class {
-//   @include respond(phone) {
+//   @include responsive(phone) {
 //     font-size: 14px;
 //   }
 // }

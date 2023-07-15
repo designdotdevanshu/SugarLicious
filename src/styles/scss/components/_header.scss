@@ -1,0 +1,105 @@
+@use "../abstracts/" as *;
+.Header {
+    z-index: 999;
+    background-color: #110B03;
+    width: 100vw;
+    // border-bottom: #ECB014;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+
+    img {
+        // width: 120px;
+        width: 85px;
+    }
+
+    ol {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        column-gap: 20px;
+
+        li {
+            min-width: 100px;
+            padding: 4px 0;
+            text-align: center;
+            cursor: pointer;
+
+            a {
+                // font-size: 16px;
+                font-size: 14px;
+                color: #ECB014;
+                letter-spacing: 1px;
+            }
+
+            &:hover {
+                border-bottom: 2px solid #ECB014;
+            }
+
+        }
+    }
+
+    #MenuIcons {
+        display: none;
+        cursor: pointer;
+    }
+}
+
+#responiveSliderMenu {
+    display: none;
+}
+
+@media (max-width:840px) {
+// @include responsive("phone"){
+    .Header {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        #MenuIcons {
+            display: flex;
+            font-size: 34px;
+        }
+
+        ol{
+            display: none;
+        }
+    }
+
+    #responiveSliderMenu {
+        display: flex;
+        align-items: center;
+        background-color: #2B1B07;
+        position: absolute;
+        top:-100vw;
+        left: 0;
+        // top:75px;
+        width: 100vw;
+        height: calc(100vh - 60px);
+        flex-direction: column;
+        padding: 0px 40px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        z-index: 9;
+        transition: 600ms;
+        li {
+            padding: 4px 0;
+            cursor: pointer;
+            text-align: left;
+            min-width: 100%;
+            a {
+                font-size: 14px;
+                color: #ECB014;
+                letter-spacing: 1px;
+            }
+
+            &:hover {
+                border-bottom: 2px solid #ECB014;
+            }
+
+        }
+    }
+
+}
