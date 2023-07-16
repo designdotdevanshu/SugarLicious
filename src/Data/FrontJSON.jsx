@@ -12,11 +12,11 @@ import Image11 from "../assets/Frontpage/Image (21).png"
 import Image12 from "../assets/Frontpage/Image (26).png"
 import Image13 from "../assets/Frontpage/Image (35).png"
 import Image14 from "../assets/Frontpage/Image (36).png"
-import Image15 from "../assets/Frontpage/Image (46).png"
+import Image15 from "../assets/Frontpage/Image (54).png"
 import Image16 from "../assets/Frontpage/Image (47).png"
-import Image17 from "../assets/Frontpage/Image (48).png"
-import Image18 from "../assets/Frontpage/Image (49).png"
-import Image19 from "../assets/Frontpage/Image (50).png"
+import Image17 from "../assets/Frontpage/Image (55).png"
+import Image18 from "../assets/Frontpage/Image (56).png"
+//import Image19 from "../assets/Frontpage/Image (50).png"
 import Image20 from "../assets/Frontpage/Image (29).png"
 import Image21 from "../assets/Frontpage/Image (30).png"
 import Image22 from "../assets/Frontpage/Image (31).png" 
@@ -122,40 +122,33 @@ const FrontJSON = [
 const Reviews=
 [
     {
-        CustomerName:"Kavita Mehra",
+        CustomerName:"RISHABH",
         Review:"Ambience of the cafe is so good & interior design of the cafe was appealing and perhaps had a unique or stylish vibe./n Particularly, Lattee Coffee is my favourite.",
         CustomerImage:Image15,
         Rating:4.8,
         Date:"21/06/2022"
     },
     {
-        CustomerName:"Shubham joshi",
+        CustomerName:"SHUBHAM JOSHI",
         Review:"I have booked seats in the PERKY BEANS to celebrate my birthday with my family. Everything is per the plan./n I enjoy my special day with nice and cool ambience.",
         CustomerImage:Image16,
         Rating:4.0,
         Date:"02/05/2022"
     },
     {
-        CustomerName:"Himanshi joshi",
+        CustomerName:"DEVANSH",
         Review:"Quality is a crucial aspect of any cafe, especially when it comes to serving drinks and sweets. Customers appreciate cafes that prioritize high-quality ingredients, preparation methods, and overall craftsmanship in their offerings. It's important for cafes like Perky Beans to maintain consistent quality in their drinks and sweets to provide an enjoyable and satisfying experience for their customer./n Unique and Exceptional Products :Offering unique and exceptional drinks and sweets can set a cafe ",
         CustomerImage:Image17,
         Rating:4.8,
         Date:"30/04/2022"
     },
     {
-        CustomerName:"Aman Sharma",
+        CustomerName:"DEVANSHU",
         Review:"Quality is a crucial aspect of any cafe, especially when it comes to serving drinks and sweets. Customers appreciate cafes that prioritize high-quality ingredients, preparation methods, and overall craftsmanship in their offerings. It's important for cafes like Perky Beans to maintain consistent quality in their drinks and sweets to provide an enjoyable and satisfying experience for their customer./n Unique and Exceptional Products :Offering unique and exceptional drinks and sweets can set a cafe. ",
         CustomerImage:Image18,
         Rating:4.8,
         Date:"12/08/2022"
     },
-    {
-        CustomerName:"Binna",
-        Review:"Quality is a crucial aspect of any cafe, especially when it comes to serving drinks and sweets. Customers appreciate cafes that prioritize high-quality ingredients, preparation methods, and overall craftsmanship in their offerings. It's important for cafes like Perky Beans to maintain consistent quality in their drinks and sweets to provide an enjoyable and satisfying experience for their customer. Unique and Exceptional Products :Offering unique and exceptional drinks and sweets can set a cafe ",
-        CustomerImage:Image19,
-        Rating:4.8,
-        Date:"22/01/2023"
-    }
 ]
 
 

@@ -4,14 +4,15 @@ import HomePage from "./pages/HomePage";
 import Header from "../components/Header/Header";
 const App = () => {
   return (
-    <React.Fragment>
-      < Header />
+    <>
       <Router>
+      <Header />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          {/* <Route exact path="/" element={<HomePage />} /> */}
         </Routes>
       </Router>
-    </React.Fragment>
+    </>
   );
 };
 export default App;

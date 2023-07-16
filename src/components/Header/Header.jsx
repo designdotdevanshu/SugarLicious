@@ -5,27 +5,28 @@ import { MdClose } from "react-icons/md"
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+
+import RandomUser from '../../assets/RandomUser.png'
+import { useNavigate } from 'react-router-dom';
+
 const Header = () => {
   const [menuShown, setMenuShow] = useState(false);
   const menuRef = useRef(0);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // const data = menuRef.current.style.top;
-    menuShown ?
-    menuRef.current.style.top = "60px"
-    :
-    menuRef.current.style.top = "-100vw"
-    // console.log(menuShown,data);
+    menuShown ? menuRef.current.style.top = "58px" : menuRef.current.style.top = "-100vh"
   }, [menuShown])
   return (
     <>
       <div className='Header'>
         <img src={Logo} alt='Logo' />
         <ol>
-          <li><a href='#'>HOME</a></li>
-          <li><a href='#'>PRODUCTS</a></li>
-          <li><a href='#'>ORDERS</a></li>
-          <li><a href='#'>CONTACT</a></li>
-          <li><a href='#'>RESERVE SEAT</a></li>
+          <li onClick={() => navigate("/")}>HOME</li>
+          <li onClick={() => navigate("/")}>PRODUCTS</li>
+          <li onClick={() => navigate("/")}>ORDERS</li>
+          <li onClick={() => navigate("/")}>CONTACT</li>
+          <li onClick={() => navigate("/")}>RESERVE SEAT</li>
         </ol>
 
         <div id='MenuIcons'>
@@ -36,13 +37,27 @@ const Header = () => {
           }
         </div>
       </div>
-      <ol ref={menuRef} id='responiveSliderMenu'>
-        <li><a href='#'>HOME</a></li>
-        <li><a href='#'>PRODUCTS</a></li>
-        <li><a href='#'>ORDERS</a></li>
-        <li><a href='#'>CONTACT</a></li>
-        <li><a href='#'>RESERVE SEAT</a></li>
-      </ol>
+      <div ref={menuRef} id='responiveSliderMenu'>
+        <div id='userLoginINFO'>
+          <img src={RandomUser} alt='UserImg' />
+          <div>
+            <h2>SHUBHAM JOSHI</h2>
+            <p>shubhamjoshii676@gmail.com</p>
+          </div>
+        </div>
+        <div id='loginRegisterBTNS'>
+          <button>LOGIN</button>
+          <button>REGISTER</button>
+        </div>
+        <ol >
+          <li onClick={() => navigate("/")}>HOME</li>
+          <li onClick={() => navigate("/")}>PRODUCTS</li>
+          <li onClick={() => navigate("/")}>ORDERS</li>
+          <li onClick={() => navigate("/")}>CONTACT</li>
+          <li onClick={() => navigate("/")}>RESERVE SEAT</li>
+        </ol>
+        <button id='logoutBTN'>LOGOUT</button>
+      </div>
     </>
 
   )
