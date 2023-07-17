@@ -6,7 +6,7 @@ footer{
         justify-content: space-evenly;
         flex-wrap: wrap;
         gap: 15px;
-        li{
+        #footerMenu{
             a{
                 &:hover{
                     border-bottom: 2px solid red;

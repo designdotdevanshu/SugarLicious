@@ -15,7 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    menuShown ? menuRef.current.style.top = "58px" : menuRef.current.style.top = "-100vh"
+    menuShown ? menuRef.current.style.top = "58px" : menuRef.current.style.top = "-120vh"
   }, [menuShown])
   return (
     <>
@@ -25,8 +25,8 @@ const Header = () => {
           <li onClick={() => navigate("/")}>HOME</li>
           <li onClick={() => navigate("/")}>PRODUCTS</li>
           <li onClick={() => navigate("/")}>ORDERS</li>
-          <li onClick={() => navigate("/")}>CONTACT</li>
-          <li onClick={() => navigate("/")}>RESERVE SEAT</li>
+          <li onClick={() => navigate("/Contact")}>CONTACT</li>
+          <li onClick={() => navigate("/ReserveSeat")}>RESERVE SEAT</li>
         </ol>
 
         <div id='MenuIcons'>
@@ -53,8 +53,8 @@ const Header = () => {
           <li onClick={() => navigate("/")}>HOME</li>
           <li onClick={() => navigate("/")}>PRODUCTS</li>
           <li onClick={() => navigate("/")}>ORDERS</li>
-          <li onClick={() => navigate("/")}>CONTACT</li>
-          <li onClick={() => navigate("/")}>RESERVE SEAT</li>
+          <li onClick={() => navigate("/Contact")}>CONTACT</li>
+          <li onClick={() => navigate("/ReserveSeat")}>RESERVE SEAT</li>
         </ol>
         <button id='logoutBTN'>LOGOUT</button>
       </div>

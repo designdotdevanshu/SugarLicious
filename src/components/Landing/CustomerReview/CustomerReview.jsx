@@ -7,14 +7,14 @@ const CustomerReview = () => {
             <h2 id='reviewHeading'>Customer Review</h2>
             <div className='CustomerReview'>
                 {
-                    Reviews.map((curr) => {
+                    Reviews.map((curr,ids) => {
                         return (
-                            <div className="reviewCard">
+                            <div className="reviewCard" key={ids}>
                                 <div id='userINFO'>
                                     <img src={curr.CustomerImage} alt='customerIMG' />
                                     <h2>{curr.CustomerName}</h2>
                                 </div>
-                                <p>{curr.Review}</p>
+                                <p>{curr.Review.length > 180 ? `${curr.Review.slice(0,180)}...`:curr.Review}</p>
                                 <span id='customerDate'>{curr.Date}</span>
                                 <div id='stars'>
                                     <AiFillStar id='starLOGO' />

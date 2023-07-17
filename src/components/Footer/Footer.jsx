@@ -66,21 +66,21 @@ const Footer = () => {
   return <footer>
     <ol>
       {
-        HeaderData.map((curr) => {
-          return (<li id="footerMenu">
-            <h3>{curr.Title}</h3>
-            <ul>
-              {curr.Links.map((Links) => {
-                return (
-                  <li>
-                    <a href={Links.link}>
-                      {Links.text}</a>
-                  </li>
-                )
-              })}
-            </ul>
-          </li>
-
+        HeaderData.map((curr,ids) => {
+          return (
+            <li id="footerMenu" key={ids}>
+              <h3>{curr.Title}</h3>
+              <ul>
+                {curr.Links.map((Links,ids2) => {
+                  return (
+                    <li key={ids2}>
+                      <a href={Links.link}>
+                        {Links.text}</a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </li>
           )
         })
       }

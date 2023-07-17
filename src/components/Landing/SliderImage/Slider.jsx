@@ -18,7 +18,7 @@ const Slider = () => {
                 {
                     Sliders.map((curr,id) => {
                         return (
-                            <div onMouseEnter={()=>setCurrImg(id)}>
+                            <div onMouseEnter={()=>setCurrImg(id)}  key={id}>
                                 <img src={curr} alt='SliderImages' />
                             </div>
                         )
@@ -29,7 +29,7 @@ const Slider = () => {
                 {
                     Sliders.map((curr, id) => {
                         return (
-                            <button onClick={() => console.log(id)} className={currImg === id && "active" }></button>
+                            <button onClick={() => console.log(id)} className={currImg === id ? "active" : ""} key={id}></button>
                         )
                     })
                 }

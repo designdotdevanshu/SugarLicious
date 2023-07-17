@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "sass-w": "sass src/styles/scss/style.scss src/index.css --watch --style=compressed",
-    "sass": "sass src/styles/scss/style.scss src/index.css --style=compressed",
+    "sass": "sass src/styles/scss/style.scss src/index.css --style=expanded",
     "dev": "vite --port 3000",
     "build": "vite build --outDir docs",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+
   },
   "dependencies": {
     "framer-motion": "^10.12.21",
