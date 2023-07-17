@@ -1,5 +1,6 @@
 @use "../abstracts/" as *;
 
+
 #SearchBar {
     z-index: 999;
     position: relative;
@@ -12,6 +13,7 @@
     background-color: #F7E7DC;
     @include flexMixin(center, start);
     gap: 10px;
+
 
     #SearchICON {
         background-color: #241606;
@@ -91,3 +93,20 @@
         }
     }
 }
+
+// .sticky {
+//     position: fixed !important;
+//     width: 100vw  !important;
+//     top: 91px  !important;
+//     left: 0  !important;
+//     right: 0  !important;
+//     transition: width 0.5s  !important;
+// }
+// .no-sticky {
+//     position: relative !important;
+//     width: 80vw  !important;
+//     top: 0  !important;
+//     left: 0  !important;
+//     right: 0  !important;
+//     // transition: width 0.5s  !important;
+// }

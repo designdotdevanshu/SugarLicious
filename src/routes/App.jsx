@@ -1,16 +1,18 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import HomePage from "./pages/HomePage";
 import Header from "../components/Header/Header";
-import ReserveSeat from "../components/ReserveSeat/ReserveSeat";
+import HomePage from "./pages/HomePage";
+import ProductPage from "../components/Products/ProductPage";
 import Contact from "../components/Contact/Contact";
+import ReserveSeat from "../components/ReserveSeat/ReserveSeat";
 const App = () => {
   return (
     <>
       <Router>
-      <Header />
+        <Header />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/Products" element={<ProductPage />} />
           <Route path="/ReserveSeat" element={<ReserveSeat />} />
           <Route path="/Contact" element={<Contact />} />
         </Routes>

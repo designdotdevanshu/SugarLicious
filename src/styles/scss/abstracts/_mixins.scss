@@ -5,7 +5,7 @@
   flex-direction: $direction;
 }
 
-@mixin flexMixin($ALItems:center,$JScontent:center,$direction:row) {
+@mixin flexMixin($ALItems: center, $JScontent: center, $direction: row) {
   display: flex;
   align-items: $ALItems;
   justify-content: $JScontent;
@@ -17,33 +17,12 @@
   place-items: center;
 }
 
+@mixin margin-x($px) {
+  margin-left: $px;
+  margin-right: $px;
+}
 
-
-// // Map variable
-// $icons: (
-//   facebook   : "\f0c4",
-//   twitter    : "\f0c5",
-//   googleplus : "\f0c6",
-//   youtube    : "\f0c7"
-// );
-
-// // Mixin doing the magic
-// @mixin icons-list($map) {
-//   @each $icon-name, $icon in $map {
-//     @if not map-has-key($map, $icon-name) {
-//       @warn "'#{$icon-name}' is not a valid icon name";
-//     }
-
-//     @else {
-//       &--#{$icon-name}::before {
-//         content: $icon;
-//       }
-//     } 
-//   }
-// }
-
-// // How to use it
-// .social-link {
-//     background-color: grey;
-//     @include icons-list($icons);
-// }
+@mixin margin-y($px) {
+  margin-top: $px;
+  margin-bottom: $px;
+}

@@ -12,7 +12,7 @@
         // -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-        margin: 10px 50px 0px 50px;
+        margin: 70px 50px 0px 50px;
 
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -22,13 +22,13 @@
         }
 
         height: 480px;
-        border-radius: 20px 20px 0px 0px;
+        border-radius: 20px 20px 0 0;
 
         div {
             width: 100%;
             scroll-snap-align: start;
             @include flexMixin();
-            
+
             // flex: 1;
             img {
                 width: 100vw;
@@ -61,11 +61,11 @@
             border-radius: 5px;
         }
     }
+
     @media (max-width:840px) {
-        .Slider{
+        .Slider {
             height: 380px;
             margin: 10px 0 0 0;
         }
     }
 }
-

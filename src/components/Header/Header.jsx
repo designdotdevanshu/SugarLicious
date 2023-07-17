@@ -7,26 +7,27 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 
 import RandomUser from '../../assets/RandomUser.png'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [menuShown, setMenuShow] = useState(false);
   const menuRef = useRef(0);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     menuShown ? menuRef.current.style.top = "58px" : menuRef.current.style.top = "-120vh"
   }, [menuShown])
   return (
-    <>
+    <React.Fragment>
       <div className='Header'>
         <img src={Logo} alt='Logo' />
         <ol>
-          <li onClick={() => navigate("/")}>HOME</li>
-          <li onClick={() => navigate("/")}>PRODUCTS</li>
-          <li onClick={() => navigate("/")}>ORDERS</li>
-          <li onClick={() => navigate("/Contact")}>CONTACT</li>
-          <li onClick={() => navigate("/ReserveSeat")}>RESERVE SEAT</li>
+          <li><NavLink to="/" exact ClassName="active">HOME</NavLink></li>
+          <li><NavLink to="/products" ClassName="active">PRODUCTS</NavLink></li>
+          <li><NavLink to="/orders" ClassName="active">ORDERS</NavLink></li>
+          <li><NavLink to="/contact" ClassName="active">CONTACT</NavLink></li>
+          <li><NavLink to="/reserveseat" ClassName="active">RESERVE SEAT</NavLink></li>
         </ol>
 
         <div id='MenuIcons'>
@@ -50,15 +51,15 @@ const Header = () => {
           <button>REGISTER</button>
         </div>
         <ol >
-          <li onClick={() => navigate("/")}>HOME</li>
-          <li onClick={() => navigate("/")}>PRODUCTS</li>
-          <li onClick={() => navigate("/")}>ORDERS</li>
-          <li onClick={() => navigate("/Contact")}>CONTACT</li>
-          <li onClick={() => navigate("/ReserveSeat")}>RESERVE SEAT</li>
+          <li><NavLink to="/" exact ClassName="active">HOME</NavLink></li>
+          <li><NavLink to="/products" ClassName="active">PRODUCTS</NavLink></li>
+          <li><NavLink to="/orders" ClassName="active">ORDERS</NavLink></li>
+          <li><NavLink to="/contact" ClassName="active">CONTACT</NavLink></li>
+          <li><NavLink to="/reserveseat" ClassName="active">RESERVE SEAT</NavLink></li>
         </ol>
         <button id='logoutBTN'>LOGOUT</button>
       </div>
-    </>
+    </React.Fragment>
 
   )
 }

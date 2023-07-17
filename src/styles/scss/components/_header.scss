@@ -22,18 +22,21 @@
             min-width: 100px;
             padding: 4px 0;
             text-align: center;
-            cursor: pointer;
+            // cursor: pointer;
             a {
                 // font-size: 16px;
                 font-size: 14px;
                 color: #ECB014;
                 letter-spacing: 1px;
             }
-
+            
             &:hover {
                 border-bottom: 2px solid #ECB014;
             }
-
+            
+            // .active {
+            //     border-bottom: 2px solid #ECB014;
+            // }
         }
     }
 

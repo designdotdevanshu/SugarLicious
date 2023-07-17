@@ -1,0 +1,94 @@
+@use "../abstracts" as *;
+
+.products {
+  padding-bottom: 10px;
+  @include flex-center(row);
+  flex-wrap: wrap;
+  width: 95vw;
+  margin: auto;
+  // margin-top: 100px;
+  position: relative;
+  top: pxToRem(100);
+
+  .product-card {
+    background-color: $color-primary;
+    width: 10vw;
+    @include flex-center(column);
+    margin-top: pxToRem(30);
+    @include margin-x(20px);
+    // border-radius: 10px 90px;
+    width: pxToRem(259);
+    height: pxToRem(420);
+    border-radius: 18px;
+  }
+
+  img {
+    border: 1px solid $color-primary;
+    width: pxToRem(259);
+    height: pxToRem(320);
+    object-fit: cover;
+    border-radius: 18px 18px 0 90px;
+    // border-radius: 10px;
+  }
+
+  .product-info {
+    @include flex-center(column);
+    color: black;
+    width: pxToRem(209);
+    height: pxToRem(102);
+    // line-height: 1.25;
+    padding: 6px;
+    // text-align: left;
+
+    .product-name {
+      font-size: 14px;
+      font-weight: bolder;
+      text-align: center;
+    }
+    .product-desc {
+      text-align: justify;
+    }
+
+    .product-price-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      align-items: center;
+
+      .product-price {
+        font-size: 16px;
+        font-weight: bolder;
+        @include margin-x(30px);
+      }
+
+      .product-rating {
+        color: #1e1305;
+        font-size: 10px;
+        font-weight: bold;
+        margin-right: 4px;
+        display: flex;
+        align-items: start;
+
+        &::before {
+          content: url(/src/assets/Christmas\ Star.svg);
+          // margin-top: 1000px;
+        }
+      }
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+}
+
+@include responsive(tab-land) {
+  .products {
+    width: 100vw;
+    // margin: auto;
+    margin-top: 5vh;
+    // background-color: $color-primary;
+  }
+}
