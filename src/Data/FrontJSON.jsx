@@ -31,23 +31,38 @@ const FrontJSON = [
         Products:[
             {
                 Name:"LATTE COFFEE",
-                Image:Image1
+                Image:Image1,
+                _id:"ffd71c0f",
+                Category:"Beverages",
+                type:"Product"
             },  
             {
                 Name:"CHOCOLATE MUFFIN",
-                Image:Image2
+                Image:Image2,
+                _id:"2161396f",
+                Category:"Muffins",
+                type:"Product"
             },  
             {
                 Name:"BUTTERSCOTCH MUFFIN",
-                Image:Image3
+                Image:Image3,
+                _id:"0cb089e1",
+                Category:"Muffins",
+                type:"Product"
             },  
             {
                 Name:"MOJITO",
-                Image:Image4
+                Image:Image4,
+                _id:"9815279e",
+                Category:"Beverages",
+                type:"Product"
             },  
             {
-                Name:"DONUTS",
-                Image:Image5
+                Name:"CHOCOLATE DONUTS",
+                Image:Image5,
+                _id:"abfswe62",
+                Category:"Muffins",
+                type:"Product"
             }  
         ]
     },
@@ -56,44 +71,59 @@ const FrontJSON = [
         Products:[
             {
                 Name:"MUFFIN AND CAKE",
-                Image:Image6
+                Image:Image6,
+                Category:"Muffins"
             },  
             {
-                Name:"PIZZA",
-                Image:Image7
+                Name:"PIZZAS",
+                Image:Image7,
+                Category:"Pizza"
             },  
+            // {
+            //     Name:"COFFEE",
+            //     Image:Image8,
+            //     Category:""
+            // },  
+            // {
+            //     Name:"JUICE",
+            //     Image:Image9,
+            //     Category:"Beverages"
+            // },  
             {
-                Name:"COFFEE",
-                Image:Image8
-            },  
-            {
-                Name:"JUICE",
-                Image:Image9
-            },  
-            {
-                Name:"SMOOTHIE",
-                Image:Image10
-            },  
-            {
-                Name:"ICE CREAM",
-                Image:Image20
+                Name:"BEVERAGES",
+                Image:Image21,
+                Category:"Beverages"
             } , 
             {
-                Name:"SOFT DRINK",
-                Image:Image21
-            } , 
+                Name:"SMOOTHIE & ICE CREAM",
+                Image:Image10,
+                Category:"Beverages"
+            },  
+            // {
+            //     Name:"ICE CREAM",
+            //     Image:Image20,
+            //     Category:"Beverages"
+            // } , 
             {
-                Name:"NOODLES",
-                Image:Image22
+                Name:"SNAKES AND SIDES",
+                Image:Image23,
+                Category:"SnacksAndSides"
             } , 
-            {
-                Name:"BURGER",
-                Image:Image23
-            } , 
-            {
-                Name:"FRENCH FRIES",
-                Image:Image24
-            }  
+            // {
+            //     Name:"NOODLES",
+            //     Image:Image22,
+            //     Category:"SnacksAndSides"
+            // }, 
+            // {
+            //     Name:"BURGER",
+            //     Image:Image23,
+            //     Category:"SnacksAndSides"
+            // } , 
+            // {
+            //     Name:"FRENCH FRIES",
+            //     Image:Image24,
+            //     Category:"SnacksAndSides"
+            // }  
         ]
     },
     {
@@ -101,19 +131,23 @@ const FrontJSON = [
         Products:[
             {
                 Name:"BUY 1 GET 1 FREE",
-                Image:Image11
+                Image:Image11,
+                Category:"SnacksAndSides"
             },  
             {
                 Name:"BURGUR",
-                Image:Image12
+                Image:Image12,
+                Category:"SnacksAndSides"
             },  
             {
                 Name:"DONUTS",
-                Image:Image13
+                Image:Image13,
+                Category:"SnacksAndSides"
             },  
             {
                 Name:"COFFEE",
-                Image:Image14
+                Image:Image14,
+                Category:"Beverages"
             }  
         ]
     }
@@ -122,13 +156,6 @@ const FrontJSON = [
 const Reviews=
 [
     {
-        CustomerName:"RISHABH",
-        Review:"Ambience of the cafe is so good & interior design of the cafe was appealing and perhaps had a unique or stylish vibe./n Particularly, Lattee Coffee is my favourite.",
-        CustomerImage:Image15,
-        Rating:4.8,
-        Date:"21/06/2022"
-    },
-    {
         CustomerName:"SHUBHAM JOSHI",
         Review:"I have booked seats in the PERKY BEANS to celebrate my birthday with my family. Everything is per the plan./n I enjoy my special day with nice and cool ambience.",
         CustomerImage:Image16,
@@ -136,18 +163,25 @@ const Reviews=
         Date:"02/05/2022"
     },
     {
-        CustomerName:"DEVANSH",
-        Review:"Quality is a crucial aspect of any cafe, especially when it comes to serving drinks and sweets. Customers appreciate cafes that prioritize high-quality ingredients, preparation methods, and overall craftsmanship in their offerings. It's important for cafes like Perky Beans to maintain consistent quality in their drinks and sweets to provide an enjoyable and satisfying experience for their customer./n Unique and Exceptional Products :Offering unique and exceptional drinks and sweets can set a cafe ",
-        CustomerImage:Image17,
-        Rating:4.8,
-        Date:"30/04/2022"
-    },
-    {
         CustomerName:"DEVANSHU",
         Review:"Quality is a crucial aspect of any cafe, especially when it comes to serving drinks and sweets. Customers appreciate cafes that prioritize high-quality ingredients, preparation methods, and overall craftsmanship in their offerings. It's important for cafes like Perky Beans to maintain consistent quality in their drinks and sweets to provide an enjoyable and satisfying experience for their customer./n Unique and Exceptional Products :Offering unique and exceptional drinks and sweets can set a cafe. ",
         CustomerImage:Image18,
         Rating:4.8,
         Date:"12/08/2022"
+    },
+    {
+        CustomerName:"RISHABH",
+        Review:"Ambience of the cafe is so good & interior design of the cafe was appealing and perhaps had a unique or stylish vibe./n Particularly, Lattee Coffee is my favourite.",
+        CustomerImage:Image15,
+        Rating:4.8,
+        Date:"21/06/2022"
+    },
+    {
+        CustomerName:"DEVANSH",
+        Review:"Quality is a crucial aspect of any cafe, especially when it comes to serving drinks and sweets. Customers appreciate cafes that prioritize high-quality ingredients, preparation methods, and overall craftsmanship in their offerings. It's important for cafes like Perky Beans to maintain consistent quality in their drinks and sweets to provide an enjoyable and satisfying experience for their customer./n Unique and Exceptional Products :Offering unique and exceptional drinks and sweets can set a cafe ",
+        CustomerImage:Image17,
+        Rating:4.8,
+        Date:"30/04/2022"
     },
 ]
 

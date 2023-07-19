@@ -5,15 +5,12 @@ import { MdClose } from "react-icons/md"
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-
-import RandomUser from '../../assets/RandomUser.png'
-// import { useNavigate } from 'react-router-dom';
+import RandomUser from '../../assets/RandomUser.png';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [menuShown, setMenuShow] = useState(false);
   const menuRef = useRef(0);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     menuShown ? menuRef.current.style.top = "58px" : menuRef.current.style.top = "-120vh"
@@ -23,11 +20,11 @@ const Header = () => {
       <div className='Header'>
         <img src={Logo} alt='Logo' />
         <ol>
-          <li><NavLink to="/" exact ClassName="active">HOME</NavLink></li>
-          <li><NavLink to="/products" ClassName="active">PRODUCTS</NavLink></li>
-          <li><NavLink to="/orders" ClassName="active">ORDERS</NavLink></li>
-          <li><NavLink to="/contact" ClassName="active">CONTACT</NavLink></li>
-          <li><NavLink to="/reserveseat" ClassName="active">RESERVE SEAT</NavLink></li>
+          <NavLink to="/" exact ClassName="active"><li>HOME</li></NavLink>
+          <NavLink to="/products" ClassName="active"><li>PRODUCTS</li></NavLink>
+          <NavLink to="/orders" ClassName="active"><li>ORDERS</li></NavLink>
+          <NavLink to="/contact" ClassName="active"><li>CONTACT</li></NavLink>
+          <NavLink to="/reserveseat" ClassName="active"><li>RESERVE SEAT</li></NavLink>
         </ol>
 
         <div id='MenuIcons'>
@@ -50,12 +47,12 @@ const Header = () => {
           <button>LOGIN</button>
           <button>REGISTER</button>
         </div>
-        <ol >
-          <li><NavLink to="/" exact ClassName="active">HOME</NavLink></li>
-          <li><NavLink to="/products" ClassName="active">PRODUCTS</NavLink></li>
-          <li><NavLink to="/orders" ClassName="active">ORDERS</NavLink></li>
-          <li><NavLink to="/contact" ClassName="active">CONTACT</NavLink></li>
-          <li><NavLink to="/reserveseat" ClassName="active">RESERVE SEAT</NavLink></li>
+        <ol  onClick={()=>setMenuShow(false)}>
+        <NavLink to="/" exact ClassName="active"><li>HOME</li></NavLink>
+          <NavLink to="/products" ClassName="active" ><li>PRODUCTS</li></NavLink>
+          <NavLink to="/orders" ClassName="active" ><li>ORDERS</li></NavLink>
+          <NavLink to="/contact" ClassName="active" ><li>CONTACT</li></NavLink>
+          <NavLink to="/reserveseat" ClassName="active"><li>RESERVE SEAT</li></NavLink>
         </ol>
         <button id='logoutBTN'>LOGOUT</button>
       </div>

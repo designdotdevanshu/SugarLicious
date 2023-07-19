@@ -18,12 +18,12 @@
         @include flexMixin($JScontent:space-evenly);
         column-gap: 20px;
 
-        li {
+        a {
             min-width: 100px;
             padding: 4px 0;
             text-align: center;
-            // cursor: pointer;
-            a {
+            cursor: pointer;
+            li {
                 // font-size: 16px;
                 font-size: 14px;
                 color: #ECB014;
@@ -32,11 +32,12 @@
             
             &:hover {
                 border-bottom: 2px solid #ECB014;
-            }
-            
-            // .active {
-            //     border-bottom: 2px solid #ECB014;
-            // }
+            }   
+        }
+        .active {
+            min-width: 100px;
+            border-bottom: 2px solid #ECB014;
+            // width: 50px;
         }
     }
 
@@ -117,22 +118,25 @@
         ol{
             @include flexMixin(flex-start,flex-start,column);
             margin-top: 50px;
-            li {
-                padding: 4px 0;
+            a {
+                min-width: 100%;
+                padding: 4px;
                 cursor: pointer;
                 text-align: left;
                 min-width: 100%;
-
-                a {
+                li {
+                    // font-size: 16px;
                     font-size: 14px;
                     color: #ECB014;
                     letter-spacing: 1px;
                 }
-
+                
                 &:hover {
                     border-bottom: 2px solid #ECB014;
-                }
-                
+                }   
+            }
+            .active {
+                border-bottom: 2px solid #ECB014;
             }
         }
     }

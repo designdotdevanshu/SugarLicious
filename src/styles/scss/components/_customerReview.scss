@@ -5,7 +5,8 @@
 .CustomerReview{
     @include flexMixin(normal,flex-start);
     overflow: scroll;
-    min-width: 100vw;
+    // min-width: 100vw;
+    max-width: 100vw;
     gap: 20px;
     margin: 10px 20px;
     -ms-overflow-style: none;

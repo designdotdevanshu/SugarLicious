@@ -1,0 +1,183 @@
+@use "../abstracts/" as *;
+
+#bagBTN {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 45px;
+    background-color: #ECB014;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+#BagSliderContainer {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.393);
+    z-index: 99999;
+    position: fixed;
+}
+
+#BagSlider {
+    @include flexMixin($direction: column);
+    min-width: 450px;
+    max-width: 100vh;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #F7E7DC;
+    z-index: 99999;
+    // padding: 5px 0;
+    color: black;
+
+    #bag-back-btn {
+        @include flexMixin($JScontent: flex-start);
+        gap: 15px;
+        padding: 6px 16px;
+        width: 100%;
+        
+        svg {
+            font-size: 30px;
+            color: #5D0E07;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.382);
+                color: white;
+            }
+
+        }
+
+        h3 {
+            flex: 1;
+        }
+
+        border-bottom: 2px solid black;
+    }
+
+    #productCart {
+        background-color: white;
+        margin: 10px 20px;
+        padding: 10px;
+        position: relative;
+
+        #productCartFront {
+            @include flexMixin();
+            gap: 15px;
+
+            img {
+                width: 60px;
+                height: 70px;
+                border-radius: 10px;
+            }
+
+            #productDetail {
+                @include flexMixin($JScontent: space-evenly);
+                flex: 1;
+
+                #Icons {
+                    @include flexMixin($JScontent: space-between, $direction: column);
+
+                    svg {
+                        border-radius: 50%;
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.382);
+                            color: white;
+                        }
+                    }
+
+                    svg:first-child {
+                        font-size: 22px;
+                        position: absolute;
+                        cursor: pointer;
+                        right: 14px;
+                        top: 10px;
+                    }
+
+                    svg:last-child {
+                        cursor: pointer;
+                        font-size: 25px;
+                        position: absolute;
+                        right: 12px;
+                        bottom: 5px;
+                    }
+
+                }
+
+            }
+        }
+
+        #Amount_Info_Show {
+            overflow: hidden;
+        }
+
+        #Amount_INFO {
+            @include flexMixin($ALItems: flex-start, $JScontent: space-between);
+            margin: 10px 20px;
+
+        }
+
+        #TotalAmt {
+            @include flexMixin($JScontent: space-between);
+            border-top: 1px solid black;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+
+    }
+
+    #bagScroll {
+        overflow: scroll;
+        width: 100%;
+        flex: 1;
+    }
+
+    #RegiLogin {
+        text-align: center;
+        margin: 15px 0;
+
+        p {
+            font-size: 10px;
+        }
+
+        button {
+            margin-top: 5px;
+            padding: 5px 20px;
+            background-color: #33200A;
+            color: white;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+    }
+
+    #Bag-Total-Price {
+        position: fixed;
+        @include flexMixin($JScontent: space-evenly);
+        bottom: 0;
+        font-family: 16px;
+        border-top: 2px solid black;
+        width: 450px;
+        padding: 5px;
+        background-color: #F7E7DC;
+
+        h4 {
+            font-size: 20px;
+        }
+
+        button {
+            background-color: #ECB014;
+            padding: 10px 30px;
+            color: white;
+            font-weight: bolder;
+            font-size: 18px;
+
+        }
+    }
+}
