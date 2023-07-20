@@ -1,117 +1,116 @@
 @use "../abstracts/" as *;
-#Contact{
-    @include flexMixin(flex-start,flex-start);
+#Contact {
+  @include flexMixin(flex-start, flex-start);
+  position: relative;
+  top: 70px;
+  width: 95vw;
+  height: 85vh;
+  // background-color: aliceblue;
+  border: 2px solid #817e7e;
+  border-radius: 30px;
+  margin: auto;
+  overflow: hidden;
+  flex-wrap: wrap;
+  img {
+    // width: 35%;
+    width: 510px;
+    height: 100%;
+    object-fit: cover;
+    flex: 1;
+  }
+  #ContactForm {
+    height: 100%;
+    @include flexMixin(center, center, column);
+    flex: 1;
     position: relative;
-    top: 70px;
-    width: 95vw;
-    height: 85vh;
-    // background-color: aliceblue;
-    border: 2px solid #817E7E;
-    border-radius: 30px;
-    margin: auto;
-    overflow: hidden;
-    flex-wrap: wrap;
-    img{
-        // width: 35%;
-        width: 510px;
-        height: 100%;
-        object-fit: cover;
-        flex: 1;
+    padding: 30px;
+    #blur {
+      position: absolute;
+      // filter: blur(2px);
+      width: 100%;
+      height: 100%;
+      background-color: rgba(217, 217, 217, 0.044);
     }
-    #ContactForm{
-        height: 100%;
-        @include flexMixin(center,center,column);
-        flex: 1;
-        position: relative;
-        padding: 30px;
-        #blur{
-            position: absolute;
-            // filter: blur(2px);
-            width: 100%;
-            height: 100%;
-            background-color: rgba(217, 217, 217, 0.044);
-        }
-        #BlurFORM{
-            z-index: 999;
-            h2{
-                text-align: center;
-                font-size: 30px;
-                margin-bottom: 10px;
-            }
-            p{
-                text-align: center;
-                font-size: 16px;
-                margin-bottom: 10px;
-            }
-            form{
-                @include flexMixin(center,center,column);
-                gap: 10px;
-                // gap: 10px;
-                div{
-                    @include flexMixin();
-                    gap: 10px;
+    #BlurFORM {
+      z-index: 999;
+      h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      p {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      form {
+        @include flexMixin(center, center, column);
+        gap: 10px;
+        // gap: 10px;
+        div {
+          @include flexMixin();
+          gap: 10px;
 
-                    input{
-                        // width: 22vw;
-                        width: 280px;
-                        border: none;
-                        outline: none;
-                        padding:5px 10px;
-                        border-radius: 2px;
-                    }   
-                }
-                textarea{
-                    width: 100%;
-                    padding:5px 10px;
-                    border: none;
-                    outline: none;
-                    border-radius: 4px;
-                }
-                button{
-                    background-color: #ECB014;
-                    color: white;
-                    padding: 5px 30px;
-                    font-weight: bolder;
-                    margin-top: 20px;
-                    font-size: 16px;
-                    border-radius: 3px;
-                }
-            }
+          input {
+            // width: 22vw;
+            width: 280px;
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+            border-radius: 2px;
+          }
         }
+        textarea {
+          width: 100%;
+          padding: 5px 10px;
+          border: none;
+          outline: none;
+          border-radius: 4px;
+        }
+        button {
+          background-color: #ecb014;
+          color: white;
+          padding: 5px 30px;
+          font-weight: bolder;
+          margin-top: 20px;
+          font-size: 16px;
+          border-radius: 3px;
+        }
+      }
     }
-    @media (max-width:1205px) {
-        #ContactForm{
-            position: absolute;
-            top: 0;
-            // transform: translate(25%,0);
-            margin: auto;
+  }
+  @media (max-width: 1205px) {
+    #ContactForm {
+      position: absolute;
+      top: 0;
+      // transform: translate(25%,0);
+      margin: auto;
+      width: 100%;
+      #BlurFORM {
+        // background-color: rgba(0, 0, 0, 0.395);
+        background-color: rgba(0, 0, 0, 0.653);
+        padding: 20px 40px;
+        border-radius: 10px;
+      }
+    }
+  }
+  @media (max-width: 620px) {
+    #ContactForm {
+      #BlurFORM {
+        // background-color: rgba(0, 0, 0, 0.653);
+        // padding: 20px 40px;
+        width: 95vw;
+        border-radius: 10px;
+        form {
+          div {
+            flex-direction: column;
             width: 100%;
-            #BlurFORM{
-                // background-color: rgba(0, 0, 0, 0.395);
-                background-color: rgba(0, 0, 0, 0.653);
-                padding: 20px 40px;
-                border-radius: 10px;
+            input {
+              width: 100%;
             }
+          }
         }
+      }
     }
-    @media (max-width:620px) {
-        #ContactForm{
-            #BlurFORM{
-                // background-color: rgba(0, 0, 0, 0.653);
-                // padding: 20px 40px;
-                width: 95vw;
-                border-radius: 10px;
-                form{
-                    div{
-                        flex-direction: column;
-                        width: 100%;
-                        input{
-                            width: 100%;
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
+  }
 }

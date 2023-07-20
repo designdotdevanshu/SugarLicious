@@ -5,9 +5,6 @@ import Frontproducts from "../../components/Landing/HomeProducts/HomeProducts";
 import CustomerReview from "../../components/Landing/CustomerReview/CustomerReview";
 import Footer from "../../components/Footer/Footer";
 
-
-
-
 const HomePage = () => {
   return (
     <React.Fragment>

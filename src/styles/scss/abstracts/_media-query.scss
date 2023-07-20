@@ -1,22 +1,27 @@
 @mixin responsive($breakpoint) {
   @if $breakpoint ==desktop {
     @media (min-width: 1440px) {
+      // *{background-color: red;}
       @content;
     }
   } @else if $breakpoint ==laptop {
     @media (max-width: 1440px) {
+      // *{background-color: blue;}
       @content;
     }
   } @else if $breakpoint ==tab-land {
     @media (max-width: 1040px) {
+      // *{background-color: yellow;}
       @content;
     }
   } @else if $breakpoint ==tab-port {
     @media (max-width: 840px) {
+      // *{background-color: green;}
       @content;
     }
   } @else if $breakpoint ==phone {
     @media (max-width: 600px) {
+      // *{background-color: purple;}
       @content;
     }
   } @else {
