@@ -1,12 +1,13 @@
 import React from "react";
-import {Products} from "../../Data/ProductsJSON";
+import { Products } from "../../Data/ProductsJSON";
 import SearchBar from "../Common/SearchBar";
-import {AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
+import { AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 import Footer from "../Footer/Footer";
-import {useEffect} from "react";
-import {useParams} from "react-router-dom";
-import {useState} from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 import Bags from "../Common/Bags";
+import { NavLink } from "react-router-dom";
 
 // let x = document.getElementById("products");
 // x.addEventListener("click", () => {
@@ -35,83 +36,100 @@ const ProductPage = () => {
   const [category, setCategory] = useState(useParams());
   const [count, setCount] = useState(0);
 
+  const [likeProduct, setLikedProduct] = useState([]);
   let lastIndex = currPage * cardPerPage;
   let firstIndex = lastIndex - cardPerPage;
 
   useEffect(() => {
     let a;
-    Object.keys(category).length > 0 ? (a = Products.filter((e) => e.Category === category.productID || e._id === category.productID)) : (a = Products);
+    Object.keys(category).length > 0 ?
+      a = Products.filter(e => e.Category === category.categoryID || e._id === category.categoryID)
+      :
+      a = Products
     setProducts(a);
     shuffleArray(Products);
-    console.log(Products);
-  }, [category]);
+    // console.log(Products);
+  }, [category])
 
   let pages = [];
   for (let i = 1; i <= Math.ceil(products.length / cardPerPage); i++) {
     pages.push(i);
   }
 
+  const addLike = (_id) => {
+    setLikedProduct([...likeProduct, _id]);
+  }
+
+  useEffect(()=>{
+    console.log(category)
+  },[category])
+
+
   return (
     <React.Fragment>
       <Bags />
-      <SearchBar position="100" />
+      <SearchBar position="100" currPlace="ProductPage"/>
       <div className="products">
         {products.slice(firstIndex, lastIndex).map((product) => {
-          // console.log(products)
+          let a;
+          if(category.categoryID){
+            a = `./${product._id}`;
+          }else{
+            a = `./${product.Category}/${product._id}`;
+          }
+
           return (
-            <div className="product-card" key={product._id}>
-              <img src={product.Image} alt={product.Name} className="product-image" />
+            <div className="product-card" key={product._id} >
               <div id="product-heart">
-                <AiFillHeart />
+                <AiFillHeart onClick={() => addLike(product._id)} className={likeProduct.find(e => e === product._id) ? "active-Heart" : ""} />
               </div>
-              <div className="product-info">
-                <h5 className="product-name">{product.Name}</h5>
-                <p className="product-desc">{product.Desc.slice(0, 50)}...</p>
-                <p className="product-price">&#x20B9;{product.Price}</p>
-                <div id="rating">
-                  <AiFillStar id="A" />
-                  <p className="product-rating">{product.Star}/5.0</p>
+              <NavLink to={a}>
+                <img
+                  src={product.Image}
+                  alt={product.Name}
+                  className="product-image"
+                />
+                <div className="product-info">
+                  <h5 className="product-name">{product.Name}</h5>
+                  <p className="product-desc">{product.Desc.slice(0, 60)}...</p>
+                  <p className="product-price">&#x20B9;{product.Price}</p>
+                  <div id="rating">
+                    <AiFillStar id="A" />
+                    <p className="product-rating">{product.Star}/5.0</p>
+                  </div>
                 </div>
-              </div>
+              </NavLink>
             </div>
           );
         })}
       </div>
       <div id="pagination">
-        {pages.length > 1 && (
+        {
+          pages.length > 1 &&
           <>
-            <div
-              className="Pages"
-              onClick={() => {
+            <div className="Pages" id={currPage === 1 && "non-active-side-btn"} onClick={() => {
+              if (currPage !== 1) {
                 setCount(count - 18);
                 setCurrPage(currPage - 1);
-              }}>
-              <AiOutlineLeft />
-            </div>
+              }
+            }}><AiOutlineLeft /></div>
 
-            {pages.map((curr, ids) => {
-              // console.log(pages);
-              return (
-                <div
-                  onClick={() => {
-                    setCount(curr);
-                    setCurrPage(ids + 1);
-                  }}
-                  className={ids + 1 === currPage ? "activePage Pages" : "Pages"}>
-                  {ids + 1}
-                </div>
-              );
-            })}
-            <div
-              className="Pages"
-              onClick={() => {
+            {
+              pages.map((curr, ids) => {
+                // console.log(pages);
+                return (
+                  <div onClick={() => { setCount(curr); setCurrPage(ids + 1) }} className={ids + 1 === currPage ? "activePage Pages" : "Pages"}>{ids + 1}</div>
+                )
+              })
+            }
+            <div className="Pages" id={currPage === pages.length && "non-active-side-btn"} onClick={() => {
+              if (currPage !== pages.length) {
                 setCount(count + 18);
                 setCurrPage(currPage + 1);
-              }}>
-              <AiOutlineRight />
-            </div>
+              }
+            }}><AiOutlineRight /></div>
           </>
-        )}
+        }
       </div>
       <Footer />
     </React.Fragment>

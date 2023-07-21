@@ -86,9 +86,24 @@ export const Products = [
     Image: Image25,
     Name: "CHOCOLATE CHIP MUFFIN",
     Desc: "A chocolate chip muffin is a sweet baked treat with a soft, moist texture and bursts of chocolate chips. It's a popular choice for breakfast or snacking, loved for its rich chocolate flavor. Enjoy it as a delightful indulgence at any time of the day.",
-    Price: 350,
+    Price: 350,  // Medium Price
     Star: 4.6,
     Category: "Muffins",
+    type:"Veg",   // Veg / Non-Veg / Vegan
+    Sizes:[
+      {
+            name: "Small",
+            price: 249,
+          },
+          {
+            name: "Medium",  
+            price: 350,       // this price and 89 line Price should be same
+          },
+          {
+            name: "Large",
+            price: 399
+          }
+    ]
   },
   {
     _id: "2161396f",

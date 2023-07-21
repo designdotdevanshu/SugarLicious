@@ -176,3 +176,19 @@
     }
   }
 }
+
+@media (max-width : 450px){
+  #BagSlider{
+    min-width: 100vw;
+    #Bag-Total-Price{
+      width: 100vw;
+      h4,button{
+        font-size: 16px;
+      }
+    }
+  }
+  #bagBTN {
+    right: 15px;
+    bottom: 15px;
+  }
+}

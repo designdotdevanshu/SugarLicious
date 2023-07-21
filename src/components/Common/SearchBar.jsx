@@ -1,11 +1,12 @@
 import React from "react";
-import {BiSearch, BiStar} from "react-icons/bi";
-import {RiArrowDropDownLine, RiStarFill} from "react-icons/ri";
-import {MdFilterList} from "react-icons/md";
-import {MdClose} from "react-icons/md";
-import {useState} from "react";
-import {Products} from "../../Data/ProductsJSON";
+import { BiSearch, BiStar } from "react-icons/bi";
+import { RiArrowDropDownLine, RiStarFill } from "react-icons/ri";
+import { MdFilterList } from "react-icons/md";
+import { MdClose } from "react-icons/md";
+import { useState } from "react";
+import { Products } from "../../Data/ProductsJSON";
 import Image1 from "../../assets/Beverages/image (1).png";
+import { NavLink } from "react-router-dom";
 // window.addEventListener("scroll", () => {
 // const SearchBar = document.getElementById("SearchBar");
 // if (window.scrollY > 460) {
@@ -27,7 +28,7 @@ import Image1 from "../../assets/Beverages/image (1).png";
 
 // import P
 
-const SearchBar = ({position}) => {
+const SearchBar = ({ position, currPlace }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchOutput, setsearchOutput] = useState();
   const handleInput = (input) => {
@@ -35,14 +36,14 @@ const SearchBar = ({position}) => {
     let a;
     value.length > 0
       ? (a = Products.filter((product) => {
-          return product.Name.toLowerCase().includes(value) || product.Category.toLowerCase().includes(value);
-        }))
+        return product.Name.toLowerCase().includes(value) || product.Category.toLowerCase().includes(value);
+      }))
       : (a = []);
     setsearchOutput(a);
   };
   return (
     <div id="SearchBarContainer">
-      <div id="SearchBar" style={{marginTop: `-${position}px`}}>
+      <div id="SearchBar" style={{ marginTop: `-${position}px` }}>
         <BiSearch id="SearchICON" />
         <input type="text" placeholder="SEARCH PRODUCT HERE....." onChange={handleInput} />
         <div id="Filter">
@@ -55,12 +56,19 @@ const SearchBar = ({position}) => {
       </div>
       <div id="SearchProductsContainer">
         {searchOutput?.map((curr) => {
+          let a;
+          currPlace === "home" ?
+            a = `./products/${curr.Category}/${curr._id}`
+            :
+            a = `./${curr.Category}/${curr._id}`
           return (
             <div id="SearchProducts">
-              <div>
-                <img src={curr.Image} alt={curr.Name} />
-                <p>{curr.Name}</p>
-              </div>
+              <NavLink to={a}>
+                <div>
+                  <img src={curr.Image} alt={curr.Name} />
+                  <p>{curr.Name}</p>
+                </div>
+              </NavLink>
               <MdClose />
             </div>
           );

@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import ProductPage from "../components/Products/ProductPage";
 import Contact from "../components/Contact/Contact";
 import ReserveSeat from "../components/ReserveSeat/ReserveSeat";
-import Orders from "../components/Orders/Orders";
+import ProductShow from "../components/Products/ProductShow";
 
 const App = () => {
   return (
@@ -13,8 +13,9 @@ const App = () => {
         <Header />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/orders" element={<Orders />} />
+          <Route exact path="/Products/:categoryID/:productID" element={<ProductShow />} />
           <Route exact path="/Products" element={<ProductPage />} />
+          <Route exact path="/Products/:categoryID" element={<ProductPage />} />
           <Route path="/ReserveSeat" element={<ReserveSeat />} />
           <Route path="/Contact" element={<Contact />} />
         </Routes>

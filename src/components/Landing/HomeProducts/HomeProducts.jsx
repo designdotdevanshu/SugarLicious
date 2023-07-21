@@ -1,6 +1,6 @@
 import React from "react";
-import {FrontJSON, Reviews} from "../../../Data/FrontJSON.jsx";
-import {NavLink} from "react-router-dom";
+import { FrontJSON, Reviews } from "../../../Data/FrontJSON.jsx";
+import { NavLink } from "react-router-dom";
 const Frontproducts = () => {
   return (
     <div id="Frontproducts">
@@ -13,19 +13,14 @@ const Frontproducts = () => {
                 {curr.Products.map((products, ids2) => {
                   // console.log(products)
                   let a;
-                  let ab = () => {
-                    // alert(products);
-                    // console.log(products);
-                  };
-
-                  products.type === "Product" ? (a = `/Products/${products._id}`) : (a = `/Products/${products.Category}`);
+                  products.type === "Product" ? (a = `/Products/${products.Category}/${products._id}`) : (a = `/Products/${products.Category}`);
                   return (
-                    <NavLink to={a}>
-                      <div className="FrontProduct" key={ids2}>
+                    <div className="FrontProduct" key={ids2}>
+                      <NavLink to={a}>
                         <img src={products.Image} />
                         <p>{products.Name}</p>
-                      </div>
-                    </NavLink>
+                      </NavLink>
+                    </div>
                   );
                 })}
               </div>

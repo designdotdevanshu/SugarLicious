@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <React.Fragment>
       <Slider />
-      <SearchBar position="22" />
+      <SearchBar position="22"  currPlace="home" />
       <Frontproducts />
       <CustomerReview />
       <Footer />
