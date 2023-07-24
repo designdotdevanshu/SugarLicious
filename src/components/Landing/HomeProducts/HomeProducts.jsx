@@ -1,6 +1,6 @@
 import React from "react";
-import { FrontJSON, Reviews } from "../../../Data/FrontJSON.jsx";
-import { NavLink } from "react-router-dom";
+import {FrontJSON, Reviews} from "../../../Data/FrontJSON.jsx";
+import {NavLink} from "react-router-dom";
 const Frontproducts = () => {
   return (
     <div id="Frontproducts">

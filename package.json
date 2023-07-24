@@ -7,6 +7,7 @@
     "sass-w": "sass src/styles/scss/style.scss src/index.css --watch --style=compressed && format",
     "sass": "sass src/styles/scss/style.scss src/index.css --style=expanded",
     "dev": "vite --port 3000",
+    "host": "vite --port 3000 --host",
     "build": "vite build --outDir docs",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -17,6 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.14.1"
   },
   "devDependencies": {

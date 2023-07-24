@@ -1,19 +1,20 @@
-import React from "react";
 import Slider from "../../components/Landing/SliderImage/Slider";
 import SearchBar from "../../components/Common/SearchBar";
 import Frontproducts from "../../components/Landing/HomeProducts/HomeProducts";
 import CustomerReview from "../../components/Landing/CustomerReview/CustomerReview";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 const HomePage = () => {
   return (
-    <React.Fragment>
+    <>
+      <Header />
       <Slider />
-      <SearchBar position="22"  currPlace="home" />
+      <SearchBar position="-60" currPlace="home" />
       <Frontproducts />
       <CustomerReview />
       <Footer />
-    </React.Fragment>
+    </>
   );
 };
 

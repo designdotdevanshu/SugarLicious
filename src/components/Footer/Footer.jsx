@@ -1,25 +1,25 @@
-import React from "react";
 import {BiLogoInstagramAlt, BiLogoFacebookSquare, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoPlayStore} from "react-icons/bi";
 import {BsApple} from "react-icons/bs";
+import {Link} from "react-router-dom";
 const HeaderData = [
   {
     Title: "ORDER NOW",
     Links: [
       {
-        text: "Shipping",
-        link: "#",
+        text: "Pizza",
+        link: "/Products/Pizza/",
       },
       {
-        text: "Reserve Seat",
-        link: "#",
+        text: "Muffins",
+        link: "/Products/Muffins/",
       },
       {
-        text: "Terms and Conditions",
-        link: "#",
+        text: "Beverages",
+        link: "/Products/Beverages/",
       },
       {
-        text: "Privacy Policy",
-        link: "#",
+        text: "Snacks & Slides",
+        link: "/Products/SnacksAndSides/",
       },
     ],
   },
@@ -28,11 +28,11 @@ const HeaderData = [
     Links: [
       {
         text: "Shipping",
-        link: "#",
+        link: "/Orders",
       },
       {
         text: "Reserve Seat",
-        link: "#",
+        link: "/ReserveSeat",
       },
       {
         text: "Terms and Conditions",
@@ -49,7 +49,7 @@ const HeaderData = [
     Links: [
       {
         text: "Contact Us",
-        link: "#",
+        link: "/Contact",
       },
       {
         text: "Join our team",
@@ -58,6 +58,30 @@ const HeaderData = [
       {
         text: "Corporate Gifting",
         link: "#",
+      },
+    ],
+  },
+];
+
+const SocialLinks = [
+  {
+    Title: "Follow us on",
+    Links: [
+      {
+        text: <BiLogoFacebookSquare />,
+        link: "https://www.facebook.com/",
+      },
+      {
+        text: <BiLogoInstagramAlt />,
+        link: "https://www.instagram.com/",
+      },
+      {
+        text: <BiLogoTwitter />,
+        link: "https://www.twitter.com/",
+      },
+      {
+        text: <BiLogoLinkedinSquare />,
+        link: "https://www.linkedin.com/",
       },
     ],
   },
@@ -74,7 +98,7 @@ const Footer = () => {
                 {curr.Links.map((Links, ids2) => {
                   return (
                     <li key={ids2}>
-                      <a href={Links.link}>{Links.text}</a>
+                      <Link to={Links.link}>{Links.text}</Link>
                     </li>
                   );
                 })}
@@ -84,40 +108,48 @@ const Footer = () => {
         })}
         <li id="footerMenu">
           <h4>
-            <a href="#">VISIT PERKY BEAN CAFE</a>
+            <Link to="/">VISIT PERKY BEAN CAFE</Link>
           </h4>
+          <br />
+          <br />
+          <p>&copy; 2023 PerkyBean</p>
         </li>
-        <l1 id="SocialMedia">
-          <h2>Follow us on</h2>
-
-          <a href="#">
-            <BiLogoFacebookSquare />
-          </a>
-          <a href="#">
-            <BiLogoInstagramAlt />
-          </a>
-          <a href="#">
-            <BiLogoTwitter />
-          </a>
-          <a href="#">
-            <BiLogoLinkedinSquare />
-          </a>
-        </l1>
+        {SocialLinks.map((cur, ids2) => {
+          return (
+            <li id="SocialMedia" key={ids2}>
+              <h2>{cur.Title}</h2>
+              {cur.Links.map((Link) => {
+                return (
+                  <a href={Link.link} target="_blank" rel="noreferrer" key={ids2}>
+                    {Link.text}
+                  </a>
+                );
+              })}
+            </li>
+          );
+        })}
       </ol>
 
       <div id="downloadApp">
-        <div>
-          <BsApple />
-          <p>Download on the App Store</p>
-        </div>
-        <div>
-          <BiLogoPlayStore />
-          <p>Get it on Google Play</p>
-        </div>
+        {/* <a href="http://www.apple.com/in/app-store/" target="_blank" rel="noopener noreferrer"> */}
+        <a href="https://www.apple.com/in/app-store/developing-for-the-app-store/" target="_blank" rel="noopener noreferrer">
+          <div>
+            <BsApple />
+            <p>Download on the App Store</p>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer">
+          <div>
+            <BiLogoPlayStore />
+            <p>Get it on Google Play</p>
+          </div>
+        </a>
       </div>
       <div id="feedback">
         <p>GIVE YOUR VALUABLE FEEDBACK </p>
-        <button>GIVE FEEDBACK</button>
+        <Link to="/Contact">
+          <button>GIVE FEEDBACK</button>
+        </Link>
       </div>
     </footer>
   );

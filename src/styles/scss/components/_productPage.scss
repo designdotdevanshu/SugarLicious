@@ -11,7 +11,7 @@
     height: 100%;
     padding-bottom: 40px;
     margin-top: 50px;
-    
+
     .product-image {
       width: 100%;
       height: 400px;
@@ -20,7 +20,7 @@
     }
 
     .product-info {
-      .product-name{
+      .product-name {
         font-size: 22px;
       }
       .product-price {
@@ -28,14 +28,14 @@
         margin: 0;
       }
 
-      .product-star{
+      .product-star {
         display: flex;
         gap: 5px;
         position: absolute;
         bottom: 5px;
         right: 20px;
-        #A{
-          color: #B89130;
+        #A {
+          color: #b89130;
         }
       }
     }
@@ -46,7 +46,16 @@
     h1 {
       font-size: 26px;
       font-weight: bolder;
-      @include flexMixin(flex-start,flex-start);
+      @include flexMixin(flex-start, flex-start);
+      #veg {
+        position: relative;
+        left: 10px;
+        width: 26px;
+        height: 26px;
+        // margin-left: 10px;
+        border-radius: 0;
+        align-self: end;
+      }
       #LuVegan {
         color: #08870d;
         position: relative;
@@ -56,7 +65,7 @@
 
     p {
       font-size: 18px;
-      margin-top: 20px
+      margin-top: 20px;
     }
 
     .product-board-sizes {
@@ -66,42 +75,45 @@
       h2 {
         font-size: 20px;
       }
-      
+
       .sizes {
         @include flex-center(row);
         gap: 40px;
         margin: 20px 10px;
         div {
           @include flex-center(column);
-          
+
           img {
             width: pxToRem(133);
             height: pxToRem(157);
             border-radius: 18px;
           }
-          
+
           .product-price {
             font-size: 16px;
             font-weight: bold;
           }
-          
+
           .counter {
             @include flexMixin();
             border-radius: 6px;
             margin: 10px 0;
+            background-color: #7f5539;
             p {
-              background-color: #7f5539;
-              padding: 1.5px 4px; 
+              padding: 6px 12px;
               font-size: 12px;
               margin: 0;
             }
-            
+            span {
+              padding-right: 8px;
+            }
+
             .btn {
               @include flexMixin();
               font-size: 12px;
               background-color: #5d3721;
               color: #fff;
-              padding: 5px 10px; 
+              padding: 9px 10px;
               cursor: pointer;
               &--minus {
                 border-radius: 6px 0 0 6px;
@@ -114,7 +126,7 @@
         }
       }
 
-      #totalorder{
+      #totalorder {
         @include flexMixin();
         gap: 40px;
         margin-top: 30px;
@@ -124,7 +136,7 @@
           border-radius: 6px;
           padding: 10px 100px;
         }
-  
+
         .order {
           padding: 10px 40px;
           color: white;
@@ -136,10 +148,10 @@
   }
 }
 
-@media (max-width:1125px){
+@media (max-width: 1125px) {
   .product-board {
     margin-top: 50px;
-    .product-board-desc h1{
+    .product-board-desc h1 {
       text-align: center;
     }
     .product-board-desc {
@@ -148,7 +160,6 @@
       }
     }
   }
-  
 }
 
 @include responsive(laptop) {
@@ -204,7 +215,7 @@
       .product-card {
         width: 90vw;
         height: 350px;
-        img{
+        img {
           width: 100%;
         }
         .product-info {
@@ -226,7 +237,9 @@
             div {
               margin: 5px;
               img {
-                width: 100%;
+                width: 80px;
+                height: 5.813rem;
+                aspect-ratio: 1;
               }
             }
             .counter {
@@ -234,7 +247,7 @@
                 display: none;
               }
               span {
-                padding: 5px 8px !important;
+                padding: 2px 8px;
               }
               .btn {
                 padding: 8px !important;
@@ -243,7 +256,7 @@
           }
           .total {
             margin-top: 20px;
-            padding: 10px 30px;
+            padding: 15px 30px !important;
             h1 {
               font-size: 14px;
             }

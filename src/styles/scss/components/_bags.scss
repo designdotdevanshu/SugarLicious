@@ -177,12 +177,13 @@
   }
 }
 
-@media (max-width : 450px){
-  #BagSlider{
+@media (max-width: 450px) {
+  #BagSlider {
     min-width: 100vw;
-    #Bag-Total-Price{
+    #Bag-Total-Price {
       width: 100vw;
-      h4,button{
+      h4,
+      button {
         font-size: 16px;
       }
     }

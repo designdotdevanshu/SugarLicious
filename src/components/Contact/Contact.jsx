@@ -2,7 +2,7 @@ import React from "react";
 import SideIMG from "../../assets/Slider/Slider (1).png";
 const Contact = () => {
   return (
-    <>
+    <React.Fragment>
       <div id="Contact">
         <img src={SideIMG} alt="SideIMG" />
         <div id="ContactForm">
@@ -25,7 +25,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

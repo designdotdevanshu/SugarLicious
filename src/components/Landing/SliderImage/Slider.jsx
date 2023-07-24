@@ -1,34 +1,33 @@
 import React from "react";
+import {Carousel} from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider1 from "../../../assets/Slider/Slider (1).png";
 import Slider2 from "../../../assets/Slider/Slider (2).png";
 import Slider3 from "../../../assets/Slider/Slider (3).png";
 import Slider4 from "../../../assets/Slider/Slider (4).png";
 import Slider5 from "../../../assets/Slider/Slider (5).png";
-import {useState} from "react";
-import {useEffect} from "react";
 
-const Sliders = [Slider1, Slider2, Slider3, Slider4, Slider5];
 const Slider = () => {
-  const [currImg, setCurrImg] = useState(0);
-  // useEffect(()=>{
-  // },[])
   return (
-    <div id="SliderContainer">
-      <div className="Slider">
-        {Sliders.map((curr, id) => {
-          return (
-            <div onMouseEnter={() => setCurrImg(id)} key={id}>
-              <img src={curr} alt="SliderImages" />
-            </div>
-          );
-        })}
-      </div>
-      <div id="SliderBTN">
-        {Sliders.map((curr, id) => {
-          return <button onClick={() => console.log(id)} className={currImg === id ? "active" : ""} key={id}></button>;
-        })}
-      </div>
-    </div>
+    <React.Fragment>
+      <Carousel infiniteLoop showStatus={false} showArrows={false} showThumbs={false} interval={3000} axis="horizontal" swipeable={true} emulateTouch={true} stopOnHover={false}>
+        <div>
+          <img src={Slider1} alt="Slider1" />
+        </div>
+        <div>
+          <img src={Slider2} alt="Slider2" />
+        </div>
+        <div>
+          <img src={Slider3} alt="Slider3" />
+        </div>
+        <div>
+          <img src={Slider4} alt="Slider4" />
+        </div>
+        <div>
+          <img src={Slider5} alt="Slider5" />
+        </div>
+      </Carousel>
+    </React.Fragment>
   );
 };
 

@@ -1,26 +1,24 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Header from "../components/Header/Header";
 import HomePage from "./pages/HomePage";
-import ProductPage from "../components/Products/ProductPage";
-import Contact from "../components/Contact/Contact";
-import ReserveSeat from "../components/ReserveSeat/ReserveSeat";
-import ProductShow from "../components/Products/ProductShow";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import OrdersPage from "./pages/OrdersPage";
+import ContactPage from "./pages/ContactPage";
+import ReserveSeatPage from "./pages/ReserveSeatPage";
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/Products/:categoryID/:productID" element={<ProductShow />} />
-          <Route exact path="/Products" element={<ProductPage />} />
-          <Route exact path="/Products/:categoryID" element={<ProductPage />} />
-          <Route path="/ReserveSeat" element={<ReserveSeat />} />
-          <Route path="/Contact" element={<Contact />} />
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/Products" element={<ProductsPage />} />
+        <Route exact path="/Products/:categoryID/:productID" element={<ProductDetailsPage />} />
+        <Route exact path="/Products/:categoryID" element={<ProductsPage />} />
+        <Route exact path="/Orders" element={<OrdersPage />} />
+        <Route exact path="/ReserveSeat" element={<ReserveSeatPage />} />
+        <Route exact path="/Contact" element={<ContactPage />} />
+      </Routes>
+    </Router>
   );
 };
 export default App;
