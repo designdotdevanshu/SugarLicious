@@ -1,0 +1,172 @@
+@use "../abstracts/" as *;
+
+#Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-top: 10px;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    width: 440px;
+
+    label {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 2px;
+      border: none;
+      font-weight: 600;
+
+      &:focus {
+        outline: 3px inset #ecb014;
+      }
+
+      border-radius: 3px;
+      background-color: rgba(246, 240, 240, 0.1);
+      border-color: #ecb014;
+      margin-bottom: 15px;
+      background-color: white;
+      
+    }
+    
+    #passwordContainer {
+      position: relative;
+      margin-bottom: 15px;
+
+      #passwordEYE {
+        position: absolute;
+        top: 13px;
+        right: 15px;
+
+        svg {
+          cursor: pointer;
+          color: rgb(73, 70, 70);
+          font-size: 20px;
+        }
+      }
+    }
+
+    #Password {
+      margin-bottom: 1px;
+    }
+
+    .forgot-password {
+      text-align: end;
+      // margin-bottom: -20px;
+      font-size: 12px;
+
+      a {
+        color: #ecb014;
+
+        // text-decoration: underline;
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+
+    input[type=button] {
+      background-color: #ecb014;
+      color: #ffffff;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+
+      // border: 1px solid #ecb014;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.249);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.215);
+      }
+    }
+
+    .no-account {
+      @include flexMixin();
+      font-size: 12px;
+      gap: 5px;
+      margin-top: 10px;
+
+      a {
+        text-decoration: none;
+        color: #ecb014;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .social-login {
+    text-align: center;
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+
+    .google-login {
+      @include flexMixin($JScontent: space-around);
+      gap: 20px;
+      width: 300px;
+      border: 1px solid #ffffff;
+      padding: 0 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      span {
+        flex: 1;
+        text-align: left;
+        font-weight: 500;
+      }
+
+      img {
+        width: 45px;
+      }
+    }
+  }
+
+  @media (max-width:500px) {
+    #Login {
+    form {
+      width: 95vw;
+      padding: 40px 10px;
+      #passwordContainer {
+        #passwordEYE {
+          top: 7px;
+        }
+      }
+
+      input {
+        padding: 4px 10px;
+        font-size: 14px;
+      }
+    }
+
+  }
+}
+}

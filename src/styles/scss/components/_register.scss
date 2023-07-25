@@ -1,0 +1,121 @@
+@use "../abstracts/" as *;
+#Sign_Up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-top: 20px;
+  flex-direction: column;
+  font-style: inherit;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    width: 440px;
+
+    label {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 2px;
+      border: none;
+      border-radius: 3px;
+      background-color: rgba(246, 240, 240, 0.1);
+      border-color: #ecb014;
+      margin-bottom: 15px;
+      background-color: white;
+      font-weight: 600;
+      &:focus {
+        outline: 3px inset #ecb014;
+      }
+    }
+    #Password {
+      margin-bottom: 1px;
+    }
+
+    #passwordContainer{
+      position: relative;
+      margin-bottom: 15px;
+      #passwordEYE{
+        position: absolute;
+        top: 13px;
+        right: 15px;
+        svg{
+          cursor: pointer;
+          color: rgb(73, 70, 70);
+          font-size: 20px;
+        }
+      }
+    }
+
+    .forgot-password {
+      text-align: end;
+      font-size: 12px;
+
+      a {
+        color: #ecb014;
+
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+
+    #registerBTN,button {
+      background-color: #ecb014;
+      color: #ffffff;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.249);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.215);
+      }
+    }
+    .already-account{
+      @include flexMixin();
+      font-size: 12px;
+      gap: 5px;
+      margin-top: 10px;
+      a {
+        text-decoration: none;
+        color: #ecb014;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @media (max-width:500px){
+    form{
+      width: 95vw;
+      padding: 40px 10px;
+      #passwordContainer {
+        #passwordEYE {
+          top: 7px;
+        }
+      }
+      input{
+        padding: 4px 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}

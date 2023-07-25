@@ -10,7 +10,7 @@ const HomePage = () => {
     <>
       <Header />
       <Slider />
-      <SearchBar position="-60" currPlace="home" />
+      <SearchBar position="-59" currPlace="home" />
       <Frontproducts />
       <CustomerReview />
       <Footer />

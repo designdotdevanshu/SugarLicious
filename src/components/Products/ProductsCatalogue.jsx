@@ -75,7 +75,7 @@ const ProductsCatalogue = () => {
               <div id="product-heart">
                 <AiFillHeart onClick={() => addLike(product._id)} className={likeProduct.find((e) => e === product._id) ? "active-Heart" : ""} />
               </div>
-              <NavLink to={a}>
+              <NavLink to={a} onClick={()=>window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                 <img src={product.Image} alt={product.Name} className="product-image" />
                 <div className="product-info">
                   <h5 className="product-name">{product.Name}</h5>
@@ -83,7 +83,7 @@ const ProductsCatalogue = () => {
                   <p className="product-price">&#x20B9;{product.Price}</p>
                   <div id="rating">
                     <AiFillStar id="A" />
-                    <p className="product-rating">{product.Star}/5.0</p>
+                    <p className="product-rating">{product.Star.toFixed(1)}/5.0</p>
                   </div>
                 </div>
               </NavLink>

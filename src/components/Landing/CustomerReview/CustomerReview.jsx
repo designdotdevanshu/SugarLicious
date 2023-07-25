@@ -17,7 +17,7 @@ const CustomerReview = () => {
               <span id="customerDate">{curr.Date}</span>
               <div id="stars">
                 <AiFillStar id="starLOGO" />
-                <span>{curr.Rating} / 5.0</span>
+                <span>{curr.Rating.toFixed(1)} / 5.0</span>
               </div>
             </div>
           );

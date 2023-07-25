@@ -16,7 +16,7 @@ const Frontproducts = () => {
                   products.type === "Product" ? (a = `/Products/${products.Category}/${products._id}`) : (a = `/Products/${products.Category}`);
                   return (
                     <div className="FrontProduct" key={ids2}>
-                      <NavLink to={a}>
+                      <NavLink to={a} onClick={()=>window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                         <img src={products.Image} />
                         <p>{products.Name}</p>
                       </NavLink>

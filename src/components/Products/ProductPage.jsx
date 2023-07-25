@@ -17,6 +17,7 @@ const ProductPage = () => {
   const [counter2, setCounter2] = useState(0);
   const [itemDetails, setItemDetails] = useState({});
   let itemShow = useParams().productID;
+
   useEffect(() => {
     setItemDetails(Products.find((e) => e._id === itemShow));
   }, [itemShow]);
@@ -25,21 +26,21 @@ const ProductPage = () => {
     {
       id: 1,
       name: "regular",
-      price: itemDetails.Price - 50,
+      price: itemDetails?.Price - 50,
       counter: counter0,
       setCounter: setCounter0,
     },
     {
       id: 2,
       name: "medium",
-      price: itemDetails.Price,
+      price: itemDetails?.Price,
       counter: counter1,
       setCounter: setCounter1,
     },
     {
       id: 3,
       name: "large",
-      price: itemDetails.Price + 50,
+      price: itemDetails?.Price + 50,
       counter: counter2,
       setCounter: setCounter2,
     },
@@ -50,7 +51,7 @@ const ProductPage = () => {
   return (
     <React.Fragment>
       <Bags />
-      {/* {itemDetails && ( */}
+      {itemDetails && (
       <>
         <div className="products product-board">
           <div className="product-card" key={itemDetails._id}>
@@ -60,7 +61,7 @@ const ProductPage = () => {
               <p className="product-price">&#x20B9;{itemDetails.Price}</p>
               <div className="product-star">
                 <AiFillStar id="A" />
-                <p className="product-rating">{itemDetails.Star}/5.0</p>
+                <p className="product-rating">{itemDetails.Star?.toFixed(1)}/5.0</p>
               </div>
             </div>
           </div>
@@ -109,7 +110,7 @@ const ProductPage = () => {
         {/* <CustomerReview /> */}
         {/* <Footer /> */}
       </>
-      {/* )} */}
+      )}
     </React.Fragment>
   );
 };

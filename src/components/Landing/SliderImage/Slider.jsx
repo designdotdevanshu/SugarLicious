@@ -10,7 +10,7 @@ import Slider5 from "../../../assets/Slider/Slider (5).png";
 const Slider = () => {
   return (
     <React.Fragment>
-      <Carousel infiniteLoop showStatus={false} showArrows={false} showThumbs={false} interval={3000} axis="horizontal" swipeable={true} emulateTouch={true} stopOnHover={false}>
+      <Carousel infiniteLoop showStatus={false} showArrows={false} autoPlay showThumbs={false} interval={3000} axis="horizontal" swipeable={true} emulateTouch={true} stopOnHover={false}>
         <div>
           <img src={Slider1} alt="Slider1" />
         </div>

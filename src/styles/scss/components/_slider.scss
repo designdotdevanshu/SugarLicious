@@ -6,13 +6,16 @@
   border-radius: 10px;
   top: 80px;
   margin-inline: auto !important;
+  
   .slide {
     div {
       img {
         width: 100%;
-        height: 100%;
+        height: 480px;
+        // height: 100%;
         object-fit: cover;
-        object-position: bottom;
+        object-position: center;
+        // object-position: ;
         opacity: 0.8;
       }
     }

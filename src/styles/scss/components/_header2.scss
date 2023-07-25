@@ -1,0 +1,146 @@
+@use "../abstracts/" as *;
+
+.Header {
+  z-index: 99999;
+  background-color: #110b03;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  // border-bottom: #ECB014;
+  @include flexMixin($JScontent: space-between);
+  padding: 15px 50px;
+  img {
+    // width: 120px;
+    width: 85px;
+  }
+
+  ol {
+    @include flexMixin($JScontent: space-evenly);
+    column-gap: 20px;
+
+    a {
+      min-width: 100px;
+      padding: 4px 0;
+      text-align: center;
+      cursor: pointer;
+      li {
+        // font-size: 16px;
+        font-size: 14px;
+        color: #ecb014;
+        letter-spacing: 1px;
+      }
+
+      &:hover {
+        border-bottom: 2px solid #ecb014;
+      }
+    }
+    .active {
+      min-width: 100px;
+      border-bottom: 2px solid #ecb014;
+      // width: 50px;
+    }
+  }
+
+  #MenuIcons {
+    display: none;
+    cursor: pointer;
+  }
+}
+
+#responiveSliderMenu {
+  display: none;
+  position: relative;
+  #userLoginINFO {
+    @include flexMixin();
+    flex-wrap: wrap;
+    gap: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ff6e00;
+  }
+  img {
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 100px;
+  }
+  #logoutBTN {
+    background-color: #dd2900;
+    padding: 10px;
+    width: 85%;
+    font-weight: bolder;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+  }
+  #loginRegisterBTNS {
+    @include flexMixin();
+    gap: 10px;
+    padding: 20px 0;
+    border-bottom: 2px solid #ff6e00;
+    button {
+      font-size: 20px;
+      font-weight: bolder;
+      padding: 5px 10px;
+      flex: 1;
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  // @include responsive("phone"){
+  .Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    #MenuIcons {
+      display: flex;
+      font-size: 34px;
+    }
+    ol {
+      display: none;
+    }
+  }
+
+  #responiveSliderMenu {
+    transition: 600ms;
+    // position: absolute;
+    position: fixed;
+    top: -120vh;
+    // top:75px;
+    left: 0;
+    width: 100vw;
+    background-color: #2b1b07;
+    z-index: 9999;
+    padding: 50px 40px;
+    display: block;
+    height: calc(100vh - 58px);
+    ol {
+      @include flexMixin(flex-start, flex-start, column);
+      margin-top: 50px;
+      a {
+        min-width: 100%;
+        padding: 4px;
+        cursor: pointer;
+        text-align: left;
+        min-width: 100%;
+        li {
+          // font-size: 16px;
+          font-size: 14px;
+          color: #ecb014;
+          letter-spacing: 1px;
+        }
+
+        &:hover {
+          border-bottom: 2px solid #ecb014;
+        }
+      }
+      .active {
+        border-bottom: 2px solid #ecb014;
+      }
+    }
+  }
+}
+@media (max-width: 840px) {
+  .Header {
+    padding: 10px 20px;
+  }
+}

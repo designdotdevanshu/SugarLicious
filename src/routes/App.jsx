@@ -5,6 +5,9 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import OrdersPage from "./pages/OrdersPage";
 import ContactPage from "./pages/ContactPage";
 import ReserveSeatPage from "./pages/ReserveSeatPage";
+import Login from "../components/Signin_Register/Login";
+import Register from "../components/Signin_Register/Register";
+import Preloader from "../components/Common/Preloader";
 
 const App = () => {
   return (
@@ -17,6 +20,10 @@ const App = () => {
         <Route exact path="/Orders" element={<OrdersPage />} />
         <Route exact path="/ReserveSeat" element={<ReserveSeatPage />} />
         <Route exact path="/Contact" element={<ContactPage />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="*" element={<Preloader />} />
+
       </Routes>
     </Router>
   );

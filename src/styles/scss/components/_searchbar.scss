@@ -3,8 +3,8 @@
 #SearchBarContainer {
   position: sticky;
   // top: 70px;
-  top: 75px;
-  z-index: 9;
+  top: 68px;
+  z-index: 99;
   width: 80vw;
   margin: auto;
 
@@ -123,8 +123,8 @@
       padding: 5px 20px;
       width: 100%;
       border-bottom: 2px solid rgba(0, 0, 0, 0.547);
-      &:hover {
-        background-color: rgba(78, 75, 75, 0.047);
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.160);
       }
       a {
         flex: 1;

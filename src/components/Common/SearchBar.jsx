@@ -7,7 +7,7 @@ import {useState} from "react";
 import {Products} from "../../Data/ProductsJSON";
 import {NavLink} from "react-router-dom";
 
-const SearchBar = ({position, currPlace}) => {
+const SearchBar = ({ position, currPlace,bgColor }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchOutput, setsearchOutput] = useState();
   const handleInput = (input) => {
@@ -22,7 +22,8 @@ const SearchBar = ({position, currPlace}) => {
   };
   return (
     <div id="SearchBarContainer">
-      <div id="SearchBar" style={{marginTop: `${-position}px`}}>
+      {/* <div id="SearchBar" style={{marginTop: `${-position}px`}}> */}
+      <div id="SearchBar" style={{ marginTop: `${-position}px`, backgroundColor:`${bgColor}` , borderColor:"black"}}>
         <BiSearch id="SearchICON" />
         <input type="text" placeholder="SEARCH PRODUCT HERE....." onChange={handleInput} />
         <div id="Filter">
@@ -39,7 +40,7 @@ const SearchBar = ({position, currPlace}) => {
           currPlace === "home" ? (a = `./products/${curr.Category}/${curr._id}`) : (a = `./${curr.Category}/${curr._id}`);
           return (
             <div id="SearchProducts">
-              <NavLink to={a}>
+              <NavLink to={a} onClick={()=>window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                 <div>
                   <img src={curr.Image} alt={curr.Name} />
                   <p>{curr.Name}</p>
