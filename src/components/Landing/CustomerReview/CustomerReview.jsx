@@ -1,4 +1,3 @@
-import React from "react";
 import {Reviews} from "../../../Data/FrontJSON";
 import {AiFillStar} from "react-icons/ai";
 const CustomerReview = () => {

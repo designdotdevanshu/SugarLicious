@@ -5,8 +5,8 @@ import Image4 from "../assets/Frontpage/Image (22).png";
 import Image5 from "../assets/Frontpage/Image (27).png";
 import Image6 from "../assets/Frontpage/Image (16).png";
 import Image7 from "../assets/Frontpage/Image (28).png";
-import Image8 from "../assets/Frontpage/Image (10).png";
-import Image9 from "../assets/Frontpage/Image (17).png";
+// import Image8 from "../assets/Frontpage/Image (10).png";
+// import Image9 from "../assets/Frontpage/Image (17).png";
 import Image10 from "../assets/Frontpage/Image (23).png";
 import Image11 from "../assets/Frontpage/Image (21).png";
 import Image12 from "../assets/Frontpage/Image (26).png";
@@ -17,11 +17,11 @@ import Image16 from "../assets/Frontpage/Image (47).png";
 import Image17 from "../assets/Frontpage/Image (55).png";
 import Image18 from "../assets/Frontpage/Image (56).png";
 //import Image19 from "../assets/Frontpage/Image (50).png"
-import Image20 from "../assets/Frontpage/Image (29).png";
+// import Image20 from "../assets/Frontpage/Image (29).png";
 import Image21 from "../assets/Frontpage/Image (30).png";
-import Image22 from "../assets/Frontpage/Image (31).png";
+// import Image22 from "../assets/Frontpage/Image (31).png";
 import Image23 from "../assets/Frontpage/Image (32).png";
-import Image24 from "../assets/Frontpage/Image (33).png";
+// import Image24 from "../assets/Frontpage/Image (33).png";
 
 // for Desktop 12
 const FrontJSON = [

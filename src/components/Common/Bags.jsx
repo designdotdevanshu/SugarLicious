@@ -1,7 +1,4 @@
-import React from "react";
-import {useEffect} from "react";
-import {useState} from "react";
-import {useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {FaShoppingBag} from "react-icons/fa";
 import {IoIosClose} from "react-icons/io";
 import {MdOutlineArrowBackIos} from "react-icons/md";
@@ -43,7 +40,7 @@ const Bags = () => {
             <div id="bagScroll">
               {arr.map((curr, ids) => {
                 return (
-                  <div id="productCart">
+                  <div id="productCart" key={ids}>
                     <div id="productCartFront">
                       <img src={Image} alt="CardImage" />
                       <div id="productDetail">

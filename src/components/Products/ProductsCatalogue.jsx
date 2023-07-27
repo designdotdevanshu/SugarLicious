@@ -1,24 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Products} from "../../Data/ProductsJSON";
-// import SearchBar from "../Common/SearchBar";
 import {AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
-// import Footer from "../Footer/Footer";
-// import {useEffect} from "react";
 import {NavLink, useParams} from "react-router-dom";
-// import {useState} from "react";
-// import Bags from "../Common/Bags";
-// import {NavLink} from "react-router-dom";
-
-// let x = document.getElementById("products");
-// x.addEventListener("click", () => {
-//   const SearchBar = document.getElementById("SearchBar");
-//   SearchBar.style.position = "fixed";
-//   SearchBar.style.width = "100vw";
-//   SearchBar.style.top = "91px";
-//   SearchBar.style.left = 0;
-//   SearchBar.style.right = 0;
-//   SearchBar.style.transition = "width 0.5s";
-// });
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -59,8 +42,6 @@ const ProductsCatalogue = () => {
 
   return (
     <React.Fragment>
-      {/* <Bags /> */}
-      {/* <SearchBar position="100" currPlace="ProductPage" /> */}
       <div className="products">
         {products.slice(firstIndex, lastIndex).map((product) => {
           let a;
@@ -75,7 +56,7 @@ const ProductsCatalogue = () => {
               <div id="product-heart">
                 <AiFillHeart onClick={() => addLike(product._id)} className={likeProduct.find((e) => e === product._id) ? "active-Heart" : ""} />
               </div>
-              <NavLink to={a} onClick={()=>window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
+              <NavLink to={a} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                 <img src={product.Image} alt={product.Name} className="product-image" />
                 <div className="product-info">
                   <h5 className="product-name">{product.Name}</h5>
@@ -136,7 +117,6 @@ const ProductsCatalogue = () => {
           </>
         )}
       </div>
-      {/* <Footer /> */}
     </React.Fragment>
   );
 };

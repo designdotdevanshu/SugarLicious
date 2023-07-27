@@ -40,6 +40,7 @@
     }
 
     #Filter {
+      cursor: pointer;
       color: black;
       font-size: 14px;
       font-weight: bolder;
@@ -123,8 +124,8 @@
       padding: 5px 20px;
       width: 100%;
       border-bottom: 2px solid rgba(0, 0, 0, 0.547);
-      &:hover{
-        background-color: rgba(0, 0, 0, 0.160);
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.16);
       }
       a {
         flex: 1;

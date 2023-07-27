@@ -41,9 +41,8 @@
       border-color: #ecb014;
       margin-bottom: 15px;
       background-color: white;
-      
     }
-    
+
     #passwordContainer {
       position: relative;
       margin-bottom: 15px;
@@ -81,7 +80,7 @@
       }
     }
 
-    input[type=button] {
+    input[type="button"] {
       background-color: #ecb014;
       color: #ffffff;
       width: 100%;
@@ -150,23 +149,22 @@
     }
   }
 
-  @media (max-width:500px) {
+  @media (max-width: 500px) {
     #Login {
-    form {
-      width: 95vw;
-      padding: 40px 10px;
-      #passwordContainer {
-        #passwordEYE {
-          top: 7px;
+      form {
+        width: 95vw;
+        padding: 40px 10px;
+        #passwordContainer {
+          #passwordEYE {
+            top: 7px;
+          }
+        }
+
+        input {
+          padding: 4px 10px;
+          font-size: 14px;
         }
       }
-
-      input {
-        padding: 4px 10px;
-        font-size: 14px;
-      }
     }
-
   }
-}
 }

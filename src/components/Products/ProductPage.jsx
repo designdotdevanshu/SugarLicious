@@ -52,64 +52,64 @@ const ProductPage = () => {
     <React.Fragment>
       <Bags />
       {itemDetails && (
-      <>
-        <div className="products product-board">
-          <div className="product-card" key={itemDetails._id}>
-            <img className="product-image" src={itemDetails.Image} alt={itemDetails.Name} loading="lazy" />
-            <div className="product-info">
-              <h5 className="product-name">{itemDetails.Name}</h5>
-              <p className="product-price">&#x20B9;{itemDetails.Price}</p>
-              <div className="product-star">
-                <AiFillStar id="A" />
-                <p className="product-rating">{itemDetails.Star?.toFixed(1)}/5.0</p>
-              </div>
-            </div>
-          </div>
-          <div className="product-board-desc">
-            <h1>
-              {itemDetails.Name}
-              {itemDetails.type === "Veg" ? <img id="veg" src={Veg} alt="Veg" /> : <LuVegan id="LuVegan" />}
-            </h1>
-            <p>{itemDetails.Desc}</p>
-            <div className="product-board-sizes">
-              <h2>Select Sizes</h2>
-              <div className="sizes">
-                {Sizes.map((size) => {
-                  return (
-                    <div id={size.name} key={size.id}>
-                      <img src={itemDetails.Image} alt={itemDetails.Name} />
-                      <p>{size.name}</p>
-                      <p className="product-price">&#x20B9;{size.price}</p>
-                      <div className="counter">
-                        <button
-                          className="btn btn--minus"
-                          onClick={() => {
-                            size.counter > 0 ? size.setCounter(size.counter - 1) : size.setCounter(size.counter);
-                          }}>
-                          <TiMinus />
-                        </button>
-                        <p>{size.name}</p>
-                        <span>{size.counter}</span>
-                        <button className="btn btn--plus" onClick={() => (size.counter < 9 ? size.setCounter(size.counter + 1) : size.setCounter(size.counter))}>
-                          <TiPlus />
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div id="totalorder">
-                <div className="total">
-                  <h1>Total Amount &#x20B9; {total}</h1>
+        <>
+          <div className="products product-board">
+            <div className="product-card" key={itemDetails._id}>
+              <img className="product-image" src={itemDetails.Image} alt={itemDetails.Name} loading="lazy" />
+              <div className="product-info">
+                <h5 className="product-name">{itemDetails.Name}</h5>
+                <p className="product-price">&#x20B9;{itemDetails.Price}</p>
+                <div className="product-star">
+                  <AiFillStar id="A" />
+                  <p className="product-rating">{itemDetails.Star?.toFixed(1)}/5.0</p>
                 </div>
-                <button className="order">Order Now</button>
+              </div>
+            </div>
+            <div className="product-board-desc">
+              <h1>
+                {itemDetails.Name}
+                {itemDetails.type === "Veg" ? <img id="veg" src={Veg} alt="Veg" /> : <LuVegan id="LuVegan" />}
+              </h1>
+              <p>{itemDetails.Desc}</p>
+              <div className="product-board-sizes">
+                <h2>Select Sizes</h2>
+                <div className="sizes">
+                  {Sizes.map((size) => {
+                    return (
+                      <div id={size.name} key={size.id}>
+                        <img src={itemDetails.Image} alt={itemDetails.Name} />
+                        <p>{size.name}</p>
+                        <p className="product-price">&#x20B9;{size.price}</p>
+                        <div className="counter">
+                          <button
+                            className="btn btn--minus"
+                            onClick={() => {
+                              size.counter > 0 ? size.setCounter(size.counter - 1) : size.setCounter(size.counter);
+                            }}>
+                            <TiMinus />
+                          </button>
+                          <p>{size.name}</p>
+                          <span>{size.counter}</span>
+                          <button className="btn btn--plus" onClick={() => (size.counter < 9 ? size.setCounter(size.counter + 1) : size.setCounter(size.counter))}>
+                            <TiPlus />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div id="totalorder">
+                  <div className="total">
+                    <h1>Total Amount &#x20B9; {total}</h1>
+                  </div>
+                  <button className="order">Order Now</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* <CustomerReview /> */}
-        {/* <Footer /> */}
-      </>
+          {/* <CustomerReview /> */}
+          {/* <Footer /> */}
+        </>
       )}
     </React.Fragment>
   );

@@ -119,25 +119,25 @@
           margin-top: 10px;
         }
 
-        #SecondHALF h2{
+        #SecondHALF h2 {
           font-size: 14px;
         }
       }
     }
   }
-  
+
   @media (max-width: 910px) {
     .ReserveSeat #ReseverSeatForm {
       height: 80vh;
-      form div input{
-      padding: 2px 0 ;
-      font-size: 14px;
-    }
-    #SecondHALF {
-      img {
-        width: 20vh;
+      form div input {
+        padding: 2px 0;
+        font-size: 14px;
       }
-    }
+      #SecondHALF {
+        img {
+          width: 20vh;
+        }
+      }
     }
   }
   @media (max-width: 600px) {

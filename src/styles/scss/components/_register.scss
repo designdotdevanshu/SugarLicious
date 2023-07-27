@@ -44,14 +44,14 @@
       margin-bottom: 1px;
     }
 
-    #passwordContainer{
+    #passwordContainer {
       position: relative;
       margin-bottom: 15px;
-      #passwordEYE{
+      #passwordEYE {
         position: absolute;
         top: 13px;
         right: 15px;
-        svg{
+        svg {
           cursor: pointer;
           color: rgb(73, 70, 70);
           font-size: 20px;
@@ -73,7 +73,8 @@
       }
     }
 
-    #registerBTN,button {
+    #registerBTN,
+    button {
       background-color: #ecb014;
       color: #ffffff;
       width: 100%;
@@ -88,7 +89,7 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.215);
       }
     }
-    .already-account{
+    .already-account {
       @include flexMixin();
       font-size: 12px;
       gap: 5px;
@@ -103,8 +104,8 @@
     }
   }
 
-  @media (max-width:500px){
-    form{
+  @media (max-width: 500px) {
+    form {
       width: 95vw;
       padding: 40px 10px;
       #passwordContainer {
@@ -112,7 +113,7 @@
           top: 7px;
         }
       }
-      input{
+      input {
         padding: 4px 10px;
         font-size: 14px;
       }

@@ -1,228 +1,228 @@
 @use "../abstracts/" as *;
 
 #Orders {
-    position: relative;
-    top: 68px;
-    color: black;
-    background-color: #F7E7DC;
-    margin: 0 50px 150px 50px;
-    min-height: calc(100vh - 118px);
-    padding: 30px 60px;
-    border-radius: 20px;
+  position: relative;
+  top: 68px;
+  color: black;
+  background-color: #f7e7dc;
+  margin: 0 50px 150px 50px;
+  min-height: calc(100vh - 118px);
+  padding: 30px 60px;
+  border-radius: 20px;
 
-    #order-wishlists {
-        margin-top: 30px;
-        display: flex;
-        gap: 5px;
-        h3 {
-            width: 170px;
+  #order-wishlists {
+    margin-top: 30px;
+    display: flex;
+    gap: 5px;
+    h3 {
+      width: 170px;
+      text-align: center;
+      padding-bottom: 2px;
+      cursor: pointer;
+    }
+
+    #active {
+      border-bottom: 3px solid #ecb014;
+    }
+  }
+
+  #orderCardsContainer {
+    @include flexMixin(flex-start, space-around);
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 20px;
+
+    #orderProduct {
+      @include flexMixin(flex-start, center);
+      border: 2px solid #8a8686;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-wrap: wrap;
+
+      #orderCards {
+        padding: 15px;
+        width: 400px;
+
+        h4,
+        h2 {
+          text-align: center;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        #orders-Product {
+          @include flexMixin();
+          gap: 20px;
+
+          p {
             text-align: center;
-            padding-bottom: 2px;
-            cursor: pointer;
-        }
 
-        #active {
-            border-bottom: 3px solid #ECB014;
-        }
-    }
-
-    #orderCardsContainer {
-        @include flexMixin(flex-start, space-around);
-        flex-wrap: wrap;
-        margin-top: 10px;
-        gap: 20px;
-
-        #orderProduct {
-            @include flexMixin(flex-start, center);
-            border: 2px solid #8A8686;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-wrap: wrap;
-
-            #orderCards {
-                padding: 15px;
-                width: 400px;
-
-                h4,
-                h2 {
-                    text-align: center;
-                    width: 100%;
-                    margin-bottom: 10px
-                }
-
-                #orders-Product {
-                    @include flexMixin();
-                    gap: 20px;
-
-                    p {
-                        text-align: center;
-
-                        &:last-child {
-                            font-weight: bold;
-                        }
-                    }
-
-                    div {
-                        img {
-                            width: 100px;
-                        }
-                    }
-                }
-
-                #orderDesc {
-                    font-size: 14px;
-                    margin: 5px 20px;
-                }
-
-                #btns {
-                    @include flexMixin();
-                    gap: 20px;
-                    font-size: 12px;
-                    margin-top: 20px;
-
-                    button {
-                        padding: 10px 38px;
-                        color: white;
-                        font-weight: bolder;
-                        cursor: pointer;
-
-                        &:first-child {
-                            background-color: #ECB014;
-                        }
-
-                        &:last-child {
-                            background-color: #332626;
-                        }
-                    }
-                }
+            &:last-child {
+              font-weight: bold;
             }
+          }
 
-            .track-order {
-                @include flexMixin(flex-start, $direction: column);
-                background-color: white;
-                flex: 1;
-                height: 365px;
-                width: 0;
-                overflow: hidden;
-                transition: 1s;
-                position: relative;
-
-                #closeICON {
-                    color: #332626;
-                    font-size: 26px;
-                    position: absolute;
-                    top: 10px;
-                    right: 10px;
-                    cursor: pointer;
-                }
-
-                h3 {
-                    margin-bottom: 20px;
-                    margin-left: 70px;
-                }
-
-                div {
-                    position: relative;
-
-                    #Line {
-                        position: absolute;
-                        left: 0px;
-                        background-color: black;
-                        width: 2px;
-                        height: 100%;
-                    }
-
-                    #timeStamp-Order {
-                        margin-left: 20px;
-
-                        p {
-                            margin-left: 20px;
-                            font-size: 12px;
-                        }
-
-                        #currStage-Order {
-                            width: 10px;
-                            height: 10px;
-                            border-radius: 50%;
-                            background-color: black;
-                            position: absolute;
-                            left: -24px;
-                            margin-top: 4px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    #wishlist {
-        margin-top: 20px;
-
-        #WishList-Card {
-            @include flexMixin();
-            margin-bottom: 20px;
-            gap: 20px;
-            background-color: white;
-            padding: 15px 30px 15px 15px;
-            position: relative;
-            border-radius: 10px;
-
+          div {
             img {
-                width: 120px;
-                border-radius: 10px;
+              width: 100px;
             }
-
-            #productDesc {
-                flex: 1;
-            }
-
-            button {
-                position: absolute;
-                bottom: 10px;
-                right: 20px;
-                padding: 5px 20px;
-                font-weight: bolder;
-                cursor: pointer;
-                background-color: #ECB014;
-                color: white;
-
-                &:hover {
-                    background-color: rgba(0, 0, 0, 0.462);
-                }
-            }
-
-            #IconClose {
-                position: absolute;
-                top: 10px;
-                right: 20px;
-                font-size: 26px;
-                border-radius: 50%;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: rgba(0, 0, 0, 0.297);
-                }
-            }
+          }
         }
+
+        #orderDesc {
+          font-size: 14px;
+          margin: 5px 20px;
+        }
+
+        #btns {
+          @include flexMixin();
+          gap: 20px;
+          font-size: 12px;
+          margin-top: 20px;
+
+          button {
+            padding: 10px 38px;
+            color: white;
+            font-weight: bolder;
+            cursor: pointer;
+
+            &:first-child {
+              background-color: #ecb014;
+            }
+
+            &:last-child {
+              background-color: #332626;
+            }
+          }
+        }
+      }
+
+      .track-order {
+        @include flexMixin(flex-start, $direction: column);
+        background-color: white;
+        flex: 1;
+        height: 365px;
+        width: 0;
+        overflow: hidden;
+        transition: 1s;
+        position: relative;
+
+        #closeICON {
+          color: #332626;
+          font-size: 26px;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+
+        h3 {
+          margin-bottom: 20px;
+          margin-left: 70px;
+        }
+
+        div {
+          position: relative;
+
+          #Line {
+            position: absolute;
+            left: 0px;
+            background-color: black;
+            width: 2px;
+            height: 100%;
+          }
+
+          #timeStamp-Order {
+            margin-left: 20px;
+
+            p {
+              margin-left: 20px;
+              font-size: 12px;
+            }
+
+            #currStage-Order {
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: black;
+              position: absolute;
+              left: -24px;
+              margin-top: 4px;
+            }
+          }
+        }
+      }
     }
+  }
+
+  #wishlist {
+    margin-top: 20px;
+
+    #WishList-Card {
+      @include flexMixin();
+      margin-bottom: 20px;
+      gap: 20px;
+      background-color: white;
+      padding: 15px 30px 15px 15px;
+      position: relative;
+      border-radius: 10px;
+
+      img {
+        width: 120px;
+        border-radius: 10px;
+      }
+
+      #productDesc {
+        flex: 1;
+      }
+
+      button {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        padding: 5px 20px;
+        font-weight: bolder;
+        cursor: pointer;
+        background-color: #ecb014;
+        color: white;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.462);
+        }
+      }
+
+      #IconClose {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 26px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.297);
+        }
+      }
+    }
+  }
 }
 
 #scooterIMG {
-    position: fixed;
-    bottom: 10px;
-    left: 20px;
-    width: 80px;
-    animation-name: scooterAnimation;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  width: 80px;
+  animation-name: scooterAnimation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes scooterAnimation {
-    from {
-        left: 100px;
-    }
+  from {
+    left: 100px;
+  }
 
-    to {
-        left: -80px;
-    }
+  to {
+    left: -80px;
+  }
 }
