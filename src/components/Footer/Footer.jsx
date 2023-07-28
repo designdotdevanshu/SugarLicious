@@ -1,5 +1,6 @@
 import {BiLogoInstagramAlt, BiLogoFacebookSquare, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoPlayStore} from "react-icons/bi";
 import {BsApple} from "react-icons/bs";
+import {NavLink} from "react-router-dom";
 import {Link} from "react-router-dom";
 const HeaderData = [
   {
@@ -7,19 +8,19 @@ const HeaderData = [
     Links: [
       {
         text: "Pizza",
-        link: "/Products/Pizza/",
+        link: "/SugarLicious/Products/Pizza/",
       },
       {
         text: "Muffins",
-        link: "/Products/Muffins/",
+        link: "/SugarLicious/Products/Muffins/",
       },
       {
         text: "Beverages",
-        link: "/Products/Beverages/",
+        link: "/SugarLicious/Products/Beverages/",
       },
       {
         text: "Snacks & Slides",
-        link: "/Products/SnacksAndSides/",
+        link: "/SugarLicious/Products/SnacksAndSides/",
       },
     ],
   },
@@ -28,11 +29,11 @@ const HeaderData = [
     Links: [
       {
         text: "Shipping",
-        link: "/Orders",
+        link: "/SugarLicious/Orders",
       },
       {
         text: "Reserve Seat",
-        link: "/ReserveSeat",
+        link: "/SugarLicious/ReserveSeat",
       },
       {
         text: "Terms and Conditions",
@@ -48,8 +49,12 @@ const HeaderData = [
     Title: "MORE INFO",
     Links: [
       {
+        text: "About Us",
+        link: "/SugarLicious/AboutUs",
+      },
+      {
         text: "Contact Us",
-        link: "/Contact",
+        link: "/SugarLicious/Contact",
       },
       {
         text: "Join our team",
@@ -86,6 +91,7 @@ const SocialLinks = [
     ],
   },
 ];
+
 const Footer = () => {
   return (
     <footer>
@@ -98,7 +104,7 @@ const Footer = () => {
                 {curr.Links.map((Links, ids2) => {
                   return (
                     <li key={ids2}>
-                      <Link to={Links.link}>{Links.text}</Link>
+                      <NavLink to={Links.link}>{Links.text}</NavLink>
                     </li>
                   );
                 })}
@@ -118,13 +124,15 @@ const Footer = () => {
           return (
             <li id="SocialMedia" key={ids2}>
               <h2>{cur.Title}</h2>
-              {cur.Links.map((Link) => {
-                return (
-                  <a href={Link.link} target="_blank" rel="noreferrer" key={ids2}>
-                    {Link.text}
-                  </a>
-                );
-              })}
+              <div id="social-icons">
+                {cur.Links.map((Link, id3) => {
+                  return (
+                    <a href={Link.link} target="_blank" rel="noreferrer" key={id3}>
+                      {Link.text}
+                    </a>
+                  );
+                })}
+              </div>
             </li>
           );
         })}
@@ -147,9 +155,9 @@ const Footer = () => {
       </div>
       <div id="feedback">
         <p>GIVE YOUR VALUABLE FEEDBACK </p>
-        <Link to="/Contact">
+        <NavLink to="/SugarLicious/contact">
           <button>GIVE FEEDBACK</button>
-        </Link>
+        </NavLink>
       </div>
     </footer>
   );

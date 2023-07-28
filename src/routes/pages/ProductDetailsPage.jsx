@@ -5,7 +5,7 @@ import Bags from "../../components/Common/Bags";
 import ProductPage from "../../components/Products/ProductPage";
 import CustomerReview from "../../components/Landing/CustomerReview/CustomerReview";
 import Footer from "../../components/Footer/Footer";
-import PageNotFound from "../../components/Common/PageNotFound";
+import PageNotFound from "../../components/PageNotFound/PageNotFound";
 import Header from "../../components/Header/Header";
 
 const ProductDetailsPage = () => {

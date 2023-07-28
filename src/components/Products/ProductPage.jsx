@@ -1,8 +1,11 @@
 import React from "react";
-import {Products} from "../../Data/ProductsJSON";
-import {AiFillStar} from "react-icons/ai";
+import {AiFillStar, AiFillHeart} from "react-icons/ai";
+
+import {BsFillBagFill} from "react-icons/bs";
 import {TiMinus, TiPlus} from "react-icons/ti";
 import {LuVegan} from "react-icons/lu";
+import {Products} from "../../Data/ProductsJSON";
+
 import Veg from "../../assets/veg.png";
 // import CustomerReview from "../Landing/CustomerReview/CustomerReview";
 // import Footer from "../Footer/Footer";
@@ -10,6 +13,8 @@ import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {useState} from "react";
 import Bags from "../Common/Bags";
+import {UserData} from "../../routes/App";
+import {useContext} from "react";
 
 const ProductPage = () => {
   const [counter0, setCounter0] = useState(0);
@@ -17,6 +22,17 @@ const ProductPage = () => {
   const [counter2, setCounter2] = useState(0);
   const [itemDetails, setItemDetails] = useState({});
   let itemShow = useParams().productID;
+  const {userData, setUserData} = useContext(UserData);
+
+  useEffect(() => {
+    userData.Bag.find((e) => {
+      if (e._id === itemDetails._id) {
+        setCounter0(e.SmallCount);
+        setCounter1(e.MediumCount);
+        setCounter2(e.LargeCount);
+      }
+    });
+  }, [[], userData]);
 
   useEffect(() => {
     setItemDetails(Products.find((e) => e._id === itemShow));
@@ -48,6 +64,34 @@ const ProductPage = () => {
 
   const total = Sizes[0].price * Sizes[0].counter + Sizes[1].price * Sizes[1].counter + Sizes[2].price * Sizes[2].counter;
 
+  const addLike = (_id) => {
+    let b = userData.Wishlist.find((e) => e._id === _id);
+    if (b) {
+      let a = userData.Wishlist.filter((e) => e._id !== _id);
+      setUserData({...userData, Wishlist: a});
+    } else {
+      let a = [...userData.Wishlist, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
+      setUserData({...userData, Wishlist: a});
+    }
+  };
+
+  const addToBag = (_id) => {
+    let b = userData.Bag.find((e) => e._id === _id);
+    if (b && _id) {
+      let a = userData.Bag.filter((e) => e._id !== _id);
+      let b = [...a, {_id, SmallCount: counter0.toString(), MediumCount: counter1.toString(), LargeCount: counter2.toString()}];
+      setUserData({...userData, Bag: b});
+    }
+    if (!b && _id) {
+      let a = [...userData.Bag, {_id, SmallCount: counter0.toString(), MediumCount: counter1.toString(), LargeCount: counter2.toString()}];
+      setUserData({...userData, Bag: a});
+    }
+    if (counter0 && counter1 && counter2 === 0) {
+      let a = userData.Bag.filter((e) => e._id !== _id);
+      setUserData({...userData, Bag: a});
+    }
+  };
+
   return (
     <React.Fragment>
       <Bags />
@@ -55,6 +99,9 @@ const ProductPage = () => {
         <>
           <div className="products product-board">
             <div className="product-card" key={itemDetails._id}>
+              <div id="product-img-BTN">
+                <AiFillHeart onClick={() => addLike(itemDetails._id)} className={userData.Wishlist.find((e) => e._id === itemDetails._id) ? "active-Heart" : ""} />
+              </div>
               <img className="product-image" src={itemDetails.Image} alt={itemDetails.Name} loading="lazy" />
               <div className="product-info">
                 <h5 className="product-name">{itemDetails.Name}</h5>
@@ -85,12 +132,18 @@ const ProductPage = () => {
                             className="btn btn--minus"
                             onClick={() => {
                               size.counter > 0 ? size.setCounter(size.counter - 1) : size.setCounter(size.counter);
+                              // addProductQuantity(itemDetails._id);
                             }}>
                             <TiMinus />
                           </button>
                           <p>{size.name}</p>
                           <span>{size.counter}</span>
-                          <button className="btn btn--plus" onClick={() => (size.counter < 9 ? size.setCounter(size.counter + 1) : size.setCounter(size.counter))}>
+                          <button
+                            className="btn btn--plus"
+                            onClick={() => {
+                              size.counter < 9 ? size.setCounter(size.counter + 1) : size.setCounter(size.counter);
+                              // addProductQuantity(itemDetails._id,size.counter + 1);
+                            }}>
                             <TiPlus />
                           </button>
                         </div>
@@ -102,7 +155,9 @@ const ProductPage = () => {
                   <div className="total">
                     <h1>Total Amount &#x20B9; {total}</h1>
                   </div>
-                  <button className="order">Order Now</button>
+                  <button className="order" onClick={() => addToBag(itemDetails._id)}>
+                    Add to Bag
+                  </button>
                 </div>
               </div>
             </div>

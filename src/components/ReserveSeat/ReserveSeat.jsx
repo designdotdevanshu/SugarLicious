@@ -3,7 +3,6 @@ import MANWOMENDinning from "../../assets/ManWomenDining.png";
 import {BsTelephoneFill} from "react-icons/bs";
 import {BiCalendar, BiSolidTimeFive} from "react-icons/bi";
 import {FaUserAlt} from "react-icons/fa";
-
 // import <Ba></Ba>ckground from "../../assets/ManWomenDining.png"
 const ReserveSeat = () => {
   return (

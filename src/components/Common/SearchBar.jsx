@@ -42,7 +42,7 @@ const SearchBar = ({position, currPlace, bgColor}) => {
       <div id="SearchProductsContainer">
         {searchOutput?.map((curr) => {
           let a;
-          currPlace === "home" ? (a = `./products/${curr.Category}/${curr._id}`) : (a = `./${curr.Category}/${curr._id}`);
+          currPlace === "home" ? (a = `/SugarLicious/products/${curr.Category}/${curr._id}`) : (a = `/SugarLicious/products/${curr.Category}/${curr._id}`);
           return (
             <div id="SearchProducts">
               <NavLink to={a}>

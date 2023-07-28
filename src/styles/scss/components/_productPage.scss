@@ -6,6 +6,7 @@
   top: 0;
   width: calc(100vw - 160px);
   gap: 50px;
+
   .product-card {
     width: 350px;
     height: 100%;
@@ -23,6 +24,7 @@
       .product-name {
         font-size: 22px;
       }
+
       .product-price {
         font-size: 20px;
         margin: 0;
@@ -34,6 +36,7 @@
         position: absolute;
         bottom: 5px;
         right: 20px;
+
         #A {
           color: #b89130;
         }
@@ -43,10 +46,12 @@
 
   .product-board-desc {
     flex: 1;
+
     h1 {
       font-size: 26px;
       font-weight: bolder;
       @include flexMixin(flex-start, flex-start);
+
       #veg {
         position: relative;
         left: 10px;
@@ -56,6 +61,7 @@
         border-radius: 0;
         align-self: end;
       }
+
       #LuVegan {
         color: #08870d;
         position: relative;
@@ -72,6 +78,7 @@
       @include flex-center(column);
       text-transform: uppercase;
       margin: pxToRem(30);
+
       h2 {
         font-size: 20px;
       }
@@ -80,6 +87,7 @@
         @include flex-center(row);
         gap: 40px;
         margin: 20px 10px;
+
         div {
           @include flex-center(column);
 
@@ -99,11 +107,13 @@
             border-radius: 6px;
             margin: 10px 0;
             background-color: #7f5539;
+
             p {
               padding: 6px 12px;
               font-size: 12px;
               margin: 0;
             }
+
             span {
               padding-right: 8px;
             }
@@ -115,9 +125,11 @@
               color: #fff;
               padding: 9px 10px;
               cursor: pointer;
+
               &--minus {
                 border-radius: 6px 0 0 6px;
               }
+
               &--plus {
                 border-radius: 0 6px 6px 0;
               }
@@ -131,6 +143,7 @@
         gap: 40px;
         margin-top: 30px;
         flex-wrap: wrap;
+
         .total {
           border: 2px solid white;
           border-radius: 6px;
@@ -151,9 +164,11 @@
 @media (max-width: 1125px) {
   .product-board {
     margin-top: 50px;
+
     .product-board-desc h1 {
       text-align: center;
     }
+
     .product-board-desc {
       h1 {
         text-align: center;
@@ -163,6 +178,7 @@
 }
 
 @include responsive(laptop) {
+  // .productP
   .product-board {
     .product-board-desc {
       p {
@@ -174,21 +190,26 @@
 
 @include responsive(tab-port) {
   .product-board {
+    margin-top: 30px !important;
     .product-board-desc {
       width: 90vw;
+
       h1 {
         font-size: 20px;
         text-align: center;
       }
+
       p {
         margin: auto;
         font-size: 14px;
       }
+
       .product-board-sizes {
         .sizes {
           div {
             margin: 0;
           }
+
           .counter {
             p {
               padding: 5px 5px !important;
@@ -197,8 +218,10 @@
             }
           }
         }
+
         .total {
           padding: 10px 50px;
+
           h1 {
             font-size: pxToRem(16);
           }
@@ -207,60 +230,75 @@
     }
   }
 }
+
 @include responsive(phone) {
   * {
     .product-board {
       width: 100vw;
       margin: 30px 0;
+
       .product-card {
         width: 90vw;
         height: 350px;
+
         img {
           width: 100%;
         }
+
         .product-info {
           width: 100%;
           display: none;
           padding-bottom: 0;
         }
       }
+
       .product-board-desc {
         margin: 10px 20px;
+
         p {
           font-size: 14px;
         }
+
         .product-board-sizes {
           h2 {
             font-size: 18px;
           }
+
           .sizes {
             div {
               margin: 5px;
+
               img {
                 width: 80px;
                 height: 5.813rem;
                 aspect-ratio: 1;
               }
             }
+
             .counter {
               p {
                 display: none;
               }
+
               span {
                 padding: 2px 8px;
               }
+
               .btn {
                 padding: 8px !important;
               }
             }
           }
+
           .total {
             margin-top: 20px;
             padding: 15px 30px !important;
+
             h1 {
               font-size: 14px;
             }
           }
+
           .order {
             width: auto;
             // height: 66px;

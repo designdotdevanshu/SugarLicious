@@ -1,13 +1,12 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import google from "../../assets/google.png";
 import {NavLink} from "react-router-dom";
 import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai";
 import Header from "../Header/Header";
-import Cookies from "universal-cookie";
-import jwt from "jwt-decode";
-
-import {db} from "../firebase";
-import {onValue, ref, set} from "firebase/database";
+import {UserData, Notification} from "../../routes/App";
+import {useContext} from "react";
+import {useNavigate} from "react-router-dom";
+// import { toast } from "react-toastify";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -15,10 +14,9 @@ const Login = () => {
     Password: "",
   });
   const [passwordShow, setPasswordShow] = useState(false);
-
-  // const [user,setUser] = useState(null);
-  // const cookies = new Cookies();
-
+  const {userData, setUserData} = useContext(UserData);
+  const {notification} = useContext(Notification);
+  const navigate = useNavigate();
   useEffect(() => {
     passwordShow ? (document.getElementById("Password").type = "text") : (document.getElementById("Password").type = "password");
   }, [passwordShow]);
@@ -29,40 +27,21 @@ const Login = () => {
     setLoginData({...loginData, [name]: value});
   };
 
-  // const login = (jwt_token="afdsasdf453531151") => {
-  //   const decode = jwt(jwt_token);
-  //   setUser(decode);
-  //   cookies.set("jwt_authorization",jwt_token,{
-  //     expires:new Date(decode.exp * 1000),
-  //   })
-  // }
-
   const submitLogin = async (e) => {
     e.perventDefault;
-    // login();
-
-    // const starCountRef = ref(db);
-    // const User = [];
-    // if(loginData.Email && loginData.Password){
-    //   onValue(starCountRef, (snapshot) => {
-    //     const data = snapshot.val();
-    //     Object.values(data)?.map((curr) => {
-    //       User.push(curr);
-    //     });
-    //     // console.log(User);
-    //     // User.find(e => e.Email === loginData.Email && e.Password === loginData.Password);
-    //     console.log(User.find(e => e.Email === loginData.Email && e.Password === loginData.Password));
-    //   })
-    // }
+    if (userData.Info.Email === loginData.Email && userData.Info.Password === loginData.Password && userData) {
+      let a = {...userData.Info, logined: true};
+      setUserData({...userData, Info: a});
+      notification("User Logined");
+      setTimeout(() => {
+        navigate("/SugarLicious");
+      }, 1000);
+    } else if (userData.Info.Email !== loginData.Email) {
+      notification("User Email is Not Matched");
+    } else {
+      notification("User Password is Not Matched");
+    }
   };
-
-  // useEffect(()=>{
-  //   submitLogin();
-  // },[])
-
-  // useEffect(() => {
-  //   console.log(loginData);
-  // }, [loginData]);
 
   return (
     <>
@@ -85,14 +64,13 @@ const Login = () => {
             </div>
           </div>
           <div className="forgot-password">
-            <a href="#" className="forgot-password">
-              Forgot Password?
-            </a>
+            <NavLink to="./forgetpassword">Forgot Password?</NavLink>
+            {/* <a href="#" className="forgot-password">Forgot Password?</a> */}
           </div>
           <input type="button" value="LOGIN" onClick={submitLogin} />
           <div className="no-account">
-            <p>Don`&apos;`t have an account?</p>
-            <NavLink to="/Register" ClassName="active">
+            <p>Don't have an account?</p>
+            <NavLink to="/SugarLicious/Register" ClassName="active">
               Sign Up
             </NavLink>
           </div>

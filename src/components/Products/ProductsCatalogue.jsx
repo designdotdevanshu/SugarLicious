@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {Products} from "../../Data/ProductsJSON";
 import {AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
+
+import {BsFillBagFill} from "react-icons/bs";
 import {NavLink, useParams} from "react-router-dom";
+import {useContext} from "react";
+import {Loading, UserData} from "../../routes/App";
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -19,16 +23,52 @@ const ProductsCatalogue = () => {
   const [category, setCategory] = useState(useParams());
   const [count, setCount] = useState(0);
 
-  const [likeProduct, setLikedProduct] = useState([]);
+  const setloadingScreen = useContext(Loading);
+
+  const {userData, setUserData} = useContext(UserData);
+
   let lastIndex = currPage * cardPerPage;
   let firstIndex = lastIndex - cardPerPage;
+
+  const [loadedImages, setLoadedImages] = useState(0);
+  const [totalImages, setTotalImages] = useState(0);
+
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+    setTotalImages(images.length);
+
+    const imageLoaded = () => {
+      // setLoadedImages(prevCount => prevCount + 1);
+      setLoadedImages(loadedImages + 1);
+    };
+
+    images.forEach((image) => {
+      if (image.complete) {
+        imageLoaded();
+      } else {
+        image.addEventListener("load", imageLoaded);
+      }
+    });
+
+    return () => {
+      images.forEach((image) => {
+        image.removeEventListener("load", imageLoaded);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+    if (loadedImages === totalImages) {
+      // console.log('All images have been loaded!');
+      setloadingScreen(false);
+    }
+  }, [loadedImages, totalImages]);
 
   useEffect(() => {
     let a;
     Object.keys(category).length > 0 ? (a = Products.filter((e) => e.Category === category.categoryID || e._id === category.categoryID)) : (a = Products);
     setProducts(a);
     shuffleArray(Products);
-    // console.log(Products);
   }, [category]);
 
   let pages = [];
@@ -37,7 +77,25 @@ const ProductsCatalogue = () => {
   }
 
   const addLike = (_id) => {
-    setLikedProduct([...likeProduct, _id]);
+    let b = userData.Wishlist.find((e) => e._id === _id);
+    if (b) {
+      let a = userData.Wishlist.filter((e) => e._id !== _id);
+      setUserData({...userData, Wishlist: a});
+    } else {
+      let a = [...userData.Wishlist, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
+      setUserData({...userData, Wishlist: a});
+    }
+  };
+
+  const addToBag = (_id) => {
+    let b = userData.Bag.find((e) => e._id === _id);
+    if (b) {
+      let a = userData.Bag.filter((e) => e._id !== _id);
+      setUserData({...userData, Bag: a});
+    } else {
+      let a = [...userData.Bag, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
+      setUserData({...userData, Bag: a});
+    }
   };
 
   return (
@@ -53,8 +111,10 @@ const ProductsCatalogue = () => {
 
           return (
             <div className="product-card" key={product._id}>
-              <div id="product-heart">
-                <AiFillHeart onClick={() => addLike(product._id)} className={likeProduct.find((e) => e === product._id) ? "active-Heart" : ""} />
+              <div id="product-img-BTN">
+                <AiFillHeart onClick={() => addLike(product._id)} className={userData.Wishlist.find((e) => e._id === product._id) ? "active-Heart" : ""} />
+                <br />
+                <BsFillBagFill onClick={() => addToBag(product._id)} className={userData.Bag.find((e) => e._id === product._id) ? "active-Bags" : ""} />
               </div>
               <NavLink to={a} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                 <img src={product.Image} alt={product.Name} className="product-image" />
@@ -77,7 +137,7 @@ const ProductsCatalogue = () => {
           <>
             <div
               className="Pages"
-              id={currPage === 1 && "non-active-side-btn"}
+              id={currPage === 1 ? "non-active-side-btn" : ""}
               onClick={() => {
                 window.scrollTo({top: 0, left: 0, behavior: "smooth"});
                 if (currPage !== 1) {
@@ -104,7 +164,7 @@ const ProductsCatalogue = () => {
             })}
             <div
               className="Pages"
-              id={currPage === pages.length && "non-active-side-btn"}
+              id={currPage === pages.length ? "non-active-side-btn" : ""}
               onClick={() => {
                 window.scrollTo({top: 0, left: 0, behavior: "smooth"});
                 if (currPage !== pages.length) {
@@ -117,6 +177,7 @@ const ProductsCatalogue = () => {
           </>
         )}
       </div>
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

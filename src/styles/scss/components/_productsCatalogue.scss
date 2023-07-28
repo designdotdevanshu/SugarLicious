@@ -21,22 +21,30 @@
     padding-bottom: 30px;
     border-radius: 25px;
     position: relative;
-    #product-heart {
+    #product-img-BTN {
       position: absolute;
       top: 15px;
       right: 15px;
+
       svg {
         font-size: 24px;
+        margin-bottom: 4px;
         cursor: pointer;
         background-color: rgba(0, 0, 0, 0.653);
         border-radius: 50%;
         padding: 3px;
-        &:hover {
+        &:first-child:hover {
           color: red;
+        }
+        &:last-child:hover {
+          color: #ecb014;
         }
       }
       .active-Heart {
         color: red;
+      }
+      .active-Bags {
+        color: #ecb014;
       }
     }
   }
@@ -142,6 +150,7 @@
 }
 @media (max-width: 840px) {
   .products {
+    margin-top: -55px !important;
     .product-card {
       width: pxToRem(200);
       img {

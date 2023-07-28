@@ -12,7 +12,7 @@ const Frontproducts = () => {
                 {curr.Products.map((products, ids2) => {
                   // console.log(products)
                   let a;
-                  products.type === "Product" ? (a = `/Products/${products.Category}/${products._id}`) : (a = `/Products/${products.Category}`);
+                  products.type === "Product" ? (a = `./Products/${products.Category}/${products._id}`) : (a = `./Products/${products.Category}`);
                   return (
                     <div className="FrontProduct" key={ids2}>
                       <NavLink to={a} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>

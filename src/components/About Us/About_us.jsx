@@ -1,6 +1,9 @@
+import Header from "../Header/Header";
+
 const About_us = () => {
   return (
     <>
+      <Header />
       <div className="about-container">
         <img src="src/assets/Slider/Slider%20(1).png" alt="Cafe" className="image-container" />
         <div className="content-container">

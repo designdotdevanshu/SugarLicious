@@ -1,20 +1,28 @@
-import React from "react";
+import React, {useState, useRef, useEffect, useContext} from "react";
+import RandomUser from "../../assets/RandomUser.png";
 import Logo from "../../assets/PerkyBeansLogo.png";
+
 import {IoMdMenu} from "react-icons/io";
 import {MdClose} from "react-icons/md";
-import {useState} from "react";
-import {useRef} from "react";
-import {useEffect} from "react";
-import RandomUser from "../../assets/RandomUser.png";
 import {NavLink} from "react-router-dom";
 
+import {UserData} from "../../routes/App";
 const Header = () => {
   const [menuShown, setMenuShow] = useState(false);
   const menuRef = useRef(0);
+  const {userData, setUserData} = useContext(UserData);
 
   useEffect(() => {
     menuShown ? (menuRef.current.style.top = "58px") : (menuRef.current.style.top = "-120vh");
   }, [menuShown]);
+
+  const logoutBTN = () => {
+    if (userData) {
+      let a = {...userData.Info, logined: false};
+      setUserData({...userData, Info: a});
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="Header">
@@ -26,7 +34,7 @@ const Header = () => {
           <NavLink to="/SugarLicious/products" ClassName="active">
             <li>PRODUCTS</li>
           </NavLink>
-          <NavLink to="/SugarLicious/orders" ClassName="active">
+          <NavLink to="/SugarLicious/orders/my-order" ClassName="active">
             <li>ORDERS</li>
           </NavLink>
           <NavLink to="/SugarLicious/contact" ClassName="active">
@@ -36,30 +44,39 @@ const Header = () => {
             <li>RESERVE SEAT</li>
           </NavLink>
           <div id="LOGINRegister">
-            <NavLink to="/SugarLicious/login" ClassName="active">
-              <button id="loginRegisterHeader">LOGIN / REGISTER</button>
-            </NavLink>
+            {userData?.Info.logined ? (
+              <a onClick={() => logoutBTN()}>
+                <button id="loginRegisterHeader">LOGOUT</button>
+              </a>
+            ) : (
+              <NavLink to="/SugarLicious/login" ClassName="active">
+                <button id="loginRegisterHeader">LOGIN / REGISTER</button>
+              </NavLink>
+            )}
           </div>
         </ol>
 
         <div id="MenuIcons">{menuShown ? <MdClose onClick={() => setMenuShow(!menuShown)} /> : <IoMdMenu onClick={() => setMenuShow(!menuShown)} />}</div>
       </div>
       <div ref={menuRef} id="responiveSliderMenu">
-        <div id="userLoginINFO">
-          <img src={RandomUser} alt="UserImg" />
-          <div>
-            <h2>SHUBHAM JOSHI</h2>
-            <p>shubhamjoshii676@gmail.com</p>
+        {userData?.Info.logined ? (
+          <div id="userLoginINFO">
+            <img src={RandomUser} alt="UserImg" />
+            <div>
+              <h2>{userData?.Info.Name}</h2>
+              <p>{userData?.Info.Email}</p>
+            </div>
           </div>
-        </div>
-        <div id="loginRegisterBTNS">
-          <NavLink to="/SugarLicious/login" ClassName="active" onClick={() => setMenuShow(false)}>
-            <button>LOGIN</button>
-          </NavLink>
-          <NavLink to="/SugarLicious/register" ClassName="active" onClick={() => setMenuShow(false)}>
-            <button>REGISTER</button>
-          </NavLink>
-        </div>
+        ) : (
+          <div id="loginRegisterBTNS">
+            <NavLink to="/SugarLicious/login" ClassName="active" onClick={() => setMenuShow(false)}>
+              <button>LOGIN</button>
+            </NavLink>
+            <NavLink to="/SugarLicious/register" ClassName="active" onClick={() => setMenuShow(false)}>
+              <button>REGISTER</button>
+            </NavLink>
+          </div>
+        )}
         <ol onClick={() => setMenuShow(false)}>
           <NavLink to="/SugarLicious/" ClassName="active">
             <li>HOME</li>
@@ -67,7 +84,7 @@ const Header = () => {
           <NavLink to="/SugarLicious/products" ClassName="active">
             <li>PRODUCTS</li>
           </NavLink>
-          <NavLink to="/SugarLicious/orders" ClassName="active">
+          <NavLink to="/SugarLicious/orders/my-order" ClassName="active">
             <li>ORDERS</li>
           </NavLink>
           <NavLink to="/SugarLicious/contact" ClassName="active">
@@ -77,7 +94,11 @@ const Header = () => {
             <li>RESERVE SEAT</li>
           </NavLink>
         </ol>
-        <button id="logoutBTN">LOGOUT</button>
+        {userData?.Info.logined && (
+          <button id="logoutBTN" onClick={() => logoutBTN()}>
+            LOGOUT
+          </button>
+        )}
       </div>
     </React.Fragment>
   );

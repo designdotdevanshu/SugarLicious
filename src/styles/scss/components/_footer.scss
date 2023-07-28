@@ -16,13 +16,16 @@ footer {
     }
     #SocialMedia {
       color: white;
-      svg {
-        margin: 10px;
-        font-size: 50px;
-        border-radius: 10px;
-        &:hover {
-          color: #ecb014;
-          background-color: white;
+      #social-icons {
+        @include flexMixin();
+        svg {
+          margin: 10px;
+          font-size: 50px;
+          border-radius: 10px;
+          &:hover {
+            color: #ecb014;
+            background-color: white;
+          }
         }
       }
     }
@@ -77,6 +80,8 @@ footer {
     }
     #SocialMedia {
       @include flexMixin();
+      // flex-direction: column;
+      flex-wrap: wrap;
     }
     #feedback {
       font-size: 14px;

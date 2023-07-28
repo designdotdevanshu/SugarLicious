@@ -1,11 +1,10 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai";
 import Header from "../Header/Header";
-
-import {db} from "../firebase";
-import {ref, set} from "firebase/database";
 import {useNavigate} from "react-router-dom";
+import {Notification, UserData} from "../../routes/App";
+import {useContext} from "react";
 
 const Register = () => {
   const [registerData, setregisterInfo] = useState({
@@ -16,6 +15,8 @@ const Register = () => {
   });
   const [passwordShow, setPasswordShow] = useState(false);
   const [passwordConfirmShow, setPasswordConfirmShow] = useState(false);
+  const {userData, setUserData} = useContext(UserData);
+  const {notification} = useContext(Notification);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,34 +33,25 @@ const Register = () => {
     setregisterInfo({...registerData, [name]: value});
   };
 
-  useEffect(() => {
-    console.log(registerData);
-  }, [registerData]);
-
   const registerUser = async (e) => {
     e.preventDefault();
     let a = document.getElementById("Password");
     let b = document.getElementById("Confirm_Password");
-    if (registerData.Full_Name && registerData.Email && registerData.Password === registerData.Confirm_Password && registerData.Password.length > 8) {
-      set(ref(db, `${registerData.Full_Name}_${Math.floor(Math.random() * 1000)}`), {
-        Full_Name: registerData.Full_Name,
-        Email: registerData.Email,
-        Password: registerData.Password,
-        Confirm_Password: registerData.Confirm_Password,
-      }).then(() => {
-        alert("User Registered");
-        setregisterInfo({Full_Name: "", Email: "", Password: "", Confirm_Password: ""});
-        navigate("/login");
-      });
-    } else if (registerData.Password !== registerData.Confirm_Password) {
-      a.style.border = "3px solid red";
-      b.style.border = "3px solid red";
+    if (registerData.Full_Name && registerData.Email && registerData.Password === registerData.Confirm_Password && registerData.Password.length >= 8) {
+      let a = {Name: registerData.Full_Name, Email: registerData.Email, Password: registerData.Password, logined: false};
+      setUserData({...userData, Info: a});
+      notification("User Registered");
+      setTimeout(() => {
+        navigate("/SugarLicious/login");
+      }, 1000);
     } else if (registerData.Password.length < 8) {
       a.style.border = "3px solid red";
       b.style.border = "none";
-    } else if (registerData.Confirm_Password.length < 8) {
-      a.style.border = "none";
+      notification("Password length should be greater than and equal to 8");
+    } else if (registerData.Password !== registerData.Confirm_Password) {
+      a.style.border = "3px solid red";
       b.style.border = "3px solid red";
+      notification("User Password and Confirm Password not Matched");
     } else {
       a.style.border = "none";
       b.style.border = "none";
@@ -96,7 +88,7 @@ const Register = () => {
           <input type="submit" value="SIGN UP" onClick={registerUser} id="registerBTN" />
           <div className="already-account">
             <p>Already have an account?</p>
-            <NavLink to="/login" ClassName="active">
+            <NavLink to="/SugarLicious/login" ClassName="active">
               Sign In
             </NavLink>
           </div>

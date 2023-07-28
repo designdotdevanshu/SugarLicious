@@ -1,69 +1,90 @@
+import {useState} from "react";
 import Image1 from "../../assets/Beverages/image (1).png";
 import {IoMdClose} from "react-icons/io";
-const OrderCards = () => {
+const OrderCards = ({product, orderData, ids, userData, setUserData}) => {
+  const [trackShow, setTrackShow] = useState(null);
+  const removeMyOrder = () => {
+    let a = userData.Orders.filter((e) => e._id !== product._id);
+    setUserData({...userData, Orders: a});
+  };
   return (
     <div id="orderProduct">
       <div id="orderCards">
-        <h4>ORDER ID : 94173523</h4>
-        <h2>LATTE COFFEE</h2>
+        <h4>ORDER ID : {Math.floor(Math.random() * 1000000) + 1000000}</h4>
+        <h2>{product.Name}</h2>
         <div id="orders-Product">
-          <div>
-            <img src={Image1} alt="ProductImg" />
-            <p>REGULAR</p>
-            <p>₹ 250*2</p>
-          </div>
-          <div>
-            <img src={Image1} alt="ProductImg" />
-            <p>REGULAR</p>
-            <p>₹ 250*2</p>
-          </div>
+          {orderData.SmallCount && (
+            <div>
+              <img src={product.Image} alt="ProductImg" />
+              <p>REGULAR</p>
+              <p>
+                ₹ {product.Price - 50}*{orderData.SmallCount}
+              </p>
+            </div>
+          )}
+          {orderData.MediumCount && (
+            <div>
+              <img src={product.Image} alt="ProductImg" />
+              <p>MEDIUM</p>
+              <p>
+                ₹ {product.Price}*{orderData.MediumCount}
+              </p>
+            </div>
+          )}
+          {orderData.LargeCount && (
+            <div>
+              <img src={product.Image} alt="ProductImg" />
+              <p>REGULAR</p>
+              <p>
+                ₹ {product.Price + 50}*{orderData.LargeCount}
+              </p>
+            </div>
+          )}
         </div>
-        <p id="orderDesc">Two Regular lattee coffee and one medium lattee coffee delivered within 2 hours.</p>
+        <p id="orderDesc">{product.Desc.slice(0, 70)}...</p>
         <div id="btns">
-          <button>CANCEL</button>
+          <button onClick={removeMyOrder}>CANCEL</button>
           <button
             onClick={() => {
-              document.getElementsByClassName("track-order")[0].style.width = "450px";
-              document.getElementsByClassName("track-order")[0].style.padding = "40px";
+              setTrackShow(null);
+              setTrackShow(orderData._id);
             }}>
             TRACK YOUR ORDER
           </button>
         </div>
       </div>
-      <div className="track-order">
-        <IoMdClose
-          id="closeICON"
-          onClick={() => {
-            document.getElementsByClassName("track-order")[0].style.width = "0";
-            document.getElementsByClassName("track-order")[0].style.padding = "0";
-          }}
-        />
-        <h3>TRACK YOUR ORDER</h3>
-        <div>
-          <div id="Line"></div>
-          <div id="timeStamp-Order">
-            <div id="currStage-Order"></div>
-            <h5>ORDER CONFIRMED, 10th July 2023, 10:45 AM </h5>
-            <p>Your Order has been placed.</p>
-            <p>Chef is making your product ready.</p>
-          </div>
-          <div id="timeStamp-Order">
-            <div id="currStage-Order"></div>
-            <h4>ORDER SHIPPED at 10th July 2023, 11:10 AM </h4>
-            <p>Perky Bean Logistics - FMPPQ934271</p>
-            <p>Your items has been shipped.</p>
-          </div>
-          <div id="timeStamp-Order">
-            <div id="currStage-Order"></div>
-            <h5>OUT FOR DELIVERY at 11:30 am</h5>
-            <p>Your item is out for delivery</p>
-          </div>
-          <div id="timeStamp-Order">
-            <div id="currStage-Order"></div>
-            <h5>DELIVERED by 12 am</h5>
+      {trackShow === orderData._id ? (
+        <div className="track-order">
+          <IoMdClose id="closeICON" onClick={() => setTrackShow(null)} />
+          <h3>TRACK YOUR ORDER</h3>
+          <div>
+            <div id="Line"></div>
+            <div id="timeStamp-Order">
+              <div id="currStage-Order"></div>
+              <h5>ORDER CONFIRMED, 10th July 2023, 10:45 AM </h5>
+              <p>Your Order has been placed.</p>
+              <p>Chef is making your product ready.</p>
+            </div>
+            <div id="timeStamp-Order">
+              <div id="currStage-Order"></div>
+              <h4>ORDER SHIPPED at 10th July 2023, 11:10 AM </h4>
+              <p>Perky Bean Logistics - FMPPQ934271</p>
+              <p>Your items has been shipped.</p>
+            </div>
+            <div id="timeStamp-Order">
+              <div id="currStage-Order"></div>
+              <h5>OUT FOR DELIVERY at 11:30 am</h5>
+              <p>Your item is out for delivery</p>
+            </div>
+            <div id="timeStamp-Order">
+              <div id="currStage-Order"></div>
+              <h5>DELIVERED by 12 am</h5>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

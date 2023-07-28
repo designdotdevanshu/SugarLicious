@@ -1,0 +1,77 @@
+@use "../abstracts/" as *;
+
+#PageNotFound {
+  @include flexMixin($direction: column);
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  margin-top: 60px;
+
+  #left-column {
+    @include flexMixin();
+    // flex-grow: 1;
+    width: 300px;
+  }
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 50px;
+
+    .big-text {
+      font-size: 50px;
+      font-weight: bold;
+      color: #ffffff;
+      text-align: center;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      font-family: "Comic Sans MS";
+    }
+
+    .small-text {
+      font-size: 30px;
+      color: #ecb014;
+      align-items: center;
+    }
+
+    .additional-text-right {
+      text-align: justify;
+      font-size: 13px;
+      color: #ffffff;
+      font-family: "Times New Roman";
+      width: 70%;
+      text-align: center;
+    }
+
+    .home-button {
+      background-color: #ecb014;
+      margin-top: 20px;
+      color: #ffffff;
+      border: none;
+      padding: 5px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      &:hover {
+        background-color: #aba5a564;
+      }
+    }
+  }
+  @media (max-width: 675px) {
+    .right-column {
+      .additional-text-right {
+        width: 90%;
+      }
+    }
+  }
+
+  @media (max-width: 571px) {
+    margin-top: 90px;
+    .right-column {
+      margin: 5px 10px;
+    }
+  }
+}

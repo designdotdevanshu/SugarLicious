@@ -69,7 +69,7 @@
 
     #productCartFront {
       @include flexMixin();
-      gap: 15px;
+      gap: 22px;
 
       img {
         width: 60px;
@@ -80,6 +80,10 @@
       #productDetail {
         @include flexMixin($JScontent: space-evenly);
         flex: 1;
+
+        #productName {
+          flex: 1;
+        }
 
         #Icons {
           @include flexMixin($JScontent: space-between, $direction: column);
@@ -133,6 +137,7 @@
     overflow: scroll;
     width: 100%;
     flex: 1;
+    margin-bottom: 55px;
   }
 
   #RegiLogin {
