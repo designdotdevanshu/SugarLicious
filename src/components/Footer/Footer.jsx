@@ -140,7 +140,7 @@ const Footer = () => {
 
       <div id="downloadApp">
         {/* <a href="http://www.apple.com/in/app-store/" target="_blank" rel="noopener noreferrer"> */}
-        <a href="https://www.apple.com/in/app-store/developing-for-the-app-store/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.apple.com/in/app-store/" target="_blank" rel="noopener noreferrer">
           <div>
             <BsApple />
             <p>Download on the App Store</p>

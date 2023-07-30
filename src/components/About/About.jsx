@@ -1,6 +1,6 @@
 import Header from "../Header/Header";
 
-const About_us = () => {
+const About = () => {
   return (
     <>
       <Header />
@@ -31,4 +31,4 @@ const About_us = () => {
   );
 };
 
-export default About_us;
+export default About;

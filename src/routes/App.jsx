@@ -13,9 +13,7 @@ import Register from "../components/Signin_Register/Register";
 import Preloader from "../components/Common/Preloader";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
 import ForgotPassword from "../components/Signin_Register/ForgotPassword";
-import About_us from "../components/About Us/About_us";
-import {useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import About_us from "../components/About/About";
 
 const Loading = createContext();
 const UserData = createContext();
@@ -78,7 +76,7 @@ const App = () => {
               <Route exact path="/SugarLicious/Contact" element={<ContactPage />} />
               <Route exact path="/SugarLicious/login" element={<Login />} />
               <Route exact path="/SugarLicious/Register" element={<Register />} />
-              <Route exact path="/SugarLicious/login/forgetpassword" element={<ForgotPassword />} />
+              <Route exact path="/SugarLicious/login/forgotpassword" element={<ForgotPassword />} />
               <Route exact path="*" element={<PageNotFound />} />
             </Routes>
           </Router>

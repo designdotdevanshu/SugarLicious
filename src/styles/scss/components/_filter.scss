@@ -4,101 +4,195 @@
   z-index: inherit;
   position: absolute;
   top: 42px;
-  background-color: #ffffff;
-  color: #000000;
-  width: 35%;
-  left: 65%;
-  border: 1.5px solid #241606;
-  border-radius: 4px;
-  &-title {
-    font-size: 20px;
+  background-color: #fff;
+  color: #000;
+  width: 25%;
+  left: 75%;
+  border: 1.5px solid #000;
+  border-radius: 12px;
+
+  // &-box {
+  .header-flex {
     display: flex;
     justify-content: space-between;
-    h1 {
-      padding: 16px;
-      font-size: 26px;
-      font-weight: 600;
-    }
-    &-close {
+    align-items: center;
+  }
+  &-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #000;
+    font-weight: 960;
+    font-size: 22px;
+    .AiOutlineLeft {
       cursor: pointer;
-      padding: 16px;
-      font-size: 26px;
+      color: #241606;
+    }
+    &-reset {
+      font-size: 12px;
+      cursor: pointer;
     }
   }
-  &-box {
-    margin: 4px;
-    display: flex;
-    width: 100%; //! important
-    &-left {
-      width: 40%;
-      .filter-types {
-        &-titles {
-          cursor: pointer;
-          margin: 1.5px 3px;
-          padding: 5px 10px;
-          display: flex;
-          align-items: baseline;
-          justify-content: space-between;
-          &:hover {
-            border-radius: 4px;
-            background-color: #241606;
-            color: #ffffff;
-          }
-          p {
-            font-size: 18px;
-          }
-        }
-      }
-      .active {
-        border-radius: 4px;
-        background-color: #241606;
-        color: #ffffff;
-      }
-    }
-    &-right {
-      width: 50%;
-      margin: 1.5px 3px;
-      padding: 5px 10px;
-      .filter-types-options {
-        width: max-content;
-        &-item {
-          input {
-            cursor: pointer;
-            margin: 5px 10px;
-          }
-          label {
-            font-size: 18px;
-            cursor: pointer;
-            margin-inline: 10px;
-          }
-        }
-      }
-    }
+  &-selections {
+    @include flex-center(row);
+    flex-wrap: wrap;
+    padding: 16px 8px;
+    border-bottom: 1px solid #000;
     &-btn {
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      padding: 16px;
-      margin-top: 16px;
-      button {
-        width: 40%;
-        padding: 8px 16px;
-        border-radius: 4px;
-        background-color: #241606;
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: 600;
+      @include flex-center(row);
+      background-color: $color-secondary;
+      color: #fff;
+      font-size: 14px;
+      margin: 4px 2px;
+      padding: 2px 8px;
+      border-radius: 14px;
+      .BiSolidCircle {
+        color: #000;
+      }
+      .AiOutlineClose {
         cursor: pointer;
-        &:nth-child(1) {
-          background-color: $color-tertiary;
-          color: #241606ea;
-          border: 1px solid #241606;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0 6px;
+      }
+    }
+  }
+
+  &-category {
+    padding: 16px 8px;
+    border-bottom: 1px solid #000;
+    &-header {
+      font-size: 18px;
+      font-weight: 900;
+    }
+    &-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 6px;
+      &-selections {
+        .BiSolidCircle {
+          color: #000;
         }
-        &:hover {
-          background-color: #ffffff;
-          color: #241606;
-          border: 1px solid #241606;
+        @include flex-center(row);
+        background-color: $color-secondary;
+        color: #fff;
+        font-size: 14px;
+        margin: 4px 2px;
+        padding: 2px 8px;
+        border-radius: 14px;
+        p {
+          font-size: 14px;
+          font-weight: 600;
+          padding-left: 6px;
         }
+        .AiOutlineCheck {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .AiOutlineUp {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .active {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #0c0e0d;
+    .AiOutlineCheck {
+      display: none;
+    }
+  }
+
+  &-price {
+    padding: 16px 8px;
+    border-bottom: 1px solid #000;
+    &-header {
+      font-weight: 900;
+      margin-bottom: 10px;
+
+      p {
+        &:first-child {
+          font-size: 18px;
+        }
+        &:last-child {
+          font-size: 14px;
+          span {
+            margin-right: 14px;
+          }
+        }
+      }
+    }
+    &-range {
+      width: 100%;
+      padding-inline: 12px;
+      input[type="range"] {
+        accent-color: #000;
+        width: 100%;
+        background: #000;
+        cursor: pointer;
+      }
+    }
+  }
+  &-review {
+    padding: 16px 8px;
+    border-bottom: 1px solid #000;
+    &-header {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    &-wrapper {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    &-subwrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      label {
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: 900;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 900;
+        // position: relative;
+        :nth-child(1) {
+          left: 40px;
+        }
+      }
+      input[type="radio"] {
+        accent-color: #000;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &-box-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 16px;
+    // margin-top: 16px;
+    button {
+      width: 90%;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
       }
     }
   }
@@ -106,31 +200,15 @@
 
 @include responsive(laptop) {
   .filter {
-    width: 50%;
-    left: 50%;
-    &-box {
-      &-left {
-        width: 50%;
-      }
-      &-right {
-        width: 50%;
-      }
-    }
+    width: 35%;
+    left: 65%;
   }
 }
 
 @include responsive(tab-port) {
   .filter {
-    width: 80%;
-    left: 20%;
-    &-box {
-      &-left {
-        width: 100%;
-      }
-      &-right {
-        width: 100%;
-      }
-    }
+    width: 55%;
+    left: 45%;
   }
 }
 
@@ -138,33 +216,5 @@
   .filter {
     width: 100%;
     left: 0;
-    &-box {
-      &-left {
-        .filter-types {
-          &-titles {
-            p {
-              font-size: 16px;
-            }
-          }
-        }
-      }
-      &-right {
-        padding: 8px 4px;
-        .filter-types-options {
-          &-item {
-            label {
-              font-size: 16px;
-            }
-          }
-        }
-      }
-      &-btn {
-        button {
-          width: 45%;
-          padding: 8px 4px;
-          font-size: 16px;
-        }
-      }
-    }
   }
 }

@@ -1,119 +1,141 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import {useState} from "react";
-import {AiOutlineClose, AiOutlineRight} from "react-icons/ai";
-
-const FilterTypes = [
-  {
-    id: 1,
-    name: "Categories",
-    options: ["Pizza", "Burger", "Sandwich", "Pasta", "Beverages", "Desserts"],
-    input: [
-      {
-        type: "checkbox",
-        name: "category",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Ingredients",
-    options: ["Veg", "Vegan"],
-    input: [
-      {
-        type: "checkbox",
-        name: "ingredients",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Price",
-    options: ["₹00 - ₹100", "₹100 - ₹200", "₹200 - ₹300", "₹300 - ₹400", "₹400 - ₹500", "Above ₹500"],
-    input: [
-      {
-        type: "checkbox",
-        name: "price",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Sort by",
-    options: ["Price: Low to High", "Price: High to Low", "Rating: Low to High", "Rating: High to Low"],
-    input: [
-      {
-        type: "radio",
-        name: "sort",
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Reviews",
-    options: ["5 Stars & above", "4 Stars & above", "3 Stars & above", "2 Stars & above", "1 Stars & above"],
-    input: [
-      {
-        type: "radio",
-        name: "reviews",
-      },
-    ],
-  },
-];
+import {AiFillStar, AiOutlineCheck, AiOutlineClose, AiOutlineLeft, AiOutlineUp} from "react-icons/ai";
+import {BiCheck, BiSolidCircle} from "react-icons/bi";
+import {BsCheckLg} from "react-icons/bs";
 
 const Filter = ({showFilterBox, setShowFilterBox}) => {
   const [showFilters, setShowFilters] = useState(1);
   // const [showFilterBox, setShowFilterBox] = useState(false);
   return (
     <>
-      {/* <Header/>
-      <SearchBar position="-70" currPlace="ProductPage" /> */}
       {showFilterBox ? (
         <div className="filter">
-          <div className="filter-title">
-            <h1>Filter by</h1>
-            <div className="filter-title-close">
-              <AiOutlineClose onClick={() => setShowFilterBox(!showFilterBox)} />
-            </div>
-          </div>
-          <hr />
           <div className="filter-box">
-            <div className="filter-box-left">
-              {FilterTypes.map((type) => (
-                <div className={showFilters === type.id ? "active filter-types-titles" : "filter-types-titles"} key={type.id} onClick={() => setShowFilters(type.id)}>
-                  <div className="filter-types-title">
-                    <p>{type.name}</p>
-                  </div>
-                  <div>
-                    <AiOutlineRight id="AiOutlineRight" />
-                  </div>
-                </div>
-              ))}
+            <div className="filter-header header-flex">
+              <AiOutlineLeft className="AiOutlineLeft" onClick={() => setShowFilterBox(!showFilterBox)} />
+              <h3>Filter</h3>
+              <p className="filter-header-reset">Reset</p>
             </div>
-            <div className="filter-box-right">
-              {FilterTypes.map((type) => {
-                return (
-                  <div className="filter-types-options" key={type.id}>
-                    {type.options.map((option) => {
-                      return (
-                        <div className="filter-types-options-item" key={option}>
-                          {type.input.map((input) => {
-                            return (
-                              <div className="filter-types-options-item-input" key={input.name} style={showFilters === type.id ? {display: "block"} : {display: "none"}}>
-                                <input type={input.type} name={input.name} id={option} className="checkmark" />
-                                <label htmlFor={option}>{option}</label>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
+
+            <div className="filter-selections">
+              <button className="filter-selections-btn">
+                <BiSolidCircle className="BiSolidCircle" />
+                <p>Muffins</p>
+                <AiOutlineClose className="AiOutlineClose" />
+              </button>
+            </div>
+
+            <div className="filter-category">
+              <div className="filter-category-header header-flex">
+                <p>Category</p>
+                <AiOutlineUp className="AiOutlineUp" />
+              </div>
+              <div className="filter-category-wrapper">
+                <button className="filter-category-wrapper-selections">
+                  <BiSolidCircle className="BiSolidCircle" />
+                  <p>Muffins</p>
+                  <BsCheckLg className="AiOutlineCheck" />
+                </button>
+              </div>
+            </div>
+
+            <div id="ingredients" className="filter-category">
+              <div id="ingredients-header" className="filter-category-header header-flex">
+                <p>Ingredients</p>
+                <AiOutlineUp className="AiOutlineUp" />
+              </div>
+              <div className="filter-category-wrapper">
+                <button id="veg" className="filter-category-wrapper-selections">
+                  <BiSolidCircle className="BiSolidCircle" />
+                  <p>Vegetarian</p>
+                  <BsCheckLg className="AiOutlineCheck" />
+                </button>
+                <button id="vegan" className="filter-category-wrapper-selections">
+                  <BiSolidCircle className="BiSolidCircle" />
+                  <p>Vegan</p>
+                  <BsCheckLg className="AiOutlineCheck" />
+                </button>
+              </div>
+            </div>
+
+            <div className="filter-price">
+              <div className="filter-price-header header-flex">
+                <p>Price Range</p>
+                <p>
+                  <span>$0 - $1000</span>
+                  <AiOutlineUp className="AiOutlineUp" />
+                </p>
+              </div>
+              <div className="filter-price-range">
+                <input type="range" name="hello" id="" />
+              </div>
+            </div>
+
+            <div className="filter-review">
+              <div className="filter-review-header header-flex">
+                <p>Customer Review</p>
+                <AiOutlineUp className="AiOutlineUp" />
+              </div>
+              <div className="filter-review-wrapper">
+                <div className="filter-review-subwrapper">
+                  <label htmlFor="h">
+                    <span>
+                      {Array(4)
+                        .fill()
+                        .map((_, i) => (
+                          <AiFillStar key={i} />
+                        ))}
+                    </span>
+                  </label>
+                  <p htmlFor="h">& up</p>
+                  <input type="radio" name="" id="h" />
+                </div>
+                <div className="filter-review-subwrapper">
+                  <label htmlFor="h">
+                    <span>
+                      {Array(3)
+                        .fill()
+                        .map((_, i) => (
+                          <AiFillStar key={i} />
+                        ))}
+                    </span>
+                  </label>
+                  <p>& up</p>
+                  <input type="radio" name="" id="h" />
+                </div>
+                <div className="filter-review-subwrapper">
+                  <label htmlFor="h">
+                    <span>
+                      {Array(2)
+                        .fill()
+                        .map((_, i) => (
+                          <AiFillStar key={i} />
+                        ))}
+                    </span>
+                  </label>
+                  <p>& up</p>
+                  <input type="radio" name="" id="h" />
+                </div>
+                <div className="filter-review-subwrapper">
+                  <label htmlFor="h">
+                    <span>
+                      {Array(1)
+                        .fill()
+                        .map((_, i) => (
+                          <AiFillStar key={i} />
+                        ))}
+                    </span>
+                  </label>
+                  <p>& up</p>
+                  <input type="radio" name="" id="h" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="filter-box-btn">
-            <button>Clear All</button>
-            <button>Apply</button>
+            <button>Show 20 results</button>
           </div>
         </div>
       ) : (

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import google from "../../assets/google.png";
 import {NavLink} from "react-router-dom";
 import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai";
@@ -64,12 +64,12 @@ const Login = () => {
             </div>
           </div>
           <div className="forgot-password">
-            <NavLink to="./forgetpassword">Forgot Password?</NavLink>
+            <NavLink to="./forgotpassword">Forgot Password?</NavLink>
             {/* <a href="#" className="forgot-password">Forgot Password?</a> */}
           </div>
           <input type="button" value="LOGIN" onClick={submitLogin} />
           <div className="no-account">
-            <p>Don't have an account?</p>
+            <p>Don&apos;t have an account?</p>
             <NavLink to="/SugarLicious/Register" ClassName="active">
               Sign Up
             </NavLink>

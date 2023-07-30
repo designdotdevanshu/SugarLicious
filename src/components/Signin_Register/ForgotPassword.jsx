@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {useState} from "react";
+// import {NavLink} from "react-router-dom";
 import Header from "../Header/Header";
 import {MdEmail} from "react-icons/md";
 import {Notification, UserData} from "../../routes/App";
@@ -17,7 +17,7 @@ const ForgotPassword = () => {
       <form className="forgot-password-form">
         <h1>Forgot Password</h1>
         <div className="instructions-box">
-          <p className="instructions">Enter your email address that you used to register. We'll send you an email with a link to reset your password. If you don’t see the email, check other places it might be, like your junk, spam, social, or other folders.</p>
+          <p className="instructions">Enter your email address that you used to register. We&apos;ll send you an email with a link to reset your password. If you don&apos;t see the email, check other places it might be, like your junk, spam, social, or other folders.</p>
         </div>
         {forgetBTN === 0 && (
           <>
