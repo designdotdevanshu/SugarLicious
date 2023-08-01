@@ -1,0 +1,34 @@
+@use "../abstracts/" as *;
+
+.about-container {
+  @include flexMixin();
+  gap: 20px;
+  margin-top: 75px;
+  .image-container {
+    width: 46vw;
+    height: 85vh;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .content-container {
+    flex: 1;
+    padding: 16px 70px 16px 16px;
+    h2,
+    h3 {
+      margin: 16px 0;
+    }
+    ul {
+      list-style-type: circle;
+      margin-left: 20px;
+    }
+    p {
+      font-size: 14px;
+      text-align: justify;
+    }
+    .note {
+      font-weight: bold;
+      color: $color-secondary;
+    }
+  }
+}
