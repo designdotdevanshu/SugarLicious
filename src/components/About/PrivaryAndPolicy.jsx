@@ -58,11 +58,13 @@ const PrivaryAndPolicy = () => {
             </li>
             <li>
               <span>Updates to this Privacy Policy</span>
-              <p>We reserve the right to update or modify this Privacy Policy at any time without prior notice. We encourage you to review this Privacy Policy periodically for changes. Your continued use of [Your Website Name] following the posting of any changes will signify your acceptance of those changes.</p>
+              <p>We reserve the right to update or modify this Privacy Policy at any time without prior notice. We encourage you to review this Privacy Policy periodically for changes. Your continued use of Perky Bean following the posting of any changes will signify your acceptance of those changes.</p>
             </li>
             <li>
               <span>Contact Us</span>
-              <p>If you have any questions or concerns about this Privacy Policy, please contact us at [Your Contact Email].</p>
+              <p>
+                If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:perkybean@gmail.com">perkybean@gmail.com</a>
+              </p>
             </li>
           </ol>
           <p className="greet">Thank you for visiting Perky Bean. &#128591;</p>
