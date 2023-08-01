@@ -3,7 +3,6 @@ import {FaShoppingBag} from "react-icons/fa";
 import {IoIosClose} from "react-icons/io";
 import {MdOutlineArrowBackIos} from "react-icons/md";
 import {RiArrowDropUpLine, RiArrowDropDownLine} from "react-icons/ri";
-import Image from "../../assets/Beverages/image (1).png";
 import {UserData} from "../../routes/App";
 import {useContext} from "react";
 import {Products} from "../../Data/ProductsJSON";

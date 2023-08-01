@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 import Filter from "./Filter";
 
 const SearchBar = ({position, currPlace, bgColor}) => {
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
   const [searchOutput, setsearchOutput] = useState();
   const [showFilterBox, setShowFilterBox] = useState(false);
 
@@ -40,11 +40,11 @@ const SearchBar = ({position, currPlace, bgColor}) => {
       </div>
       <Filter showFilterBox={showFilterBox} setShowFilterBox={setShowFilterBox} />
       <div id="SearchProductsContainer">
-        {searchOutput?.map((curr) => {
+        {searchOutput?.map((curr, ids) => {
           let a;
           currPlace === "home" ? (a = `/SugarLicious/products/${curr.Category}/${curr._id}`) : (a = `/SugarLicious/products/${curr.Category}/${curr._id}`);
           return (
-            <div id="SearchProducts">
+            <div id="SearchProducts" key={ids}>
               <NavLink to={a}>
                 <div onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                   <img src={curr.Image} alt={curr.Name} />

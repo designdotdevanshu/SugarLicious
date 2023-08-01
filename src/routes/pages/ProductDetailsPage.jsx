@@ -4,9 +4,8 @@ import {Products} from "../../Data/ProductsJSON";
 import Bags from "../../components/Common/Bags";
 import ProductPage from "../../components/Products/ProductPage";
 import CustomerReview from "../../components/Landing/CustomerReview/CustomerReview";
-import Footer from "../../components/Footer/Footer";
 import PageNotFound from "../../components/PageNotFound/PageNotFound";
-import Header from "../../components/Header/Header";
+import Layout from "../../components/Layout/Layout";
 
 const ProductDetailsPage = () => {
   const [itemDetails, setItemDetails] = useState({});
@@ -16,17 +15,17 @@ const ProductDetailsPage = () => {
   }, [itemShow]);
   return (
     <>
-      <Header />
-      <Bags />
-      {itemDetails && <ProductPage /> ? (
-        <>
-          <ProductPage />
-          <CustomerReview />
-        </>
-      ) : (
-        <PageNotFound />
-      )}
-      <Footer />
+      <Layout>
+        <Bags />
+        {itemDetails && <ProductPage /> ? (
+          <>
+            <ProductPage />
+            <CustomerReview />
+          </>
+        ) : (
+          <PageNotFound />
+        )}
+      </Layout>
     </>
   );
 };

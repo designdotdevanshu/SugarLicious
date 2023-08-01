@@ -65,7 +65,6 @@ const Login = () => {
           </div>
           <div className="forgot-password">
             <NavLink to="./forgotpassword">Forgot Password?</NavLink>
-            {/* <a href="#" className="forgot-password">Forgot Password?</a> */}
           </div>
           <input type="button" value="LOGIN" onClick={submitLogin} />
           <div className="no-account">

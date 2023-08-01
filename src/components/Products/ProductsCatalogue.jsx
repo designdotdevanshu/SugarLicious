@@ -6,7 +6,7 @@ import {BsFillBagFill} from "react-icons/bs";
 import {NavLink, useParams} from "react-router-dom";
 import {useContext} from "react";
 import {Loading, UserData} from "../../routes/App";
-import { useLocation } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 // function shuffleArray(array) {
 //   for (var i = array.length - 1; i > 0; i--) {
@@ -60,7 +60,7 @@ const ProductsCatalogue = () => {
       }
       if (a.length > 0 && filterData.Ingredients.length > 0) {
         let b = [];
-        a.filter((e, id) => {
+        a.filter((e) => {
           filterData.Ingredients.filter((find) => {
             if (find.apiName === e.type) {
               b.push(e);

@@ -56,11 +56,24 @@
       padding: 5px;
       border-radius: 70px;
 
-      img {
-        border: 1px solid black;
+      // img {
+      //   border: 1px solid black;
+      //   border-radius: 50%;
+      //   width: 25px;
+      //   height: 25px;
+      // }
+      #filterProductImage {
+        // border: 1px solid black;
         border-radius: 50%;
         width: 25px;
         height: 25px;
+        &--Ingredients {
+          &-Vegan {
+            width: 20px;
+            height: 20px;
+            color: #008000;
+          }
+        }
       }
 
       .CutBTN {
@@ -85,6 +98,7 @@
     padding: 10px 5px;
     border-bottom: 1px solid #000;
     margin-bottom: 10px;
+
     .topic {
       @include flexMixin($JScontent: space-between);
       padding: 0px 14px;
@@ -138,6 +152,7 @@
     .category-topic {
       @include flexMixin($JScontent: space-between);
       gap: 2px;
+      cursor: pointer;
       min-width: fit-content;
       background-color: white;
       border: 1px solid black;
@@ -150,10 +165,17 @@
       border-radius: 50px;
 
       #filterProductImage {
-        border: 1px solid black;
+        // border: 1px solid black;
         border-radius: 50%;
         width: 25px;
         height: 25px;
+        &--Ingredients {
+          &-Vegan {
+            width: 20px;
+            height: 20px;
+            color: #008000;
+          }
+        }
       }
 
       p {
@@ -199,6 +221,7 @@
       }
 
       input[type="radio"] {
+        cursor: pointer;
         accent-color: #000;
         width: 18px;
         height: 18px;
@@ -216,10 +239,11 @@
     font-weight: 900;
     letter-spacing: 1.5px;
     background-color: #000000;
+    cursor: pointer;
 
     &:hover {
       background-color: #0000005e;
-      color: #ffffff;
+      color: #000;
     }
   }
 }

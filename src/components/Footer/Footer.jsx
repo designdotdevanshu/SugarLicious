@@ -1,6 +1,5 @@
 import {BiLogoInstagramAlt, BiLogoFacebookSquare, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoPlayStore} from "react-icons/bi";
 import {BsApple} from "react-icons/bs";
-import {NavLink} from "react-router-dom";
 import {Link} from "react-router-dom";
 const HeaderData = [
   {
@@ -29,7 +28,7 @@ const HeaderData = [
     Links: [
       {
         text: "Shipping",
-        link: "/SugarLicious/Orders",
+        link: "/SugarLicious/Orders/my-order",
       },
       {
         text: "Reserve Seat",
@@ -37,11 +36,11 @@ const HeaderData = [
       },
       {
         text: "Terms and Conditions",
-        link: "#",
+        link: "/SugarLicious/Terms&Conditions",
       },
       {
         text: "Privacy Policy",
-        link: "#",
+        link: "/SugarLicious/Privacy&Policy",
       },
     ],
   },
@@ -50,7 +49,7 @@ const HeaderData = [
     Links: [
       {
         text: "About Us",
-        link: "/SugarLicious/AboutUs",
+        link: "/SugarLicious/About",
       },
       {
         text: "Contact Us",
@@ -58,11 +57,11 @@ const HeaderData = [
       },
       {
         text: "Join our team",
-        link: "#",
+        link: "/SugarLicious/Contact",
       },
       {
         text: "Corporate Gifting",
-        link: "#",
+        link: "/SugarLicious/Contact",
       },
     ],
   },
@@ -103,8 +102,8 @@ const Footer = () => {
               <ul>
                 {curr.Links.map((Links, ids2) => {
                   return (
-                    <li key={ids2}>
-                      <NavLink to={Links.link}>{Links.text}</NavLink>
+                    <li key={ids2} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
+                      <Link to={Links.link}>{Links.text}</Link>
                     </li>
                   );
                 })}
@@ -155,9 +154,9 @@ const Footer = () => {
       </div>
       <div id="feedback">
         <p>GIVE YOUR VALUABLE FEEDBACK </p>
-        <NavLink to="/SugarLicious/contact">
+        <Link to="/SugarLicious/Contact">
           <button>GIVE FEEDBACK</button>
-        </NavLink>
+        </Link>
       </div>
     </footer>
   );

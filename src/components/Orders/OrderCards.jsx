@@ -1,7 +1,6 @@
 import {useState} from "react";
-import Image1 from "../../assets/Beverages/image (1).png";
 import {IoMdClose} from "react-icons/io";
-const OrderCards = ({product, orderData, ids, userData, setUserData}) => {
+const OrderCards = ({product, orderData, userData, setUserData}) => {
   const [trackShow, setTrackShow] = useState(null);
   const removeMyOrder = () => {
     let a = userData.Orders.filter((e) => e._id !== product._id);

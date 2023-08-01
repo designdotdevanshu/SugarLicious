@@ -1,14 +1,10 @@
 import React from "react";
 import {AiFillStar, AiFillHeart} from "react-icons/ai";
-
-import {BsFillBagFill} from "react-icons/bs";
 import {TiMinus, TiPlus} from "react-icons/ti";
 import {LuVegan} from "react-icons/lu";
 import {Products} from "../../Data/ProductsJSON";
 
 import Veg from "../../assets/veg.png";
-// import CustomerReview from "../Landing/CustomerReview/CustomerReview";
-// import Footer from "../Footer/Footer";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {useState} from "react";

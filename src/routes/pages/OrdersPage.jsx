@@ -1,13 +1,12 @@
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import Orders from "../../components/Orders/Orders";
+import Layout from "../../components/Layout/Layout";
 
 const OrdersPage = () => {
   return (
     <>
-      <Header />
-      <Orders />
-      <Footer />
+      <Layout>
+        <Orders />
+      </Layout>
     </>
   );
 };

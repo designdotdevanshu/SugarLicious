@@ -1,6 +1,4 @@
-import Image1 from "../../assets/Beverages/image (1).png";
 import {IoMdClose} from "react-icons/io";
-// import { UserData } from "../../routes/App";
 
 const WishlistCards = ({product, orderData, userData, setUserData}) => {
   const removeFromWishlist = (_id) => {

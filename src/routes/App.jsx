@@ -13,7 +13,9 @@ import Register from "../components/Signin_Register/Register";
 import Preloader from "../components/Common/Preloader";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
 import ForgotPassword from "../components/Signin_Register/ForgotPassword";
-import About_us from "../components/About/About";
+import PrivacyAndPolicyPage from "./pages/PrivacyAndPolicyPage";
+import AboutPage from "./pages/AboutPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
 const Loading = createContext();
 const UserData = createContext();
@@ -68,7 +70,9 @@ const App = () => {
             <Routes>
               <Route exact path="/SugarLicious" element={<HomePage />} />
               <Route exact path="/SugarLicious/Products" element={<ProductsPage />} />
-              <Route exact path="/SugarLicious/AboutUs" element={<About_us />} />
+              <Route exact path="/SugarLicious/About" element={<AboutPage />} />
+              <Route exact path="/SugarLicious/Terms&Conditions" element={<TermsAndConditionsPage />} />
+              <Route exact path="/SugarLicious/Privacy&Policy" element={<PrivacyAndPolicyPage />} />
               <Route exact path="/SugarLicious/Products/:categoryID" element={<ProductsPage />} />
               <Route exact path="/SugarLicious/Products/:categoryID/:productID" element={<ProductDetailsPage />} />
               <Route exact path="/SugarLicious/Orders/:orders" element={<OrdersPage />} />
