@@ -1,55 +1,78 @@
 @use "../abstracts" as *;
 
 .filter {
-  z-index: inherit;
   position: absolute;
-  top: 42px;
+  top: 45px;
   background-color: #fff;
   color: #000;
-  width: 25%;
-  left: 75%;
+  width: 380px;
+  height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  // left: calc(100% - 400px);
+  right: 10px;
   border: 1.5px solid #000;
   border-radius: 12px;
 
-  // &-box {
-  .header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &-header {
-    padding: 10px 20px;
+  .header {
+    @include flexMixin($JScontent: space-between);
+    padding: 8px 20px;
     border-bottom: 1px solid #000;
     font-weight: 960;
     font-size: 22px;
-    .AiOutlineLeft {
+
+    .ArrowBack {
       cursor: pointer;
       color: #241606;
     }
-    &-reset {
+
+    h3 {
+      font-size: 20px;
+    }
+
+    .reset {
       font-size: 12px;
       cursor: pointer;
+
+      &:hover {
+        color: #e8a909;
+      }
     }
   }
-  &-selections {
-    @include flex-center(row);
+
+  .selections {
+    @include flexMixin();
     flex-wrap: wrap;
-    padding: 16px 8px;
+    gap: 5px 10px;
+    padding: 10px 10px;
     border-bottom: 1px solid #000;
-    &-btn {
-      @include flex-center(row);
-      background-color: $color-secondary;
+
+    .btn {
+      @include flexMixin();
+      gap: 2px;
+      background-color: #e8a909;
       color: #fff;
       font-size: 14px;
-      margin: 4px 2px;
-      padding: 2px 8px;
-      border-radius: 14px;
-      .BiSolidCircle {
-        color: #000;
+      padding: 5px;
+      border-radius: 70px;
+
+      img {
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
       }
-      .AiOutlineClose {
+
+      .CutBTN {
         cursor: pointer;
+        font-size: 20px;
+        border-radius: 50%;
+
+        &:hover {
+          background-color: rgba(12, 14, 13, 0.388);
+        }
       }
+
       p {
         font-size: 14px;
         font-weight: 600;
@@ -58,163 +81,167 @@
     }
   }
 
-  &-category {
-    padding: 16px 8px;
+  .category {
+    padding: 10px 5px;
     border-bottom: 1px solid #000;
-    &-header {
+    margin-bottom: 10px;
+    .topic {
+      @include flexMixin($JScontent: space-between);
+      padding: 0px 14px;
       font-size: 18px;
       font-weight: 900;
-    }
-    &-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 6px;
-      &-selections {
-        .BiSolidCircle {
+
+      div {
+        @include flexMixin();
+        gap: 10px;
+
+        p {
+          font-size: 12px;
           color: #000;
         }
-        @include flex-center(row);
-        background-color: $color-secondary;
-        color: #fff;
-        font-size: 14px;
-        margin: 4px 2px;
-        padding: 2px 8px;
-        border-radius: 14px;
-        p {
-          font-size: 14px;
-          font-weight: 600;
-          padding-left: 6px;
-        }
-        .AiOutlineCheck {
-          font-size: 14px;
+      }
+
+      .show-More {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(7, 7, 7, 0.534);
+          color: white;
         }
       }
     }
-  }
 
-  .AiOutlineUp {
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 900;
-  }
-  .active {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #0c0e0d;
-    .AiOutlineCheck {
-      display: none;
+    .category-topic-container {
+      @include flexMixin($JScontent: flex-start);
+      gap: 6px;
+      min-width: 100%;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      & {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     }
-  }
 
-  &-price {
-    padding: 16px 8px;
-    border-bottom: 1px solid #000;
-    &-header {
-      font-weight: 900;
-      margin-bottom: 10px;
+    #active {
+      background-color: #e8a909;
+      color: white;
+      border: none;
+    }
+    .category-topic {
+      @include flexMixin($JScontent: space-between);
+      gap: 2px;
+      min-width: fit-content;
+      background-color: white;
+      border: 1px solid black;
+      color: #000;
+      font-size: 14px;
+      margin: 14px 4px 2px 4px;
+      padding: 4px 8px;
+      border-radius: 14px;
+      height: 35px;
+      border-radius: 50px;
+
+      #filterProductImage {
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+      }
 
       p {
-        &:first-child {
-          font-size: 18px;
-        }
-        &:last-child {
-          font-size: 14px;
-          span {
-            margin-right: 14px;
-          }
-        }
+        font-size: 14px;
+        font-weight: bold;
+        padding-left: 6px;
+        max-width: 1000px;
       }
-    }
-    &-range {
-      width: 100%;
-      padding-inline: 12px;
-      input[type="range"] {
-        accent-color: #000;
-        width: 100%;
-        background: #000;
-        cursor: pointer;
+
+      .checkLOGO {
+        font-size: 14px;
+        margin: 0px 4px;
       }
-    }
-  }
-  &-review {
-    padding: 16px 8px;
-    border-bottom: 1px solid #000;
-    &-header {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    &-wrapper {
-      width: 95%;
-      margin: 0 auto;
     }
 
-    &-subwrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    #price {
+      margin-top: 10px;
+      // padding-inline: 12px;
+      accent-color: #000;
+      width: 100%;
+      background: #000;
+      cursor: pointer;
+    }
+
+    .subwrapper {
+      @include flexMixin($JScontent: space-between);
+      margin-bottom: 5px;
+      position: relative;
+
       label {
+        @include flexMixin();
         cursor: pointer;
         font-size: 25px;
         font-weight: 900;
-      }
-      p {
-        font-size: 18px;
-        font-weight: 900;
-        // position: relative;
-        :nth-child(1) {
-          left: 40px;
+
+        p {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0px);
+          margin-left: 10px;
+          font-size: 15px;
         }
       }
+
       input[type="radio"] {
         accent-color: #000;
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
       }
     }
   }
 
-  &-box-btn {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 16px;
-    // margin-top: 16px;
-    button {
-      width: 90%;
-      padding: 8px 16px;
-      border-radius: 4px;
-      background-color: #000000;
+  .showResult {
+    width: 90%;
+    margin: 5%;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    background-color: #000000;
+
+    &:hover {
+      background-color: #0000005e;
       color: #ffffff;
-      font-size: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      &:hover {
-        background-color: #ffffff;
-        color: #000000;
-        border: 1px solid #000000;
-      }
     }
   }
 }
 
 @include responsive(laptop) {
   .filter {
-    width: 35%;
-    left: 65%;
+    // width: 35%;
+    right: 0%;
+    left: auto;
   }
 }
 
 @include responsive(tab-port) {
   .filter {
-    width: 55%;
-    left: 45%;
+    width: 350px;
+    right: 0%;
   }
 }
 
-@include responsive(phone) {
-  .filter {
-    width: 100%;
-    left: 0;
-  }
-}
+// @include responsive(phone) {
+//   .filter {
+//     width: 100%;
+//     left: 0;
+//   }
+// }

@@ -6,15 +6,16 @@ import {BsFillBagFill} from "react-icons/bs";
 import {NavLink, useParams} from "react-router-dom";
 import {useContext} from "react";
 import {Loading, UserData} from "../../routes/App";
+import { useLocation } from "react-router-dom";
 
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-}
+// function shuffleArray(array) {
+//   for (var i = array.length - 1; i > 0; i--) {
+//     var j = Math.floor(Math.random() * (i + 1));
+//     var temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+//   }
+// }
 
 const ProductsCatalogue = () => {
   const [products, setProducts] = useState([]);
@@ -33,10 +34,82 @@ const ProductsCatalogue = () => {
   const [loadedImages, setLoadedImages] = useState(0);
   const [totalImages, setTotalImages] = useState(0);
 
+  const location = useLocation();
+  useEffect(() => {
+    let a = [];
+    if (location.state !== null) {
+      let filterData = location.state;
+      // console.log(filterData);
+      if (a.length <= 0) {
+        Products?.filter((e) => {
+          filterData.Category.filter((find) => {
+            if (find.apiName === e.Category) {
+              a.push(e);
+            }
+          });
+        });
+      }
+      if (a.length <= 0) {
+        Products.filter((e) => {
+          filterData.Ingredients.filter((find) => {
+            if (find.apiName === e.type) {
+              a.push(e);
+            }
+          });
+        });
+      }
+      if (a.length > 0 && filterData.Ingredients.length > 0) {
+        let b = [];
+        a.filter((e, id) => {
+          filterData.Ingredients.filter((find) => {
+            if (find.apiName === e.type) {
+              b.push(e);
+            }
+          });
+        });
+        a = b;
+      }
+      if (a.length <= 0) {
+        Products.filter((e) => {
+          // console.log();
+          if (e.Price <= parseInt(filterData.PriceRange)) {
+            a.push(e);
+          }
+        });
+      }
+      if (a.length > 0) {
+        let b = [];
+        a.filter((e) => {
+          if (e.Price <= parseInt(filterData.PriceRange)) {
+            b.push(e);
+          }
+        });
+        a = b;
+      }
+      if (a.length <= 0) {
+        Products.filter((e) => {
+          if (e.Star >= filterData.RatingUP) {
+            a.push(e);
+          }
+        });
+      }
+      if (a.length > 0) {
+        let b = [];
+        a.filter((e) => {
+          if (e.Star >= filterData.RatingUP) {
+            b.push(e);
+          }
+        });
+        a = b;
+      }
+      setProducts(a);
+      setCurrPage(1);
+    }
+  }, [[], location]);
+
   useEffect(() => {
     const images = document.querySelectorAll("img");
     setTotalImages(images.length);
-
     const imageLoaded = () => {
       // setLoadedImages(prevCount => prevCount + 1);
       setLoadedImages(loadedImages + 1);
@@ -68,7 +141,7 @@ const ProductsCatalogue = () => {
     let a;
     Object.keys(category).length > 0 ? (a = Products.filter((e) => e.Category === category.categoryID || e._id === category.categoryID)) : (a = Products);
     setProducts(a);
-    shuffleArray(Products);
+    // shuffleArray(Products);
   }, [category]);
 
   let pages = [];
