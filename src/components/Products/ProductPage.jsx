@@ -88,7 +88,7 @@ const ProductPage = () => {
     }
   };
 
-  return (
+    return (
     <React.Fragment>
       <Bags />
       {itemDetails && (
@@ -96,7 +96,7 @@ const ProductPage = () => {
           <div className="products product-board">
             <div className="product-card" key={itemDetails._id}>
               <div id="product-img-BTN">
-                <AiFillHeart onClick={() => addLike(itemDetails._id)} className={userData.Wishlist.find((e) => e._id === itemDetails._id) ? "active-Heart" : ""} />
+                <AiFillHeart onClick={() => addToWishlist(itemDetails._id)} className={userData?.Wishlist.find((e) => e.productID === itemDetails._id) ? "active-Heart heart" : "heart"} />
               </div>
               <img className="product-image" src={itemDetails.Image} alt={itemDetails.Name} loading="lazy" />
               <div className="product-info">
@@ -151,7 +151,7 @@ const ProductPage = () => {
                   <div className="total">
                     <h1>Total Amount &#x20B9; {total}</h1>
                   </div>
-                  <button className="order" onClick={() => addToBag(itemDetails._id)}>
+                  <button className="order" style={counter0 || counter1 || counter2 > 0 ? {} : {background: "grey"}} onClick={() => addToBag(itemDetails._id)}>
                     Add to Bag
                   </button>
                 </div>

@@ -232,79 +232,95 @@
 }
 
 @include responsive(phone) {
-  * {
-    .product-board {
-      width: 100vw;
-      margin: 30px 0;
+  .product-board {
+    width: 100vw;
+    margin: 30px 0;
 
-      .product-card {
-        width: 90vw;
-        height: 350px;
-
-        img {
-          width: 100%;
-        }
-
-        .product-info {
-          width: 100%;
-          display: none;
-          padding-bottom: 0;
-        }
+    .product-card {
+      width: 250px;
+      height: 350px;
+      img {
+        width: 100% !important;
+        height: 97% !important;
       }
 
-      .product-board-desc {
-        margin: 10px 20px;
+      .product-info {
+        padding-top: 5px;
+        width: 100%;
+        // display: none;
+        padding-bottom: 0;
+        .product-name {
+          font-size: 16px;
+        }
+        .product-price {
+          font-size: 15px;
+          bottom: 0;
+        }
+        .product-star {
+          gap: 2px;
+          right: 7px;
+          #A {
+            font-size: 12px;
+          }
+          p {
+            font-size: 9px;
+          }
+        }
+      }
+    }
 
-        p {
-          font-size: 14px;
+    .product-board-desc {
+      margin: 10px 20px;
+
+      p {
+        font-size: 14px;
+      }
+
+      .product-board-sizes {
+        h2 {
+          font-size: 18px;
         }
 
-        .product-board-sizes {
-          h2 {
-            font-size: 18px;
-          }
+        .sizes {
+          div {
+            margin: 5px;
 
-          .sizes {
-            div {
-              margin: 5px;
-
-              img {
-                width: 80px;
-                height: 5.813rem;
-                aspect-ratio: 1;
-              }
-            }
-
-            .counter {
-              p {
-                display: none;
-              }
-
-              span {
-                padding: 2px 8px;
-              }
-
-              .btn {
-                padding: 8px !important;
-              }
+            img {
+              width: 80px;
+              height: 5.813rem;
+              aspect-ratio: 1;
             }
           }
 
-          .total {
-            margin-top: 20px;
-            padding: 15px 30px !important;
+          .counter {
+            p {
+              display: none;
+            }
 
-            h1 {
-              font-size: 14px;
+            span {
+              padding: 2px 8px;
+            }
+
+            .btn {
+              padding: 8px !important;
             }
           }
+        }
 
-          .order {
-            width: auto;
-            // height: 66px;
-            // margin-bottom: 10rem;
-            padding: 20px;
+        .total {
+          margin-top: 20px;
+          padding: 15px 30px !important;
+
+          h1 {
+            font-size: 14px;
           }
+        }
+
+        .order {
+          width: auto;
+          // height: 66px;
+          // margin-bottom: 10rem;
+          padding: 20px;
         }
       }
     }

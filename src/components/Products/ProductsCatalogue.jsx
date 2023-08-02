@@ -1,21 +1,13 @@
-import React, {useEffect, useState} from "react";
-import {Products} from "../../Data/ProductsJSON";
-import {AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
-
-import {BsFillBagFill} from "react-icons/bs";
-import {NavLink, useParams} from "react-router-dom";
-import {useContext} from "react";
-import {Loading, UserData} from "../../routes/App";
-import {useLocation} from "react-router-dom";
-
-// function shuffleArray(array) {
-//   for (var i = array.length - 1; i > 0; i--) {
-//     var j = Math.floor(Math.random() * (i + 1));
-//     var temp = array[i];
-//     array[i] = array[j];
-//     array[j] = temp;
-//   }
-// }
+import React, { useEffect, useState } from "react";
+import { Products } from "../../Data/ProductsJSON";
+import { AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { BsFillBagFill } from "react-icons/bs";
+import { NavLink, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { Loading, UserData } from "../../routes/App";
+import { useLocation } from "react-router-dom";
+import { LuVegan } from "react-icons/lu";
+import Veg from "../../assets/veg.png";
 
 const ProductsCatalogue = () => {
   const [products, setProducts] = useState([]);
@@ -23,24 +15,19 @@ const ProductsCatalogue = () => {
   const [cardPerPage, setCardPerPage] = useState(24);
   const [category, setCategory] = useState(useParams());
   const [count, setCount] = useState(0);
-
   const setloadingScreen = useContext(Loading);
-
-  const {userData, setUserData} = useContext(UserData);
-
+  const { userData, setUserData } = useContext(UserData);
   let lastIndex = currPage * cardPerPage;
   let firstIndex = lastIndex - cardPerPage;
-
   const [loadedImages, setLoadedImages] = useState(0);
   const [totalImages, setTotalImages] = useState(0);
 
   const location = useLocation();
   useEffect(() => {
-    let a = [];
     if (location.state !== null) {
+      let a = [];
       let filterData = location.state;
-      // console.log(filterData);
-      if (a.length <= 0) {
+      if (filterData.Category.length > 0) {
         Products?.filter((e) => {
           filterData.Category.filter((find) => {
             if (find.apiName === e.Category) {
@@ -49,34 +36,37 @@ const ProductsCatalogue = () => {
           });
         });
       }
+      if(filterData.Ingredients.length > 0){
+        if (a.length <= 0 ) {
+          Products.filter((e) => {
+            filterData.Ingredients.filter((find) => {
+              if (find.apiName === e.type) {
+                a.push(e);
+              }
+            });
+          });
+        }else{
+          let b = [];
+          a.filter((e) => {
+            filterData.Ingredients.filter((find) => {
+              if (find.apiName === e.type) {
+                // console.log(e.type);
+                b.push(e);
+              }
+            });
+          });
+          a = b;
+        }
+      }
+
       if (a.length <= 0) {
         Products.filter((e) => {
-          filterData.Ingredients.filter((find) => {
-            if (find.apiName === e.type) {
-              a.push(e);
-            }
-          });
-        });
-      }
-      if (a.length > 0 && filterData.Ingredients.length > 0) {
-        let b = [];
-        a.filter((e) => {
-          filterData.Ingredients.filter((find) => {
-            if (find.apiName === e.type) {
-              b.push(e);
-            }
-          });
-        });
-        a = b;
-      }
-      if (a.length <= 0) {
-        Products.filter((e) => {
-          // console.log();
           if (e.Price <= parseInt(filterData.PriceRange)) {
             a.push(e);
           }
         });
       }
+
       if (a.length > 0) {
         let b = [];
         a.filter((e) => {
@@ -86,6 +76,7 @@ const ProductsCatalogue = () => {
         });
         a = b;
       }
+      
       if (a.length <= 0) {
         Products.filter((e) => {
           if (e.Star >= filterData.RatingUP) {
@@ -102,10 +93,17 @@ const ProductsCatalogue = () => {
         });
         a = b;
       }
-      setProducts(a);
-      setCurrPage(1);
+
+      if(a.length > 0){
+        setProducts(a);
+        setCurrPage(1);
+      }else{
+        // setCurrPage(1);
+      }
+    }else{
+      setProducts(Products);
     }
-  }, [[], location]);
+  }, [location]);
 
   useEffect(() => {
     const images = document.querySelectorAll("img");
@@ -132,7 +130,6 @@ const ProductsCatalogue = () => {
 
   useEffect(() => {
     if (loadedImages === totalImages) {
-      // console.log('All images have been loaded!');
       setloadingScreen(false);
     }
   }, [loadedImages, totalImages]);
@@ -149,14 +146,14 @@ const ProductsCatalogue = () => {
     pages.push(i);
   }
 
-  const addLike = (_id) => {
+  const addToWishlist = (_id) => {
     let b = userData.Wishlist.find((e) => e._id === _id);
     if (b) {
       let a = userData.Wishlist.filter((e) => e._id !== _id);
-      setUserData({...userData, Wishlist: a});
+      setUserData({ ...userData, Wishlist: a });
     } else {
-      let a = [...userData.Wishlist, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
-      setUserData({...userData, Wishlist: a});
+      let a = [...userData.Wishlist, { _id, SmallCount: "0", MediumCount: "1", LargeCount: "0" }];
+      setUserData({ ...userData, Wishlist: a });
     }
   };
 
@@ -164,10 +161,10 @@ const ProductsCatalogue = () => {
     let b = userData.Bag.find((e) => e._id === _id);
     if (b) {
       let a = userData.Bag.filter((e) => e._id !== _id);
-      setUserData({...userData, Bag: a});
+      setUserData({ ...userData, Bag: a });
     } else {
-      let a = [...userData.Bag, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
-      setUserData({...userData, Bag: a});
+      let a = [...userData.Bag, { _id, SmallCount: "0", MediumCount: "1", LargeCount: "0" }];
+      setUserData({ ...userData, Bag: a });
     }
   };
 
@@ -181,16 +178,18 @@ const ProductsCatalogue = () => {
           } else {
             a = `./${product.Category}/${product._id}`;
           }
-
+          // console.log(product.type);
           return (
             <div className="product-card" key={product._id}>
+              {product.type === "Veg" ? <img id="veg" src={Veg} alt="Veg" /> : <LuVegan id="LuVegan" />}
               <div id="product-img-BTN">
-                <AiFillHeart onClick={() => addLike(product._id)} className={userData.Wishlist.find((e) => e._id === product._id) ? "active-Heart" : ""} />
+                <AiFillHeart onClick={() => addToWishlist(product._id)} className={userData?.Wishlist.find((e) => e._id === product._id) ? "active-Heart heart" : " heart"} />
                 <br />
-                <BsFillBagFill onClick={() => addToBag(product._id)} className={userData.Bag.find((e) => e._id === product._id) ? "active-Bags" : ""} />
+                <BsFillBagFill onClick={() => addToBag(product._id)} className={userData?.Bag.find((e) => e._id === product._id) ? "active-Bags bag" : "bag"} />
               </div>
-              <NavLink to={a} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
-                <img src={product.Image} alt={product.Name} className="product-image" />
+              <NavLink to={a} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}>
+                {/* <div  className="product-image skeleton" ></div> */}
+                <img src={product.Image} alt={product.Name} className="product-image skeleton" />
                 <div className="product-info">
                   <h5 className="product-name">{product.Name}</h5>
                   <p className="product-desc">{product.Desc.slice(0, 60)}...</p>
@@ -212,7 +211,7 @@ const ProductsCatalogue = () => {
               className="Pages"
               id={currPage === 1 ? "non-active-side-btn" : ""}
               onClick={() => {
-                window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                 if (currPage !== 1) {
                   setCount(count - 18);
                   setCurrPage(currPage - 1);
@@ -226,7 +225,7 @@ const ProductsCatalogue = () => {
                 <div
                   key={ids}
                   onClick={() => {
-                    window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                     setCount(curr);
                     setCurrPage(ids + 1);
                   }}
@@ -239,7 +238,7 @@ const ProductsCatalogue = () => {
               className="Pages"
               id={currPage === pages.length ? "non-active-side-btn" : ""}
               onClick={() => {
-                window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                 if (currPage !== pages.length) {
                   setCount(count + 18);
                   setCurrPage(currPage + 1);
