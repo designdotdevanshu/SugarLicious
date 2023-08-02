@@ -40,18 +40,18 @@ const Register = () => {
     if (registerData.Full_Name && registerData.Email && registerData.Password === registerData.Confirm_Password && registerData.Password.length >= 8) {
       let a = {Name: registerData.Full_Name, Email: registerData.Email, Password: registerData.Password, logined: false};
       setUserData({...userData, Info: a});
-      notification("User Registered","Success");
+      notification("User Registered", "Success");
       setTimeout(() => {
         navigate("/SugarLicious/login");
       }, 1000);
     } else if (registerData.Password.length < 8) {
       a.style.border = "3px solid red";
       b.style.border = "none";
-      notification("Password length should be greater than and equal to 8","Warning");
+      notification("Password length should be greater than and equal to 8", "Warning");
     } else if (registerData.Password !== registerData.Confirm_Password) {
       a.style.border = "3px solid red";
       b.style.border = "3px solid red";
-      notification("User Password and Confirm Password not Matched","Un-Success");
+      notification("User Password and Confirm Password not Matched", "Un-Success");
     } else {
       a.style.border = "none";
       b.style.border = "none";

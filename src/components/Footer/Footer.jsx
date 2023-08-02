@@ -111,13 +111,11 @@ const Footer = () => {
             </li>
           );
         })}
-        <li id="footerMenu">
+        <li id="footerMenu" className="copyright">
           <h4>
-            <Link to="/">VISIT PERKY BEAN CAFE</Link>
+            <Link to="/SugarLicious">VISIT PERKY BEAN CAFE</Link>
           </h4>
-          <br />
-          <br />
-          <p>&copy; 2023 PerkyBean</p>
+          <p id="copy">&copy; 2023 PerkyBean</p>
         </li>
         {SocialLinks.map((cur, ids2) => {
           return (

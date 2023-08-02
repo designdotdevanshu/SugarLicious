@@ -149,25 +149,24 @@
     }
   }
   @media (max-width: 440px) {
-    #SearchBar{
+    #SearchBar {
       margin-top: 44px !important;
       height: 34px;
-      input{
+      input {
         font-size: 12px;
       }
-      #SearchICON{
+      #SearchICON {
         width: 40px;
         padding: 0 5px;
       }
-      #Filter{
+      #Filter {
         font-size: 10px;
         height: 90%;
-        svg{
+        svg {
           display: none;
         }
-      } 
-       
-    } 
+      }
+    }
   }
 }
 

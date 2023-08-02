@@ -1,10 +1,9 @@
 import {useEffect, useRef, useState} from "react";
-import {AiFillStar, AiOutlineCheck, AiOutlineLeft} from "react-icons/ai";
+import {AiFillStar} from "react-icons/ai";
 import {IoIosArrowBack} from "react-icons/io";
-import {BiCheck, BiSolidCircle} from "react-icons/bi";
 import {RiCloseFill, RiArrowDropUpLine} from "react-icons/ri";
 import {GiCheckMark} from "react-icons/gi";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 // import RangeSlider from "re"
 import Image1 from "../../assets/Muffins/image (1).png";
 import Image2 from "../../assets/Beverages/image (1).png";

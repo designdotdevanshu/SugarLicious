@@ -78,7 +78,17 @@ footer {
     margin-top: 10px;
     #footerMenu {
       // display: none
-      font-size: 12px
+      font-size: 12px;
+      h3 {
+        font-size: 12px;
+      }
+      h4 {
+        font-size: 20px;
+      }
+    }
+    .copyright {
+      @include flex-center(column);
+      height: 100px;
     }
     #SocialMedia {
       @include flexMixin();
@@ -92,7 +102,7 @@ footer {
   @media (max-width: 550px) {
     #SocialMedia {
       @include flexMixin();
-      font-size: 12px;
+      // font-size: 12px;
       margin: 0 20px;
     }
     #downloadApp {

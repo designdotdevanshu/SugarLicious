@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Products } from "../../Data/ProductsJSON";
-import { AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { BsFillBagFill } from "react-icons/bs";
-import { NavLink, useParams } from "react-router-dom";
-import { useContext } from "react";
-import { Loading, UserData } from "../../routes/App";
-import { useLocation } from "react-router-dom";
-import { LuVegan } from "react-icons/lu";
+import React, {useEffect, useState} from "react";
+import {Products} from "../../Data/ProductsJSON";
+import {AiFillStar, AiFillHeart, AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
+import {BsFillBagFill} from "react-icons/bs";
+import {NavLink, useParams} from "react-router-dom";
+import {useContext} from "react";
+import {Loading, UserData} from "../../routes/App";
+import {useLocation} from "react-router-dom";
+import {LuVegan} from "react-icons/lu";
 import Veg from "../../assets/veg.png";
 
 const ProductsCatalogue = () => {
@@ -16,7 +16,7 @@ const ProductsCatalogue = () => {
   const [category, setCategory] = useState(useParams());
   const [count, setCount] = useState(0);
   const setloadingScreen = useContext(Loading);
-  const { userData, setUserData } = useContext(UserData);
+  const {userData, setUserData} = useContext(UserData);
   let lastIndex = currPage * cardPerPage;
   let firstIndex = lastIndex - cardPerPage;
   const [loadedImages, setLoadedImages] = useState(0);
@@ -36,8 +36,8 @@ const ProductsCatalogue = () => {
           });
         });
       }
-      if(filterData.Ingredients.length > 0){
-        if (a.length <= 0 ) {
+      if (filterData.Ingredients.length > 0) {
+        if (a.length <= 0) {
           Products.filter((e) => {
             filterData.Ingredients.filter((find) => {
               if (find.apiName === e.type) {
@@ -45,7 +45,7 @@ const ProductsCatalogue = () => {
               }
             });
           });
-        }else{
+        } else {
           let b = [];
           a.filter((e) => {
             filterData.Ingredients.filter((find) => {
@@ -76,7 +76,7 @@ const ProductsCatalogue = () => {
         });
         a = b;
       }
-      
+
       if (a.length <= 0) {
         Products.filter((e) => {
           if (e.Star >= filterData.RatingUP) {
@@ -94,13 +94,13 @@ const ProductsCatalogue = () => {
         a = b;
       }
 
-      if(a.length > 0){
+      if (a.length > 0) {
         setProducts(a);
         setCurrPage(1);
-      }else{
+      } else {
         // setCurrPage(1);
       }
-    }else{
+    } else {
       setProducts(Products);
     }
   }, [location]);
@@ -150,10 +150,10 @@ const ProductsCatalogue = () => {
     let b = userData.Wishlist.find((e) => e._id === _id);
     if (b) {
       let a = userData.Wishlist.filter((e) => e._id !== _id);
-      setUserData({ ...userData, Wishlist: a });
+      setUserData({...userData, Wishlist: a});
     } else {
-      let a = [...userData.Wishlist, { _id, SmallCount: "0", MediumCount: "1", LargeCount: "0" }];
-      setUserData({ ...userData, Wishlist: a });
+      let a = [...userData.Wishlist, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
+      setUserData({...userData, Wishlist: a});
     }
   };
 
@@ -161,10 +161,10 @@ const ProductsCatalogue = () => {
     let b = userData.Bag.find((e) => e._id === _id);
     if (b) {
       let a = userData.Bag.filter((e) => e._id !== _id);
-      setUserData({ ...userData, Bag: a });
+      setUserData({...userData, Bag: a});
     } else {
-      let a = [...userData.Bag, { _id, SmallCount: "0", MediumCount: "1", LargeCount: "0" }];
-      setUserData({ ...userData, Bag: a });
+      let a = [...userData.Bag, {_id, SmallCount: "0", MediumCount: "1", LargeCount: "0"}];
+      setUserData({...userData, Bag: a});
     }
   };
 
@@ -187,7 +187,7 @@ const ProductsCatalogue = () => {
                 <br />
                 <BsFillBagFill onClick={() => addToBag(product._id)} className={userData?.Bag.find((e) => e._id === product._id) ? "active-Bags bag" : "bag"} />
               </div>
-              <NavLink to={a} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}>
+              <NavLink to={a} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
                 {/* <div  className="product-image skeleton" ></div> */}
                 <img src={product.Image} alt={product.Name} className="product-image skeleton" />
                 <div className="product-info">
@@ -211,7 +211,7 @@ const ProductsCatalogue = () => {
               className="Pages"
               id={currPage === 1 ? "non-active-side-btn" : ""}
               onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scrollTo({top: 0, left: 0, behavior: "smooth"});
                 if (currPage !== 1) {
                   setCount(count - 18);
                   setCurrPage(currPage - 1);
@@ -225,7 +225,7 @@ const ProductsCatalogue = () => {
                 <div
                   key={ids}
                   onClick={() => {
-                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    window.scrollTo({top: 0, left: 0, behavior: "smooth"});
                     setCount(curr);
                     setCurrPage(ids + 1);
                   }}
@@ -238,7 +238,7 @@ const ProductsCatalogue = () => {
               className="Pages"
               id={currPage === pages.length ? "non-active-side-btn" : ""}
               onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scrollTo({top: 0, left: 0, behavior: "smooth"});
                 if (currPage !== pages.length) {
                   setCount(count + 18);
                   setCurrPage(currPage + 1);

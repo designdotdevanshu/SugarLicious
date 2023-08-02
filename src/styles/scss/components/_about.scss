@@ -4,16 +4,17 @@
   @include flexMixin();
   gap: 20px;
   margin-top: 75px;
+  padding: 20px;
   .image-container {
-    width: 46vw;
-    height: 85vh;
+    width: 50%;
+    // height: 85vh;
     border-radius: 10px;
     object-fit: cover;
   }
 
   .content-container {
+    padding: 20px;
     flex: 1;
-    padding: 16px 70px 16px 16px;
     h2,
     h3 {
       margin: 16px 0;
@@ -29,6 +30,19 @@
     .note {
       font-weight: bold;
       color: $color-secondary;
+    }
+  }
+}
+
+@include responsive(laptop) {
+  .about-container {
+    flex-direction: column;
+    .image-container {
+      width: 100%;
+      height: 50vh;
+    }
+    .content-container {
+      padding: 0;
     }
   }
 }

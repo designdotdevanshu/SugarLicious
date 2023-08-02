@@ -1,6 +1,6 @@
-import { useState, createContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import {useState, createContext} from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
@@ -24,20 +24,20 @@ const Notification = createContext();
 const App = () => {
   const [loadingScreen, setloadingScreen] = useState(false);
   const [userData, setUserData] = useState({
-    Info: { Name: "Shubahm Joshi", Email: "perkybeans@gmail.com", Password: "11111111", logined: false },
+    Info: {Name: "Shubahm Joshi", Email: "perkybeans@gmail.com", Password: "11111111", logined: false},
     Wishlist: [
-      { _id: "b7a11a2b", SmallCount: 1, MediumCount: 2, LargeCount: 2 },
-      { _id: "72743d51", SmallCount: 3, MediumCount: 0, LargeCount: 0 },
+      {_id: "b7a11a2b", SmallCount: 1, MediumCount: 2, LargeCount: 2},
+      {_id: "72743d51", SmallCount: 3, MediumCount: 0, LargeCount: 0},
     ],
     Bag: [
-      { _id: "c4a9eb73", SmallCount: 1, MediumCount: 2, LargeCount: 2 },
-      { _id: "607fd102", SmallCount: 3, MediumCount: 0, LargeCount: 0 },
+      {_id: "c4a9eb73", SmallCount: 1, MediumCount: 2, LargeCount: 2},
+      {_id: "607fd102", SmallCount: 3, MediumCount: 0, LargeCount: 0},
     ],
     Orders: [
-      { _id: "1c8d2fc3", SmallCount: 1, MediumCount: 2, LargeCount: 2 },
-      { _id: "b93d9e0b", SmallCount: 3, MediumCount: 0, LargeCount: 0 },
-      { _id: "26fdd41a", SmallCount: 1, MediumCount: 2, LargeCount: 2 },
-      { _id: "80be2cd7", SmallCount: 1, MediumCount: 2, LargeCount: 2 },
+      {_id: "1c8d2fc3", SmallCount: 1, MediumCount: 2, LargeCount: 2},
+      {_id: "b93d9e0b", SmallCount: 3, MediumCount: 0, LargeCount: 0},
+      {_id: "26fdd41a", SmallCount: 1, MediumCount: 2, LargeCount: 2},
+      {_id: "80be2cd7", SmallCount: 1, MediumCount: 2, LargeCount: 2},
     ],
   });
 
@@ -52,9 +52,8 @@ const App = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-      })
-    }
-    else if (type = "Un-Success") {
+      });
+    } else if ((type = "Un-Success")) {
       toast.error(notiText, {
         position: "bottom-right",
         autoClose: 5000,
@@ -65,8 +64,8 @@ const App = () => {
         progress: undefined,
         theme: "dark",
       });
-    } else if (type = "Warning") {
-      toast.warn('🦄 Wow so easy!', {
+    } else if ((type = "Warning")) {
+      toast.warn("🦄 Wow so easy!", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -77,12 +76,12 @@ const App = () => {
         theme: "dark",
       });
     }
-  }
+  };
 
   return (
     <Loading.Provider value={setloadingScreen}>
-      <Notification.Provider value={{ notification: notification }}>
-        <UserData.Provider value={{ userData, setUserData }}>
+      <Notification.Provider value={{notification: notification}}>
+        <UserData.Provider value={{userData, setUserData}}>
           <ToastContainer />
           <Router>
             {loadingScreen && <Preloader />}
@@ -109,4 +108,4 @@ const App = () => {
   );
 };
 export default App;
-export { Loading, UserData, Notification };
+export {Loading, UserData, Notification};

@@ -11,7 +11,7 @@
   gap: 20px 10px;
   margin-top: 100px;
 
-  .skeleton{
+  .skeleton {
     animation: skeleton-loading 1s linear infinite alternate;
   }
 
@@ -78,7 +78,7 @@
     }
   }
 
-  .product-image{
+  .product-image {
     width: 100%;
     height: pxToRem(290);
     object-fit: cover;
@@ -235,13 +235,12 @@
   }
 }
 
-
-@keyframes skeleton-loading{
-  0%{
+@keyframes skeleton-loading {
+  0% {
     // background-color: hsl(200,20%,70%);
     background-color: #c2c2c2;
   }
-  100%{
+  100% {
     // background-color: hsl(200,20%,95%);
     background-color: #ffffff;
   }

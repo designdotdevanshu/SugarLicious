@@ -74,7 +74,7 @@ const ProductPage = () => {
 
   const addToBag = (_id) => {
     let b = userData.Bag.find((e) => e._id === _id);
-    console.log(userData.Bag)
+    console.log(userData.Bag);
     if (b && _id) {
       let a = userData.Bag.filter((e) => e._id !== _id);
       let b = [...a, {_id, SmallCount: counter0.toString(), MediumCount: counter1.toString(), LargeCount: counter2.toString()}];
@@ -88,10 +88,10 @@ const ProductPage = () => {
       let a = userData.Bag.filter((e) => e._id !== _id);
       setUserData({...userData, Bag: a});
     }
-    notification("Your Product has been Added","Success");
+    notification("Your Product has been Added", "Success");
   };
 
-    return (
+  return (
     <React.Fragment>
       <Bags />
       {itemDetails && (
