@@ -32,14 +32,16 @@ const Login = () => {
     if (userData.Info.Email === loginData.Email && userData.Info.Password === loginData.Password && userData) {
       let a = {...userData.Info, logined: true};
       setUserData({...userData, Info: a});
-      notification("User Logined");
+      notification("User Logined","Success");
       setTimeout(() => {
         navigate("/SugarLicious");
       }, 1000);
     } else if (userData.Info.Email !== loginData.Email) {
-      notification("User Email is Not Matched");
-    } else {
-      notification("User Password is Not Matched");
+      notification("Email is not Registered","Un-Success");
+    } else if(loginData.Password.length < 8 ){
+      notification("Password Length should be is greater than or equal to 8","Warning");
+    }else if(userData.Info.Password === loginData.Password){
+      notification("User Password is Not Matched","Un-Success");
     }
   };
 

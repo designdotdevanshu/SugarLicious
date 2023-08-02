@@ -6,11 +6,11 @@ import {RiCloseFill, RiArrowDropUpLine} from "react-icons/ri";
 import {GiCheckMark} from "react-icons/gi";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 // import RangeSlider from "re"
-import Image1 from "../../assets/Muffins/Image (1).png";
-import Image2 from "../../assets/Beverages/Image (1).png";
-import Image3 from "../../assets/Pizza/Image (1).png";
-import Image4 from "../../assets/Snacks/Image (1).png";
-import Image5 from "../../assets/Beverages/Image (8).png";
+import Image1 from "../../assets/Muffins/image (1).png";
+import Image2 from "../../assets/Beverages/image (1).png";
+import Image3 from "../../assets/Pizza/image (1).png";
+import Image4 from "../../assets/Snacks/image (1).png";
+import Image5 from "../../assets/Beverages/image (8).png";
 
 import Veg from "../../assets/veg.png";
 import Vegan from "../../assets/Vegan.webp";

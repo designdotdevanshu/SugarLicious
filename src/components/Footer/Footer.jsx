@@ -103,7 +103,7 @@ const Footer = () => {
                 {curr.Links.map((Links, ids2) => {
                   return (
                     <li key={ids2} onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}>
-                      <Link to={Links.link}>{Links.text}</Link>
+                      <a href={Links.link}>{Links.text}</a>
                     </li>
                   );
                 })}

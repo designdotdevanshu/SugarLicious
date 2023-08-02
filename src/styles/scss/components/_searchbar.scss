@@ -4,7 +4,7 @@
   position: sticky;
   // top: 70px;
   top: 68px;
-  z-index: 99;
+  z-index: 99999;
   width: 80vw;
   margin: auto;
 
@@ -147,6 +147,27 @@
         }
       }
     }
+  }
+  @media (max-width: 440px) {
+    #SearchBar{
+      margin-top: 44px !important;
+      height: 34px;
+      input{
+        font-size: 12px;
+      }
+      #SearchICON{
+        width: 40px;
+        padding: 0 5px;
+      }
+      #Filter{
+        font-size: 10px;
+        height: 90%;
+        svg{
+          display: none;
+        }
+      } 
+       
+    } 
   }
 }
 

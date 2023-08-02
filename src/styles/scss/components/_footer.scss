@@ -75,8 +75,10 @@ footer {
     }
   }
   @media (max-width: 700px) {
+    margin-top: 10px;
     #footerMenu {
-      display: none;
+      // display: none
+      font-size: 12px
     }
     #SocialMedia {
       @include flexMixin();

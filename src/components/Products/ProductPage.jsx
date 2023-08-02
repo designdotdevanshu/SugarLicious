@@ -9,7 +9,7 @@ import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {useState} from "react";
 import Bags from "../Common/Bags";
-import {UserData} from "../../routes/App";
+import {Notification, UserData} from "../../routes/App";
 import {useContext} from "react";
 
 const ProductPage = () => {
@@ -17,6 +17,7 @@ const ProductPage = () => {
   const [counter1, setCounter1] = useState(0);
   const [counter2, setCounter2] = useState(0);
   const [itemDetails, setItemDetails] = useState({});
+  const {notification} = useContext(Notification);
   let itemShow = useParams().productID;
   const {userData, setUserData} = useContext(UserData);
 
@@ -28,7 +29,7 @@ const ProductPage = () => {
         setCounter2(e.LargeCount);
       }
     });
-  }, [[], userData]);
+  }, [userData]);
 
   useEffect(() => {
     setItemDetails(Products.find((e) => e._id === itemShow));
@@ -73,6 +74,7 @@ const ProductPage = () => {
 
   const addToBag = (_id) => {
     let b = userData.Bag.find((e) => e._id === _id);
+    console.log(userData.Bag)
     if (b && _id) {
       let a = userData.Bag.filter((e) => e._id !== _id);
       let b = [...a, {_id, SmallCount: counter0.toString(), MediumCount: counter1.toString(), LargeCount: counter2.toString()}];
@@ -86,6 +88,7 @@ const ProductPage = () => {
       let a = userData.Bag.filter((e) => e._id !== _id);
       setUserData({...userData, Bag: a});
     }
+    notification("Your Product has been Added","Success");
   };
 
     return (

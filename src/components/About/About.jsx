@@ -1,8 +1,9 @@
+import Image from "../../assets/Slider/Slider (1).png"
 const About = () => {
   return (
     <>
       <div className="about-container">
-        <img src="src/assets/Slider/Slider%20(1).png" alt="Cafe" className="image-container" />
+        <img src={Image} alt="Cafe" className="image-container" />
         <div className="content-container">
           <h2>About Us </h2>
           <p>At PERKY BEANS, we believe in providing our customers with the best dining experience possible. Our cafe was established in [2023], and since then, we have been serving delicious food and beverages to our valued patrons.</p>

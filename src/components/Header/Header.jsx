@@ -1,16 +1,16 @@
-import React, {useState, useRef, useEffect, useContext} from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import RandomUser from "../../assets/RandomUser.png";
 import Logo from "../../assets/PerkyBeansLogo.png";
 
-import {IoMdMenu} from "react-icons/io";
-import {MdClose} from "react-icons/md";
-import {NavLink} from "react-router-dom";
+import { IoMdMenu } from "react-icons/io";
+import { MdClose } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
-import {UserData} from "../../routes/App";
+import { UserData } from "../../routes/App";
 const Header = () => {
   const [menuShown, setMenuShow] = useState(false);
   const menuRef = useRef(0);
-  const {userData, setUserData} = useContext(UserData);
+  const { userData, setUserData } = useContext(UserData);
 
   useEffect(() => {
     menuShown ? (menuRef.current.style.top = "58px") : (menuRef.current.style.top = "-120vh");
@@ -18,15 +18,17 @@ const Header = () => {
 
   const logoutBTN = () => {
     if (userData) {
-      let a = {...userData.Info, logined: false};
-      setUserData({...userData, Info: a});
+      let a = { ...userData.Info, logined: false };
+      setUserData({ ...userData, Info: a });
     }
   };
 
   return (
     <React.Fragment>
       <div className="Header">
-        <img src={Logo} alt="Logo" />
+        <NavLink to="/SugarLicious/" ClassName="active">
+          <img src={Logo} alt="Logo" />
+        </NavLink>
         <ol>
           <NavLink to="/SugarLicious/" ClassName="active">
             <li>HOME</li>

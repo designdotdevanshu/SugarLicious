@@ -17,7 +17,7 @@ const Orders = () => {
   const currRoute = useParams();
 
   useEffect(() => {
-    console.log(currRoute.orders);
+    // console.log(currRoute.orders);
     if (currRoute.orders === "my-wishlist") {
       setOrderShow(false);
     } else {

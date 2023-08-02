@@ -287,7 +287,7 @@ export const Products = [
     Price: 149,
     Star: 3.2,
     Category: "Beverages",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "17e7cc77",
@@ -307,7 +307,7 @@ export const Products = [
     Price: 100,
     Star: 4.8,
     Category: "Beverages",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "b7a11a2b",
@@ -328,7 +328,7 @@ export const Products = [
     Price: 389,
     Star: 4.5,
     Category: "Pizza",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "81538b28",
@@ -369,7 +369,7 @@ export const Products = [
     Price: 459,
     Star: 4.2,
     Category: "Pizza",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "bbe608ea",
@@ -464,7 +464,7 @@ export const Products = [
     Price: 179,
     Star: 4.0,
     Category: "Beverages",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "920f45e3",
@@ -600,7 +600,7 @@ export const Products = [
     Price: 229,
     Star: 4.3,
     Category: "SnacksAndSides",
-    type: "Veg",
+    type: "Vegan",
   },
 
   {
@@ -632,7 +632,7 @@ export const Products = [
     Price: 199,
     Star: 4.5,
     Category: "SnacksAndSides",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "c44cf5a5",
@@ -663,7 +663,7 @@ export const Products = [
     Price: 349,
     Star: 3.0,
     Category: "Pizza",
-    type: "Veg",
+    type: "Vegan",
   },
 
   {
@@ -684,7 +684,7 @@ export const Products = [
     Price: 559,
     Star: 3.5,
     Category: "Pizza",
-    type: "Veg",
+    type: "Vegan",
   },
   {
     _id: "e43e2467",
@@ -817,7 +817,7 @@ export const Products = [
     Price: 300,
     Star: 4.3,
     Category: "Muffins",
-    type: "Veg",
+    type: "Vegan",
   },
 
   {
@@ -849,6 +849,6 @@ export const Products = [
     Price: 219,
     Star: 4.5,
     Category: "Pizza",
-    type: "Veg",
+    type: "Vegan",
   },
 ];

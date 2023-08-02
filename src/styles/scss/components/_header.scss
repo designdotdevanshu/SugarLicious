@@ -121,7 +121,7 @@
 #responiveSliderMenu {
   display: none;
   position: relative;
-
+  z-index: 999999;
   #userLoginINFO {
     @include flexMixin();
     flex-wrap: wrap;

@@ -115,7 +115,10 @@ const Bags = () => {
           </div>
         </div>
       ) : (
-        <FaShoppingBag id="bagBTN" onClick={() => setShowBag(!showBag)} />
+        <div id="bagBTN">
+        <FaShoppingBag onClick={() => setShowBag(!showBag)} />
+        {userData?.Bag.length > 0 && <p>{userData?.Bag.length}</p>}
+      </div>
       )}
     </>
   );
