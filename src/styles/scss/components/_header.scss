@@ -1,7 +1,8 @@
 @use "../abstracts/" as *;
 
 .Header {
-  z-index: 99999;
+  // z-index: 99999;
+  z-index: 9999;
   background-color: #110b03;
   width: 100vw;
   position: fixed;
